@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<script>(function(){if('scrollRestoration' in history){history.scrollRestoration='manual';}var frames=0;function toTop(){window.scrollTo(0,0);frames++;if(frames<20){requestAnimationFrame(toTop);}}toTop();window.addEventListener('pageshow',function(){frames=0;toTop();});})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="assets/favicon-black.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" href="assets/favicon-white.png" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="favicon.ico" sizes="any">
+<title>Behandlungen — Arcana Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..500;0,6..96,600;1,6..96,500&family=Karla:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FCF8F1;
+    --cream-deep:#F4EDE0;
+    --ink:#241F17;
+    --taupe:#6B5D4D;
+    --terracotta:#6B5D4D;
+    --line:#E3D9C8;
+    --line-strong:#CFC2AC;
+    --max:960px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--cream-deep);
+    color:var(--ink);
+    font-family:'Karla', -apple-system, sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  h1,h2,h3{
+    font-family:'Bodoni Moda', Georgia, serif;
+    font-weight:500;
+    margin:0;
+  }
+  img{max-width:100%;display:block;}
+  .rule{
+    width:1px;height:0.9em;background:currentColor;opacity:0.35;
+    display:inline-block;margin:0 0.6em;vertical-align:middle;
+  }
+  .eyebrow{
+    font-size:0.76rem;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--taupe);margin-bottom:16px;
+  }
+
+  /* ---------- draft banner ---------- */
+  .draft-banner{
+    background:var(--ink);color:var(--cream);text-align:center;
+    font-size:0.78rem;letter-spacing:0.03em;padding:9px 16px;
+  }
+  .draft-banner strong{color:#E9C6A8;font-weight:600;}
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky;top:0;z-index:40;
+    background:var(--taupe);
+    border-bottom:1px solid rgba(0,0,0,0.15);
+  }
+  nav.wrap{
+    display:grid;grid-template-columns:auto 1fr auto;align-items:center;
+    gap:14px 24px;padding-block:14px;
+    max-width:1180px;margin:0 auto;padding-inline:24px;
+  }
+  @media (min-width:640px){ nav.wrap{padding-inline:40px;} }
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--cream);justify-self:start;}
+  .brand img{height:34px;width:auto;}
+  .brand-word{font-family:'Bodoni Moda',serif;font-size:1.05rem;letter-spacing:0.08em;text-transform:uppercase;}
+  .nav-right{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-self:end;}
+  .nav-links{
+    display:none;align-items:center;justify-self:center;
+    font-size:0.86rem;letter-spacing:0.02em;color:var(--cream);
+  }
+  .nav-links .rule{opacity:0.4;}
+  .nav-links a{text-decoration:none;padding:6px 0;border-bottom:1px solid transparent;color:var(--cream);}
+  .nav-links a:hover{border-color:#E9C6A8;}
+  @media (min-width:860px){ .nav-links{display:flex;} }
+  .nav-toggle{
+    display:none;
+    background:none;border:1px solid rgba(252,248,241,0.5);
+    width:38px;height:38px;flex-shrink:0;
+    align-items:center;justify-content:center;
+    cursor:pointer;position:relative;
+  }
+  .nav-toggle span{
+    display:block;width:18px;height:2px;background:var(--cream);
+    position:relative;transition:background 0.15s;
+  }
+  .nav-toggle span::before,.nav-toggle span::after{
+    content:'';position:absolute;left:0;width:18px;height:2px;background:var(--cream);
+    transition:transform 0.15s;
+  }
+  .nav-toggle span::before{top:-6px;}
+  .nav-toggle span::after{top:6px;}
+  .nav-toggle[aria-expanded="true"] span{background:transparent;}
+  .nav-toggle[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg);}
+  .nav-toggle[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg);}
+  @media (max-width:859px){
+    nav.wrap{position:relative;}
+    .nav-toggle{display:inline-flex;}
+    .nav-cta{display:none;}
+    .nav-links{
+      display:none;
+      position:absolute;top:100%;right:0;
+      flex-direction:column;align-items:stretch;
+      background:var(--taupe);
+      min-width:220px;
+      padding:0;
+      box-shadow:0 16px 30px rgba(0,0,0,0.18);
+      z-index:50;
+    }
+    .nav-links.is-open{display:flex;}
+    .nav-links .rule{display:none;}
+    .nav-links a{padding:14px 24px;border-bottom:1px solid rgba(252,248,241,0.15);text-align:left;}
+    .nav-links a:last-child{border-bottom:none;}
+  }
+
+  .lang-switch{position:relative;}
+  .lang-toggle{
+    display:flex;align-items:center;gap:8px;
+    background:none;border:1px solid rgba(252,248,241,0.5);color:var(--cream);
+    padding:8px 14px;font:inherit;font-family:'Karla',sans-serif;
+    font-size:0.76rem;letter-spacing:0.06em;text-transform:uppercase;
+    cursor:pointer;transition:border-color 0.15s;
+  }
+  .lang-toggle:hover{border-color:var(--cream);}
+  .lang-toggle svg{flex-shrink:0;transition:transform 0.15s;}
+  .lang-toggle[aria-expanded="true"] svg{transform:rotate(180deg);}
+  .lang-menu{
+    position:absolute;top:calc(100% + 10px);right:0;
+    display:flex;flex-direction:column;
+    background:var(--cream);border:1px solid var(--line-strong);
+    min-width:170px;box-shadow:0 14px 30px rgba(36,31,23,0.2);z-index:60;
+  }
+  .lang-menu[hidden]{display:none;}
+  .lang-option{
+    background:none;border:none;text-align:left;padding:11px 16px;
+    font:inherit;font-family:'Karla',sans-serif;font-size:0.88rem;
+    color:var(--ink);cursor:pointer;border-bottom:1px solid var(--line);
+  }
+  .lang-option:last-child{border-bottom:none;}
+  .lang-option:hover{background:var(--cream-deep);}
+  .lang-option.is-active{font-weight:700;color:var(--terracotta);}
+
+  .nav-cta{
+    border:1px solid var(--cream);color:var(--cream);padding:9px 18px;
+    font-size:0.8rem;letter-spacing:0.04em;text-decoration:none;white-space:nowrap;
+    transition:background 0.15s, color 0.15s;
+  }
+  .nav-cta:hover{background:var(--cream);color:var(--taupe);}
+
+  .wrap{max-width:var(--max);margin:0 auto;padding:56px 24px 90px;}
+  .section-head{max-width:60ch;}
+  h1{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:6px;}
+  .menu-note{color:var(--taupe);font-size:0.9rem;margin:14px 0 40px;max-width:60ch;}
+
+  .cta-btn{
+    display:block;width:max-content;border:1px solid var(--ink);color:var(--ink);
+    padding:12px 22px;text-decoration:none;font-size:0.86rem;letter-spacing:0.03em;
+    margin:90px auto 0;transition:background 0.15s,color 0.15s;
+  }
+  .cta-btn:hover{background:var(--ink);color:var(--cream);}
+
+  .wrap-treatments{max-width:1400px;}
+
+  .tcat-title{
+    font-size:1.3rem;margin:56px 0 28px;padding-bottom:14px;
+    border-bottom:1px solid var(--line-strong);
+  }
+  .tcat-title:first-of-type{margin-top:8px;}
+  .tcards{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+    gap:26px;
+  }
+  .tcard{
+    display:flex;flex-direction:column;
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:18px;
+    overflow:hidden;
+    transition:border-color 0.15s,box-shadow 0.15s,transform 0.15s;
+  }
+  .tcard:hover{
+    border-color:var(--line-strong);
+    box-shadow:0 14px 30px rgba(36,31,23,0.09);
+    transform:translateY(-2px);
+  }
+  .tcard-media{
+    aspect-ratio:4/3;
+    background:linear-gradient(160deg,var(--cream-deep) 0%,var(--line) 100%);
+    border-bottom:1px solid var(--line-strong);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--line-strong);overflow:hidden;flex-shrink:0;
+  }
+  .tcard-media img{width:100%;height:100%;object-fit:cover;}
+  .tcard-media svg{width:30%;height:30%;opacity:0.85;}
+  .tcard-body{padding:20px 22px 24px;}
+  .tcard-body h3{
+    font-size:1.08rem;line-height:1.3;margin-bottom:12px;
+    color:var(--taupe);
+  }
+  .tcard-body h3 a{text-decoration:none;color:inherit;border-bottom:1px solid var(--line-strong);}
+  .tcard-body h3 a:hover{color:var(--terracotta);border-color:var(--terracotta);}
+  .tcard-list{color:var(--taupe);font-size:0.86rem;margin:0;padding-left:17px;}
+  .tcard-list li{margin-bottom:6px;}
+  .tcard-list li:last-child{margin-bottom:0;}
+
+  footer{background:var(--ink);color:#CFC5B4;padding-block:52px 28px;}
+  footer .wrap{max-width:1180px;padding-top:0;padding-bottom:0;}
+  .foot-grid{
+    display:grid;grid-template-columns:1fr;gap:36px;
+    padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+  @media (min-width:760px){
+    .foot-grid{grid-template-columns:1.2fr 0.8fr 0.8fr;}
+  }
+  .foot-brand-top{display:flex;align-items:center;gap:16px;margin-bottom:16px;}
+  .foot-brand img{height:48px;width:auto;}
+  .foot-brand-word{font-family:'Bodoni Moda',serif;font-size:1.4rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--cream);}
+  .foot-brand p{max-width:34ch;font-size:0.88rem;color:#B4A997;}
+  .foot-social{display:flex;gap:12px;margin-top:18px;}
+  .foot-social a{
+    width:38px;height:38px;border-radius:50%;
+    border:1px solid rgba(207,197,180,0.35);
+    display:flex;align-items:center;justify-content:center;
+    color:#CFC5B4;transition:border-color 0.15s,color 0.15s;
+  }
+  .foot-social a:hover{color:#fff;border-color:#fff;}
+  .foot-social svg{width:18px;height:18px;}
+  .foot-col h4{
+    font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;
+    color:#D8AE84;margin-bottom:14px;font-family:'Karla',sans-serif;font-weight:600;
+  }
+  .foot-col a{display:block;text-decoration:none;color:#CFC5B4;font-size:0.9rem;padding-block:5px;}
+  .foot-col a:hover{color:#fff;}
+  .foot-bottom{
+    display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
+    padding-top:22px;font-size:0.78rem;color:#8C816E;
+  }
+  .foot-legal{display:flex;flex-wrap:wrap;gap:16px;}
+  .foot-legal a{color:#8C816E;text-decoration:none;}
+  .foot-legal a:hover{color:#CFC5B4;}
+</style>
+</head>
+<body>
+<div class="draft-banner" data-i18n="banner">
+  <strong>Arcana</strong> kommt vom lateinischen <strong>arcanum</strong> — das Geheimnis, das Verborgene.
+</div>
+
+<header>
+  <nav class="wrap">
+    <a class="brand" href="index.html">
+      <img src="assets/logo-bianco.png" alt="Arcana Studio Logo">
+      <span class="brand-word">Arcana Studio</span>
+    </a>
+    <div class="nav-links">
+      <a href="behandlungen.html" data-i18n="nav.behandlungen">Behandlungen</a><span class="rule"></span>
+      <a href="mediostar.html" data-i18n="nav.mediostar">Mediostar Monolith</a><span class="rule"></span>
+      <a href="icoone.html" data-i18n="nav.icoone">Icoone</a><span class="rule"></span>
+      <a href="kontakt.html" data-i18n="nav.kontakt">Kontakt</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-switch">
+        <button type="button" class="lang-toggle" id="lang-toggle" aria-haspopup="true" aria-expanded="false">
+          <span class="lang-current">DE</span>
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.4"/></svg>
+        </button>
+        <div class="lang-menu" id="lang-menu" hidden>
+          <button type="button" class="lang-option" data-lang="it">Italiano</button>
+          <button type="button" class="lang-option" data-lang="de">Deutsch</button>
+          <button type="button" class="lang-option" data-lang="en">English</button>
+          <button type="button" class="lang-option" data-lang="es">Español</button>
+          <button type="button" class="lang-option" data-lang="fr">Français</button>
+        </div>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span></span></button>
+      <a class="nav-cta" href="https://www.arcanabeautyshop.com" target="_blank" rel="noopener" data-i18n="nav.shop">Zum Shop ↗</a>
+    </div>
+  </nav>
+</header>
+<div class="wrap wrap-treatments">
+  <div class="section-head">
+    <div class="eyebrow" data-i18n="treatments.eyebrow">Behandlungsmenü</div>
+    <h1 data-i18n="treatments.h2">Gesicht &amp; Körper</h1>
+  </div>
+  <p class="menu-note" data-i18n="treatments.note">Auswahl unserer Behandlungen — Dauer und Preise auf Anfrage.</p>
+
+  <h2 class="tcat-title" data-i18n="cat1.h3">Viso</h2>
+  <div class="tcards">
+    <article class="tcard">
+      <div class="tcard-media"><img src="assets/trattamenti/protocolli_viso.png" alt="Gesichtsprotokolle"></div>
+      <div class="tcard-body">
+        <h3 data-i18n="viso1">Gesichtsprotokolle</h3>
+        <ul class="tcard-list">
+          <li data-i18n="v1b1">Individuelles Behandlungsprotokoll für den Hauttyp</li>
+          <li data-i18n="v1b2">Reinigung, Peeling &amp; gezielte Pflege in einer Sitzung</li>
+          <li data-i18n="v1b3">Sofort sichtbarer Frische-Effekt</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="tcard">
+      <div class="tcard-media"><img src="assets/trattamenti/ozone_terapia.png" alt="Ozontherapie" style="transform:scale(1.22);"></div>
+      <div class="tcard-body">
+        <h3 data-i18n="viso2">Ozontherapie</h3>
+        <ul class="tcard-list">
+          <li data-i18n="v2b1">Sauerstoff-Ozon-Gemisch zur Zellregeneration</li>
+          <li data-i18n="v2b2">Antibakteriell &amp; entzündungshemmend</li>
+          <li data-i18n="v2b3">Ideal bei unreiner, müder Haut</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="tcard">
+      <div class="tcard-media"><img src="assets/trattamenti/infrarosso.png" alt="Infrarot-Behandlung"></div>
+      <div class="tcard-body">
+        <h3 data-i18n="viso3">Infrarot-Behandlung</h3>
+        <ul class="tcard-list">
+          <li data-i18n="v3b1">Infrarot-Wärmebehandlung für die Haut</li>
+          <li data-i18n="v3b2">Stimulation der Dermis</li>
+          <li data-i18n="v3b3">Nährstoffversorgung des Gewebes mit gezielten Säuren</li>
+          <li data-i18n="v3b4">Anti-Aging-Wirkung</li>
+          <li data-i18n="v3b5">Perfekt auch bei ersten Fältchen</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="tcard">
+      <div class="tcard-media"><img src="assets/trattamenti/bio_micro_needling.png" alt="Bio Micro Needling" style="transform:scale(1.22);"></div>
+      <div class="tcard-body">
+        <h3 data-i18n="viso4">Bio Micro Needling</h3>
+        <ul class="tcard-list">
+          <li data-i18n="v4b1">Gesichtsverjüngung</li>
+          <li data-i18n="v4b2">Mittels 3 Millionen biologischer Mikronadeln</li>
+          <li data-i18n="v4b3">Wiederherstellung des Gesichtsprofils</li>
+          <li data-i18n="v4b4">Entspannender, glättender Effekt</li>
+          <li data-i18n="v4b5">Kombiniert mit zellulärer Erneuerung</li>
+          <li data-i18n="v4b6">Sofort sichtbarer Anti-Aging-Effekt</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="tcard">
+      <div class="tcard-media"><img src="assets/trattamenti/bio_micro_needling.png" alt="Micro Needling" style="transform:scale(1.22);"></div>
+      <div class="tcard-body">
+        <h3 data-i18n="viso5">Micro Needling</h3>
+        <ul class="tcard-list">
+          <li data-i18n="v5b1">Mikroverletzungen regen die Kollagenbildung an</li>
+          <li data-i18n="v5b2">Verfeinert Poren &amp; Hautstruktur</li>
+          <li data-i18n="v5b3">Wirksam bei Narben &amp; Aknemalen</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="tcard">
+      <div class="tcard-media"><img src="assets/trattamenti/fibro_plastic_lifting.png" alt="Fibro Plastic Lifting" style="transform:scale(1.22);"></div>
+      <div class="tcard-body">
+        <h3 data-i18n="viso6">Fibro Plastic Lifting</h3>
+        <ul class="tcard-list">
+          <li data-i18n="v6b1">Straffung durch gezielte Radiofrequenz-Impulse</li>
+          <li data-i18n="v6b2">Fördert Kollagen- &amp; Elastinneubildung</li>
+          <li data-i18n="v6b3">Lifting-Effekt ohne OP</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="tcard">
+      <div class="tcard-media"><img src="assets/trattamenti/collagene_acido_ialuronico_viso.png" alt="Kollagen- &amp; Hyaluronsäure-Behandlung" style="transform:scale(1.22);"></div>
+      <div class="tcard-body">
+        <h3 data-i18n="viso7">Kollagen- &amp; Hyaluronsäure-Behandlung</h3>
+        <ul class="tcard-list">
+          <li data-i18n="v7b1">Tiefenwirksame Feuchtigkeitsversorgung</li>
+          <li data-i18n="v7b2">Polstert &amp; glättet feine Linien</li>
+          <li data-i18n="v7b3">Für ein pralles, jugendliches Hautbild</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="tcard">
+      <div class="tcard-media"><img src="assets/trattamenti/labbra_riempitiva.png" alt="Lippenunterspritzung" style="transform:scale(1.22);"></div>
+      <div class="tcard-body">
+        <h3 data-i18n="viso8">Lippenunterspritzung</h3>
+        <ul class="tcard-list">
+          <li data-i18n="v8b1">Natürliches Volumen für die Lippen</li>
+          <li data-i18n="v8b2">Präzise Konturierung</li>
+          <li data-i18n="v8b3">Ergebnis auf Wunsch dezent oder ausdrucksstark</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="tcard">
+      <div class="tcard-media"><img src="assets/trattamenti/bio_rivitalizzazione_viso.png" alt="Bio-Revitalisierung" style="transform:scale(1.22);"></div>
+      <div class="tcard-body">
+        <h3 data-i18n="viso9">Bio-Revitalisierung</h3>
+        <ul class="tcard-list">
+          <li data-i18n="v9b1">Biorevitalisierende Wirkstoffe für die Hauttiefe</li>
+          <li data-i18n="v9b2">Regt die körpereigene Kollagenproduktion an</li>
+          <li data-i18n="v9b3">Frischer, revitalisierter Teint</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+
+  <h2 class="tcat-title" data-i18n="cat2.h3">Corpo</h2>
+  <div class="tcards">
+    <article class="tcard">
+      <div class="tcard-media"><img src="assets/trattamenti/epilazione_laser_medicale.png" alt="Medizinische Laser-Haarentfernung"></div>
+      <div class="tcard-body">
+        <h3 data-i18n="corpo1">Medizinische Laser-Haarentfernung</h3>
+        <ul class="tcard-list">
+          <li data-i18n="c1b1">Dauerhafte Haarreduktion mit medizinischem Laser</li>
+          <li data-i18n="c1b2">Für nahezu alle Hauttypen geeignet</li>
+          <li data-i18n="c1b3">Schnell, präzise &amp; schmerzarm</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="tcard">
+      <div class="tcard-media"><img src="assets/trattamenti/icoone_drenante_rimodellante.png" alt="Icoone Drainage- &amp; Formbehandlung"></div>
+      <div class="tcard-body">
+        <h3 data-i18n="corpo2">Icoone Drainage- &amp; Formbehandlung</h3>
+        <ul class="tcard-list">
+          <li data-i18n="c2b1">Mechanische Massage kombiniert mit Laser- &amp; LED-Licht</li>
+          <li data-i18n="c2b2">Reduziert Cellulite &amp; strafft die Haut</li>
+          <li data-i18n="c2b3">Fördert Drainage &amp; Mikrozirkulation</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="tcard">
+      <div class="tcard-media"><img src="assets/trattamenti/liposhock_lipolitico.png" alt="Liposhock Körperbehandlung (lipolytisch)"></div>
+      <div class="tcard-body">
+        <h3 data-i18n="corpo3">Liposhock Körperbehandlung (lipolytisch)</h3>
+        <ul class="tcard-list">
+          <li data-i18n="c3b1">Lipolytische Stoßwellen gegen hartnäckiges Fett</li>
+          <li data-i18n="c3b2">Strafft das Bindegewebe</li>
+          <li data-i18n="c3b3">Sichtbare Konturverbesserung</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="tcard">
+      <div class="tcard-media"><img src="assets/trattamenti/lipovacuum.png" alt="Lipovacuum Körperbehandlung"></div>
+      <div class="tcard-body">
+        <h3 data-i18n="corpo4">Lipovacuum Körperbehandlung</h3>
+        <ul class="tcard-list">
+          <li data-i18n="c4b1">Vakuum-Massage zur Fettreduktion &amp; Drainage</li>
+          <li data-i18n="c4b2">Verbessert das Hautbild bei Cellulite</li>
+          <li data-i18n="c4b3">Angenehm &amp; entspannend</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+
+  <a class="cta-btn" href="kontakt.html" data-i18n="page.cta">Termin anfragen</a>
+</div>
+
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-brand-top">
+          <img src="assets/logo-bianco.png" alt="Arcana Studio">
+          <span class="foot-brand-word">Arcana Studio</span>
+        </div>
+        <p data-i18n="footer.tagline">Studio für Behandlungen von Simona Greco — Hauptmarke, bei der es jetzt auch Arcana Skincare gibt.</p>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/arcanasimonagreco/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.3"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://wa.me/393441712506" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.4 1.26 4.83L2 22l5.36-1.31a9.9 9.9 0 0 0 4.68 1.19h.004c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2zm0 18.2h-.003a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.76.84-3.03-.2-.31a8.18 8.18 0 0 1-1.26-4.36c0-4.52 3.68-8.2 8.22-8.2 2.2 0 4.26.86 5.82 2.41a8.15 8.15 0 0 1 2.41 5.8c0 4.53-3.69 8.26-8.2 8.26zm4.5-6.16c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.17.25-.64.8-.78.96-.14.17-.29.19-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.39-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31s-.87.85-.87 2.08.89 2.42 1.02 2.59c.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.66-1.17.21-.58.21-1.08.14-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="footer.quickLinks">Quick Links</h4>
+        <a href="behandlungen.html" data-i18n="nav.behandlungen">Behandlungen</a>
+        <a href="mediostar.html" data-i18n="nav.mediostar">Mediostar Monolith</a>
+        <a href="icoone.html" data-i18n="nav.icoone">Icoone</a>
+        <a href="kontakt.html" data-i18n="nav.kontakt">Kontakt</a>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="footer.moreHeading">Mehr</h4>
+        <a href="https://www.arcanabeautyshop.com" target="_blank" rel="noopener" data-i18n="footer.linkShop">Arcana Beauty Shop ↗</a>
+        <a href="https://www.instagram.com/arcanasimonagreco/" target="_blank" rel="noopener" data-i18n="footer.linkInstagram">Instagram ↗</a>
+      </div>
+    </div>
+    <div class="wrap foot-bottom" style="padding-left:0;padding-right:0;">
+      <span data-i18n="footer.copyright">© 2026 Arcana Studio · Simona Greco</span>
+      <div class="foot-legal">
+        <a href="impressum.html" data-i18n="footer.legalNotice">Impressum</a>
+        <a href="privacy.html" data-i18n="footer.privacyPolicy">Datenschutz</a>
+        <a href="cookie.html" data-i18n="footer.cookiePolicy">Cookies</a>
+      </div>
+      <span data-i18n="footer.draftnote">Entwurf — nicht die endgültige Version</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var translations = {
+    de: {
+      "banner": '<strong>Arcana</strong> kommt vom lateinischen <strong>arcanum</strong> — das Geheimnis, das Verborgene.',
+      "nav.behandlungen":"Behandlungen","nav.mediostar":"Mediostar Monolith","nav.icoone":"Icoone","nav.kontakt":"Kontakt","nav.shop":"Zum Shop ↗",
+      "footer.tagline":"Studio für Behandlungen von Simona Greco — Hauptmarke, bei der es jetzt auch Arcana Skincare gibt.",
+      "footer.studioHeading":"Studio","footer.quickLinks":"Quick Links","footer.linkAbout":"Über uns","footer.linkTreatments":"Behandlungen","footer.linkClass":"Simona Greco","footer.linkContact":"Kontakt",
+      "footer.moreHeading":"Mehr","footer.linkShop":"Arcana Beauty Shop ↗","footer.linkInstagram":"Instagram ↗",
+      "footer.copyright":"© 2026 Arcana Studio · Simona Greco","footer.draftnote":"Entwurf — nicht die endgültige Version",
+      "footer.legalNotice":"Impressum","footer.privacyPolicy":"Datenschutz","footer.cookiePolicy":"Cookies",
+      "treatments.eyebrow":"Behandlungsmenü","treatments.h2":"Gesicht &amp; Körper",
+      "treatments.note":"Auswahl unserer Behandlungen — Dauer und Preise auf Anfrage.",
+      "cat1.h3":"Gesicht",
+      "viso1":"Gesichtsprotokolle","viso2":"Ozontherapie","viso3":"Infrarot-Behandlung","viso4":"Bio Micro Needling","viso5":"Micro Needling","viso6":"Fibro Plastic Lifting","viso7":"Kollagen- &amp; Hyaluronsäure-Behandlung","viso8":"Lippenunterspritzung","viso9":"Bio-Revitalisierung",
+      "cat2.h3":"Körper",
+      "corpo1":"Medizinische Laser-Haarentfernung","corpo2":"Icoone Drainage- &amp; Formbehandlung","corpo3":"Liposhock Körperbehandlung (lipolytisch)","corpo4":"Lipovacuum Körperbehandlung",
+      "v1b1":"Individuelles Behandlungsprotokoll für den Hauttyp","v1b2":"Reinigung, Peeling &amp; gezielte Pflege in einer Sitzung","v1b3":"Sofort sichtbarer Frische-Effekt",
+      "v2b1":"Sauerstoff-Ozon-Gemisch zur Zellregeneration","v2b2":"Antibakteriell &amp; entzündungshemmend","v2b3":"Ideal bei unreiner, müder Haut",
+      "v3b1":"Infrarot-Wärmebehandlung für die Haut","v3b2":"Stimulation der Dermis","v3b3":"Nährstoffversorgung des Gewebes mit gezielten Säuren","v3b4":"Anti-Aging-Wirkung","v3b5":"Perfekt auch bei ersten Fältchen",
+      "v4b1":"Gesichtsverjüngung","v4b2":"Mittels 3 Millionen biologischer Mikronadeln","v4b3":"Wiederherstellung des Gesichtsprofils","v4b4":"Entspannender, glättender Effekt","v4b5":"Kombiniert mit zellulärer Erneuerung","v4b6":"Sofort sichtbarer Anti-Aging-Effekt",
+      "v5b1":"Mikroverletzungen regen die Kollagenbildung an","v5b2":"Verfeinert Poren &amp; Hautstruktur","v5b3":"Wirksam bei Narben &amp; Aknemalen",
+      "v6b1":"Straffung durch gezielte Radiofrequenz-Impulse","v6b2":"Fördert Kollagen- &amp; Elastinneubildung","v6b3":"Lifting-Effekt ohne OP",
+      "v7b1":"Tiefenwirksame Feuchtigkeitsversorgung","v7b2":"Polstert &amp; glättet feine Linien","v7b3":"Für ein pralles, jugendliches Hautbild",
+      "v8b1":"Natürliches Volumen für die Lippen","v8b2":"Präzise Konturierung","v8b3":"Ergebnis auf Wunsch dezent oder ausdrucksstark",
+      "v9b1":"Biorevitalisierende Wirkstoffe für die Hauttiefe","v9b2":"Regt die körpereigene Kollagenproduktion an","v9b3":"Frischer, revitalisierter Teint",
+      "c1b1":"Dauerhafte Haarreduktion mit medizinischem Laser","c1b2":"Für nahezu alle Hauttypen geeignet","c1b3":"Schnell, präzise &amp; schmerzarm",
+      "c2b1":"Mechanische Massage kombiniert mit Laser- &amp; LED-Licht","c2b2":"Reduziert Cellulite &amp; strafft die Haut","c2b3":"Fördert Drainage &amp; Mikrozirkulation",
+      "c3b1":"Lipolytische Stoßwellen gegen hartnäckiges Fett","c3b2":"Strafft das Bindegewebe","c3b3":"Sichtbare Konturverbesserung",
+      "c4b1":"Vakuum-Massage zur Fettreduktion &amp; Drainage","c4b2":"Verbessert das Hautbild bei Cellulite","c4b3":"Angenehm &amp; entspannend",
+      "page.cta":"Termin anfragen"
+    },
+    it: {
+      "banner": '<strong>Arcana</strong> deriva dal latino <strong>arcanum</strong>, che significa segreto, nascosto.',
+      "nav.behandlungen":"Trattamenti","nav.mediostar":"Mediostar Monolith","nav.icoone":"Icoone","nav.kontakt":"Contatto","nav.shop":"Vai allo Shop ↗",
+      "footer.tagline":"Studio per trattamenti di Simona Greco — marchio principale, dove ora si trova anche Arcana Skincare.",
+      "footer.studioHeading":"Studio","footer.quickLinks":"Quick Links","footer.linkAbout":"Chi siamo","footer.linkTreatments":"Trattamenti","footer.linkClass":"Simona Greco","footer.linkContact":"Contatto",
+      "footer.moreHeading":"Altro","footer.linkShop":"Arcana Beauty Shop ↗","footer.linkInstagram":"Instagram ↗",
+      "footer.copyright":"© 2026 Arcana Studio · Simona Greco","footer.draftnote":"Bozza — non è la versione definitiva",
+      "footer.legalNotice":"Note Legali","footer.privacyPolicy":"Privacy Policy","footer.cookiePolicy":"Cookie Policy",
+      "treatments.eyebrow":"Trattamenti","treatments.h2":"Viso &amp; corpo",
+      "treatments.note":"Selezione dei nostri trattamenti — durata e prezzi su richiesta.",
+      "cat1.h3":"Viso",
+      "viso1":"Protocolli viso","viso2":"Ozonoterapia","viso3":"Infrarosso","viso4":"Bio Micro Needling","viso5":"Micro Needling","viso6":"Fibro Plastic Lifting","viso7":"Trattamento collagene e acido ialuronico","viso8":"Trattamento riempitivo labbra","viso9":"Trattamento di bio-rivitalizzazione",
+      "cat2.h3":"Corpo",
+      "corpo1":"Trattamento epilazione laser medicale","corpo2":"Trattamento drenante e rimodellante Icoone","corpo3":"Trattamento corpo Liposhock (lipolitico)","corpo4":"Trattamento corpo Lipovacuum",
+      "v1b1":"Protocollo personalizzato in base al tipo di pelle","v1b2":"Pulizia, peeling e trattamento mirato in un'unica seduta","v1b3":"Effetto immediato di freschezza e luminosità",
+      "v2b1":"Miscela di ossigeno-ozono per la rigenerazione cellulare","v2b2":"Azione antibatterica e antinfiammatoria","v2b3":"Ideale per pelle impura e stanca",
+      "v3b1":"Trattamento a infrarossi per la pelle","v3b2":"Stimolazione del derma","v3b3":"Nutrimento del tessuto con acidi specifici","v3b4":"Azione anti-età","v3b5":"Perfetto anche per le prime rughe",
+      "v4b1":"Ringiovanimento viso","v4b2":"Tramite 3 milioni di microaghi biologici","v4b3":"Ripristina il profilo del viso","v4b4":"Ricrea un effetto distensivo","v4b5":"Combinato a un rinnovamento cellulare","v4b6":"Effetto antiage visibile da subito",
+      "v5b1":"Le microlesioni stimolano la produzione di collagene","v5b2":"Affina pori e texture della pelle","v5b3":"Efficace su cicatrici e macchie da acne",
+      "v6b1":"Tensione della pelle tramite impulsi mirati di radiofrequenza","v6b2":"Favorisce la neoformazione di collagene ed elastina","v6b3":"Effetto lifting senza chirurgia",
+      "v7b1":"Idratazione profonda della pelle","v7b2":"Riempie e leviga le linee sottili","v7b3":"Per un aspetto della pelle pieno e giovane",
+      "v8b1":"Volume naturale per le labbra","v8b2":"Contornatura di precisione","v8b3":"Risultato su richiesta discreto o più deciso",
+      "v9b1":"Principi biorivitalizzanti in profondità nella pelle","v9b2":"Stimola la produzione naturale di collagene","v9b3":"Carnagione fresca e rivitalizzata",
+      "c1b1":"Riduzione permanente dei peli con laser medicale","c1b2":"Adatto a quasi tutti i tipi di pelle","c1b3":"Rapido, preciso e poco doloroso",
+      "c2b1":"Massaggio meccanico combinato a luce laser e LED","c2b2":"Riduce la cellulite e tonifica la pelle","c2b3":"Favorisce drenaggio e microcircolazione",
+      "c3b1":"Onde d'urto lipolitiche contro il grasso ostinato","c3b2":"Rassoda il tessuto connettivo","c3b3":"Miglioramento visibile dei contorni",
+      "c4b1":"Massaggio a vuoto per la riduzione del grasso e drenaggio","c4b2":"Migliora l'aspetto della pelle in caso di cellulite","c4b3":"Piacevole e rilassante",
+      "page.cta":"Richiedi un appuntamento"
+    },
+    en: {
+      "banner": '<strong>Arcana</strong> comes from the Latin <strong>arcanum</strong>, meaning secret, hidden.',
+      "nav.behandlungen":"Treatments","nav.mediostar":"Mediostar Monolith","nav.icoone":"Icoone","nav.kontakt":"Contact","nav.shop":"Visit the Shop ↗",
+      "footer.tagline":"Treatment studio by Simona Greco — the main brand, now also home to Arcana Skincare.",
+      "footer.studioHeading":"Studio","footer.quickLinks":"Quick Links","footer.linkAbout":"About","footer.linkTreatments":"Treatments","footer.linkClass":"Simona Greco","footer.linkContact":"Contact",
+      "footer.moreHeading":"More","footer.linkShop":"Arcana Beauty Shop ↗","footer.linkInstagram":"Instagram ↗",
+      "footer.copyright":"© 2026 Arcana Studio · Simona Greco","footer.draftnote":"Draft — not the final version",
+      "footer.legalNotice":"Legal Notice","footer.privacyPolicy":"Privacy Policy","footer.cookiePolicy":"Cookie Policy",
+      "treatments.eyebrow":"Treatments","treatments.h2":"Face &amp; body",
+      "treatments.note":"A selection of our treatments — duration and prices upon request.",
+      "cat1.h3":"Face",
+      "viso1":"Facial Protocols","viso2":"Ozone Therapy","viso3":"Infrared Treatment","viso4":"Bio Micro Needling","viso5":"Micro Needling","viso6":"Fibro Plastic Lifting","viso7":"Collagen &amp; Hyaluronic Acid Treatment","viso8":"Lip Filler","viso9":"Bio-Revitalization",
+      "cat2.h3":"Body",
+      "corpo1":"Medical Laser Hair Removal","corpo2":"Icoone Draining &amp; Body Contouring Treatment","corpo3":"Liposhock Body Treatment (lipolytic)","corpo4":"Lipovacuum Body Treatment",
+      "v1b1":"Personalised protocol tailored to your skin type","v1b2":"Cleansing, peeling and targeted care in one session","v1b3":"Immediate, visible freshness",
+      "v2b1":"Oxygen-ozone blend for cellular regeneration","v2b2":"Antibacterial and anti-inflammatory action","v2b3":"Ideal for blemished, tired skin",
+      "v3b1":"Infrared heat treatment for the skin","v3b2":"Stimulates the dermis","v3b3":"Nourishes tissue with targeted acids","v3b4":"Anti-aging effect","v3b5":"Perfect for early fine lines too",
+      "v4b1":"Facial rejuvenation","v4b2":"Using 3 million biological micro-needles","v4b3":"Restores the profile of the face","v4b4":"Creates a smoothing, relaxing effect","v4b5":"Combined with cellular renewal","v4b6":"Visible anti-aging effect from the very first session",
+      "v5b1":"Micro-injuries stimulate collagen production","v5b2":"Refines pores and skin texture","v5b3":"Effective on scars and acne marks",
+      "v6b1":"Skin tightening through targeted radiofrequency pulses","v6b2":"Boosts new collagen and elastin formation","v6b3":"Lifting effect without surgery",
+      "v7b1":"Deep, long-lasting hydration","v7b2":"Plumps and smooths fine lines","v7b3":"For a fuller, more youthful complexion",
+      "v8b1":"Natural volume for the lips","v8b2":"Precise contouring","v8b3":"Result as subtle or defined as you wish",
+      "v9b1":"Bio-revitalising active ingredients deep in the skin","v9b2":"Stimulates the skin's own collagen production","v9b3":"Fresh, revitalised complexion",
+      "c1b1":"Permanent hair reduction with a medical-grade laser","c1b2":"Suitable for almost every skin type","c1b3":"Fast, precise and virtually painless",
+      "c2b1":"Mechanical massage combined with laser and LED light","c2b2":"Reduces cellulite and firms the skin","c2b3":"Boosts drainage and microcirculation",
+      "c3b1":"Lipolytic shockwaves target stubborn fat","c3b2":"Firms connective tissue","c3b3":"Visibly improved body contours",
+      "c4b1":"Vacuum massage for fat reduction and drainage","c4b2":"Improves the skin's appearance in cases of cellulite","c4b3":"Pleasant and relaxing",
+      "page.cta":"Request an appointment"
+    },
+    fr: {
+      "banner": '<strong>Arcana</strong> vient du latin <strong>arcanum</strong>, qui signifie secret, caché.',
+      "nav.behandlungen":"Soins","nav.mediostar":"Mediostar Monolith","nav.icoone":"Icoone","nav.kontakt":"Contact","nav.shop":"Voir la boutique ↗",
+      "footer.tagline":"Studio de soins de Simona Greco — marque principale, où se trouve désormais aussi Arcana Skincare.",
+      "footer.studioHeading":"Studio","footer.quickLinks":"Quick Links","footer.linkAbout":"À propos","footer.linkTreatments":"Soins","footer.linkClass":"Simona Greco","footer.linkContact":"Contact",
+      "footer.moreHeading":"Plus","footer.linkShop":"Arcana Beauty Shop ↗","footer.linkInstagram":"Instagram ↗",
+      "footer.copyright":"© 2026 Arcana Studio · Simona Greco","footer.draftnote":"Brouillon — pas la version définitive",
+      "footer.legalNotice":"Mentions légales","footer.privacyPolicy":"Confidentialité","footer.cookiePolicy":"Cookies",
+      "treatments.eyebrow":"Soins","treatments.h2":"Visage &amp; corps",
+      "treatments.note":"Une sélection de nos soins — durée et tarifs sur demande.",
+      "cat1.h3":"Visage",
+      "viso1":"Protocoles visage","viso2":"Ozonothérapie","viso3":"Traitement infrarouge","viso4":"Bio Micro Needling","viso5":"Micro Needling","viso6":"Fibro Plastic Lifting","viso7":"Traitement collagène &amp; acide hyaluronique","viso8":"Comblement des lèvres","viso9":"Bio-revitalisation",
+      "cat2.h3":"Corps",
+      "corpo1":"Épilation laser médicale","corpo2":"Traitement drainant et remodelant Icoone","corpo3":"Traitement corps Liposhock (lipolytique)","corpo4":"Traitement corps Lipovacuum",
+      "v1b1":"Protocole personnalisé selon votre type de peau","v1b2":"Nettoyage, peeling et soin ciblé en une seule séance","v1b3":"Effet fraîcheur immédiat et visible",
+      "v2b1":"Mélange oxygène-ozone pour la régénération cellulaire","v2b2":"Action antibactérienne et anti-inflammatoire","v2b3":"Idéal pour une peau à imperfections et fatiguée",
+      "v3b1":"Traitement par chaleur infrarouge pour la peau","v3b2":"Stimule le derme","v3b3":"Nourrit le tissu avec des acides ciblés","v3b4":"Effet anti-âge","v3b5":"Parfait aussi pour les premières ridules",
+      "v4b1":"Rajeunissement du visage","v4b2":"Grâce à 3 millions de micro-aiguilles biologiques","v4b3":"Restaure le profil du visage","v4b4":"Crée un effet lissant et relaxant","v4b5":"Associé à un renouvellement cellulaire","v4b6":"Effet anti-âge visible dès la première séance",
+      "v5b1":"Les microlésions stimulent la production de collagène","v5b2":"Affine les pores et la texture de la peau","v5b3":"Efficace sur les cicatrices et marques d'acné",
+      "v6b1":"Raffermissement grâce à des impulsions ciblées de radiofréquence","v6b2":"Favorise la formation de nouveau collagène et d'élastine","v6b3":"Effet lifting sans chirurgie",
+      "v7b1":"Hydratation profonde et durable","v7b2":"Repulpe et lisse les ridules","v7b3":"Pour un teint plus plein et jeune",
+      "v8b1":"Volume naturel pour les lèvres","v8b2":"Contour précis","v8b3":"Résultat discret ou plus marqué, selon vos envies",
+      "v9b1":"Actifs bio-revitalisants en profondeur dans la peau","v9b2":"Stimule la production naturelle de collagène","v9b3":"Teint frais et revitalisé",
+      "c1b1":"Réduction durable des poils au laser médical","c1b2":"Convient à presque tous les types de peau","c1b3":"Rapide, précis et peu douloureux",
+      "c2b1":"Massage mécanique combiné à la lumière laser et LED","c2b2":"Réduit la cellulite et raffermit la peau","c2b3":"Favorise le drainage et la microcirculation",
+      "c3b1":"Ondes de choc lipolytiques contre la graisse tenace","c3b2":"Raffermit le tissu conjonctif","c3b3":"Amélioration visible des contours du corps",
+      "c4b1":"Massage sous vide pour la réduction de graisse et le drainage","c4b2":"Améliore l'aspect de la peau en cas de cellulite","c4b3":"Agréable et relaxant",
+      "page.cta":"Demander un rendez-vous"
+    },
+    es: {
+      "banner": '<strong>Arcana</strong> viene del latín <strong>arcanum</strong>, que significa secreto, oculto.',
+      "nav.behandlungen":"Tratamientos","nav.mediostar":"Mediostar Monolith","nav.icoone":"Icoone","nav.kontakt":"Contacto","nav.shop":"Ir a la tienda ↗",
+      "footer.tagline":"Estudio de tratamientos de Simona Greco — marca principal, donde ahora también se encuentra Arcana Skincare.",
+      "footer.studioHeading":"Estudio","footer.quickLinks":"Quick Links","footer.linkAbout":"Sobre nosotros","footer.linkTreatments":"Tratamientos","footer.linkClass":"Simona Greco","footer.linkContact":"Contacto",
+      "footer.moreHeading":"Más","footer.linkShop":"Arcana Beauty Shop ↗","footer.linkInstagram":"Instagram ↗",
+      "footer.copyright":"© 2026 Arcana Studio · Simona Greco","footer.draftnote":"Borrador — no es la versión definitiva",
+      "footer.legalNotice":"Aviso Legal","footer.privacyPolicy":"Política de Privacidad","footer.cookiePolicy":"Política de Cookies",
+      "treatments.eyebrow":"Tratamientos","treatments.h2":"Rostro &amp; cuerpo",
+      "treatments.note":"Una selección de nuestros tratamientos — duración y precios a consultar.",
+      "cat1.h3":"Rostro",
+      "viso1":"Protocolos faciales","viso2":"Ozonoterapia","viso3":"Tratamiento de infrarrojos","viso4":"Bio Micro Needling","viso5":"Micro Needling","viso6":"Fibro Plastic Lifting","viso7":"Tratamiento de colágeno y ácido hialurónico","viso8":"Relleno de labios","viso9":"Bio-revitalización",
+      "cat2.h3":"Cuerpo",
+      "corpo1":"Depilación láser médica","corpo2":"Tratamiento drenante y remodelante Icoone","corpo3":"Tratamiento corporal Liposhock (lipolítico)","corpo4":"Tratamiento corporal Lipovacuum",
+      "v1b1":"Protocolo personalizado según tu tipo de piel","v1b2":"Limpieza, peeling y cuidado específico en una sola sesión","v1b3":"Efecto de frescura inmediato y visible",
+      "v2b1":"Mezcla de oxígeno-ozono para la regeneración celular","v2b2":"Acción antibacteriana y antiinflamatoria","v2b3":"Ideal para piel impura y cansada",
+      "v3b1":"Tratamiento de calor por infrarrojos para la piel","v3b2":"Estimula la dermis","v3b3":"Nutre el tejido con ácidos específicos","v3b4":"Efecto antiedad","v3b5":"Perfecto también para las primeras arrugas",
+      "v4b1":"Rejuvenecimiento facial","v4b2":"Mediante 3 millones de microagujas biológicas","v4b3":"Restaura el perfil del rostro","v4b4":"Crea un efecto distensivo y alisador","v4b5":"Combinado con una renovación celular","v4b6":"Efecto antiedad visible desde el principio",
+      "v5b1":"Las microlesiones estimulan la producción de colágeno","v5b2":"Afina poros y textura de la piel","v5b3":"Eficaz en cicatrices y marcas de acné",
+      "v6b1":"Tensado de la piel mediante impulsos focalizados de radiofrecuencia","v6b2":"Favorece la formación de nuevo colágeno y elastina","v6b3":"Efecto lifting sin cirugía",
+      "v7b1":"Hidratación profunda y duradera","v7b2":"Rellena y alisa las líneas finas","v7b3":"Para una piel más llena y juvenil",
+      "v8b1":"Volumen natural para los labios","v8b2":"Contorno preciso","v8b3":"Resultado discreto o más marcado, a tu elección",
+      "v9b1":"Activos biorrevitalizantes en profundidad","v9b2":"Estimula la producción natural de colágeno","v9b3":"Tez fresca y revitalizada",
+      "c1b1":"Reducción permanente del vello con láser médico","c1b2":"Apto para casi todos los tipos de piel","c1b3":"Rápido, preciso y prácticamente indoloro",
+      "c2b1":"Masaje mecánico combinado con luz láser y LED","c2b2":"Reduce la celulitis y tonifica la piel","c2b3":"Favorece el drenaje y la microcirculación",
+      "c3b1":"Ondas de choque lipolíticas contra la grasa resistente","c3b2":"Reafirma el tejido conectivo","c3b3":"Mejora visible de los contornos corporales",
+      "c4b1":"Masaje al vacío para la reducción de grasa y drenaje","c4b2":"Mejora el aspecto de la piel en caso de celulitis","c4b3":"Agradable y relajante",
+      "page.cta":"Solicitar una cita"
+    }
+  };
+
+  function applyLang(lang){
+    var dict = translations[lang] || translations.de;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if(dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('.lang-option').forEach(function(btn){
+      btn.classList.toggle('is-active', btn.getAttribute('data-lang') === lang);
+    });
+    var langCurrentEl = document.querySelector('.lang-current');
+    if(langCurrentEl) langCurrentEl.textContent = lang.toUpperCase();
+    document.documentElement.setAttribute('lang', lang);
+    try{ localStorage.setItem('arcanaLang', lang); }catch(e){}
+  }
+
+  var langToggle = document.getElementById('lang-toggle');
+  var langMenu = document.getElementById('lang-menu');
+  function closeLangMenu(){ langMenu.hidden = true; langToggle.setAttribute('aria-expanded','false'); }
+  function openLangMenu(){ langMenu.hidden = false; langToggle.setAttribute('aria-expanded','true'); }
+  langToggle.addEventListener('click', function(e){
+    e.stopPropagation();
+    if(langMenu.hidden){ openLangMenu(); } else { closeLangMenu(); }
+  });
+  document.addEventListener('click', function(e){
+    if(!langMenu.hidden && !langMenu.contains(e.target) && e.target !== langToggle){ closeLangMenu(); }
+  });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLangMenu(); });
+  var navToggle = document.getElementById('nav-toggle');
+  var navLinksEl = document.querySelector('.nav-links');
+  if(navToggle && navLinksEl){
+    navToggle.addEventListener('click', function(e){
+      e.stopPropagation();
+      var isOpen = navLinksEl.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    navLinksEl.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        navLinksEl.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.addEventListener('click', function(e){
+      if(navLinksEl.classList.contains('is-open') && !navLinksEl.contains(e.target) && e.target !== navToggle){
+        navLinksEl.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){
+        navLinksEl.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+  document.querySelectorAll('.lang-option').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      applyLang(btn.getAttribute('data-lang'));
+      closeLangMenu();
+    });
+  });
+
+  var saved = 'it';
+  try{ saved = localStorage.getItem('arcanaLang') || 'it'; }catch(e){}
+  applyLang(translations[saved] ? saved : 'it');
+</script>
+</body>
+</html>

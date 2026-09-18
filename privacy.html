@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<script>(function(){if('scrollRestoration' in history){history.scrollRestoration='manual';}var frames=0;function toTop(){window.scrollTo(0,0);frames++;if(frames<20){requestAnimationFrame(toTop);}}toTop();window.addEventListener('pageshow',function(){frames=0;toTop();});})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="assets/favicon-black.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" href="assets/favicon-white.png" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="favicon.ico" sizes="any">
+<title>Privacy Policy — Arcana Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..500;0,6..96,600;1,6..96,500&family=Karla:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FCF8F1;
+    --cream-deep:#F4EDE0;
+    --ink:#241F17;
+    --taupe:#6B5D4D;
+    --terracotta:#6B5D4D;
+    --line:#E3D9C8;
+    --line-strong:#CFC2AC;
+    --max:760px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Karla', -apple-system, sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  h1,h2{
+    font-family:'Bodoni Moda', Georgia, serif;
+    font-weight:500;
+    margin:0;
+  }
+  img{max-width:100%;display:block;}
+  .rule{
+    width:1px;height:0.9em;background:currentColor;opacity:0.35;
+    display:inline-block;margin:0 0.6em;vertical-align:middle;
+  }
+
+  /* ---------- draft banner ---------- */
+  .draft-banner{
+    background:var(--ink);color:var(--cream);text-align:center;
+    font-size:0.78rem;letter-spacing:0.03em;padding:9px 16px;
+  }
+  .draft-banner strong{color:#E9C6A8;font-weight:600;}
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky;top:0;z-index:40;
+    background:var(--taupe);
+    border-bottom:1px solid rgba(0,0,0,0.15);
+  }
+  nav.wrap{
+    display:grid;grid-template-columns:auto 1fr auto;align-items:center;
+    gap:14px 24px;padding-block:14px;
+    max-width:1180px;margin:0 auto;padding-inline:24px;
+  }
+  @media (min-width:640px){ nav.wrap{padding-inline:40px;} }
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--cream);justify-self:start;}
+  .brand img{height:34px;width:auto;}
+  .brand-word{font-family:'Bodoni Moda',serif;font-size:1.05rem;letter-spacing:0.08em;text-transform:uppercase;}
+  .nav-right{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-self:end;}
+  .nav-links{
+    display:none;align-items:center;justify-self:center;
+    font-size:0.86rem;letter-spacing:0.02em;color:var(--cream);
+  }
+  .nav-links .rule{opacity:0.4;}
+  .nav-links a{text-decoration:none;padding:6px 0;border-bottom:1px solid transparent;color:var(--cream);}
+  .nav-links a:hover{border-color:#E9C6A8;}
+  @media (min-width:860px){ .nav-links{display:flex;} }
+  .nav-toggle{
+    display:none;
+    background:none;border:1px solid rgba(252,248,241,0.5);
+    width:38px;height:38px;flex-shrink:0;
+    align-items:center;justify-content:center;
+    cursor:pointer;position:relative;
+  }
+  .nav-toggle span{
+    display:block;width:18px;height:2px;background:var(--cream);
+    position:relative;transition:background 0.15s;
+  }
+  .nav-toggle span::before,.nav-toggle span::after{
+    content:'';position:absolute;left:0;width:18px;height:2px;background:var(--cream);
+    transition:transform 0.15s;
+  }
+  .nav-toggle span::before{top:-6px;}
+  .nav-toggle span::after{top:6px;}
+  .nav-toggle[aria-expanded="true"] span{background:transparent;}
+  .nav-toggle[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg);}
+  .nav-toggle[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg);}
+  @media (max-width:859px){
+    nav.wrap{position:relative;}
+    .nav-toggle{display:inline-flex;}
+    .nav-cta{display:none;}
+    .nav-links{
+      display:none;
+      position:absolute;top:100%;right:0;
+      flex-direction:column;align-items:stretch;
+      background:var(--taupe);
+      min-width:220px;
+      padding:0;
+      box-shadow:0 16px 30px rgba(0,0,0,0.18);
+      z-index:50;
+    }
+    .nav-links.is-open{display:flex;}
+    .nav-links .rule{display:none;}
+    .nav-links a{padding:14px 24px;border-bottom:1px solid rgba(252,248,241,0.15);text-align:left;}
+    .nav-links a:last-child{border-bottom:none;}
+  }
+
+  .lang-switch{position:relative;}
+  .lang-toggle{
+    display:flex;align-items:center;gap:8px;
+    background:none;border:1px solid rgba(252,248,241,0.5);color:var(--cream);
+    padding:8px 14px;font:inherit;font-family:'Karla',sans-serif;
+    font-size:0.76rem;letter-spacing:0.06em;text-transform:uppercase;
+    cursor:pointer;transition:border-color 0.15s;
+  }
+  .lang-toggle:hover{border-color:var(--cream);}
+  .lang-toggle svg{flex-shrink:0;transition:transform 0.15s;}
+  .lang-toggle[aria-expanded="true"] svg{transform:rotate(180deg);}
+  .lang-menu{
+    position:absolute;top:calc(100% + 10px);right:0;
+    display:flex;flex-direction:column;
+    background:var(--cream);border:1px solid var(--line-strong);
+    min-width:170px;box-shadow:0 14px 30px rgba(36,31,23,0.2);z-index:60;
+  }
+  .lang-menu[hidden]{display:none;}
+  .lang-option{
+    background:none;border:none;text-align:left;padding:11px 16px;
+    font:inherit;font-family:'Karla',sans-serif;font-size:0.88rem;
+    color:var(--ink);cursor:pointer;border-bottom:1px solid var(--line);
+  }
+  .lang-option:last-child{border-bottom:none;}
+  .lang-option:hover{background:var(--cream-deep);}
+  .lang-option.is-active{font-weight:700;color:var(--terracotta);}
+
+  .nav-cta{
+    border:1px solid var(--cream);color:var(--cream);padding:9px 18px;
+    font-size:0.8rem;letter-spacing:0.04em;text-decoration:none;white-space:nowrap;
+    transition:background 0.15s, color 0.15s;
+  }
+  .nav-cta:hover{background:var(--cream);color:var(--taupe);}
+
+  .wrap{max-width:var(--max);margin:0 auto;padding:56px 24px 90px;}
+  .updated{color:var(--taupe);font-size:0.82rem;margin-bottom:40px;}
+  h1{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:8px;}
+  h2{font-size:1.05rem;text-transform:uppercase;letter-spacing:0.03em;margin-top:40px;margin-bottom:14px;color:var(--terracotta);}
+  p{color:var(--taupe);font-size:0.96rem;margin:0 0 14px;}
+  ul{margin:0 0 14px;padding-left:20px;color:var(--taupe);font-size:0.96rem;}
+  li{margin-bottom:6px;}
+  footer.legal-foot{border-top:1px solid var(--line-strong);margin-top:48px;padding-top:20px;font-size:0.84rem;color:var(--taupe);}
+  p a, li a{color:var(--ink);text-decoration-color:var(--line-strong);}
+  p a:hover, li a:hover{color:var(--terracotta);}
+
+  footer{background:var(--ink);color:#CFC5B4;padding-block:52px 28px;}
+  footer .wrap{max-width:1180px;padding-top:0;padding-bottom:0;}
+  .foot-grid{
+    display:grid;grid-template-columns:1fr;gap:36px;
+    padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+  @media (min-width:760px){
+    .foot-grid{grid-template-columns:1.2fr 0.8fr 0.8fr;}
+  }
+  .foot-brand-top{display:flex;align-items:center;gap:16px;margin-bottom:16px;}
+  .foot-brand img{height:48px;width:auto;}
+  .foot-brand-word{font-family:'Bodoni Moda',serif;font-size:1.4rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--cream);}
+  .foot-brand p{max-width:34ch;font-size:0.88rem;color:#B4A997;}
+  .foot-social{display:flex;gap:12px;margin-top:18px;}
+  .foot-social a{
+    width:38px;height:38px;border-radius:50%;
+    border:1px solid rgba(207,197,180,0.35);
+    display:flex;align-items:center;justify-content:center;
+    color:#CFC5B4;transition:border-color 0.15s,color 0.15s;
+  }
+  .foot-social a:hover{color:#fff;border-color:#fff;}
+  .foot-social svg{width:18px;height:18px;}
+  .foot-col h4{
+    font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;
+    color:#D8AE84;margin-bottom:14px;font-family:'Karla',sans-serif;font-weight:600;
+  }
+  .foot-col a{display:block;text-decoration:none;color:#CFC5B4;font-size:0.9rem;padding-block:5px;}
+  .foot-col a:hover{color:#fff;}
+  .foot-bottom{
+    display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
+    padding-top:22px;font-size:0.78rem;color:#8C816E;
+  }
+  .foot-legal{display:flex;flex-wrap:wrap;gap:16px;}
+  .foot-legal a{color:#8C816E;text-decoration:none;}
+  .foot-legal a:hover{color:#CFC5B4;}
+</style>
+</head>
+<body>
+<div class="draft-banner" data-i18n="banner">
+  <strong>Arcana</strong> deriva dal latino <strong>arcanum</strong>, che significa segreto, nascosto.
+</div>
+
+<header>
+  <nav class="wrap">
+    <a class="brand" href="index.html">
+      <img src="assets/logo-bianco.png" alt="Arcana Studio Logo">
+      <span class="brand-word">Arcana Studio</span>
+    </a>
+    <div class="nav-links">
+      <a href="behandlungen.html" data-i18n="nav.behandlungen">Trattamenti</a><span class="rule"></span>
+      <a href="mediostar.html" data-i18n="nav.mediostar">Mediostar Monolith</a><span class="rule"></span>
+      <a href="icoone.html" data-i18n="nav.icoone">Icoone</a><span class="rule"></span>
+      <a href="kontakt.html" data-i18n="nav.kontakt">Contatti</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-switch">
+        <button type="button" class="lang-toggle" id="lang-toggle" aria-haspopup="true" aria-expanded="false">
+          <span class="lang-current">IT</span>
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.4"/></svg>
+        </button>
+        <div class="lang-menu" id="lang-menu" hidden>
+          <button type="button" class="lang-option" data-lang="it">Italiano</button>
+          <button type="button" class="lang-option" data-lang="de">Deutsch</button>
+          <button type="button" class="lang-option" data-lang="en">English</button>
+          <button type="button" class="lang-option" data-lang="es">Español</button>
+          <button type="button" class="lang-option" data-lang="fr">Français</button>
+        </div>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span></span></button>
+      <a class="nav-cta" href="https://www.arcanabeautyshop.com" target="_blank" rel="noopener" data-i18n="nav.shop">Vai allo Shop ↗</a>
+    </div>
+  </nav>
+</header>
+<div class="wrap">
+  <h1 data-i18n="priv.h1">Privacy Policy</h1>
+  <p class="updated" data-i18n="priv.updated">Ultimo aggiornamento: 06.03.2025</p>
+
+  <p data-i18n="priv.intro">Benvenuto/a su Arcana. La tua privacy è importante per noi. Questa Privacy Policy spiega come raccogliamo, utilizziamo, divulghiamo e proteggiamo le tue informazioni personali quando utilizzi il nostro sito web e i nostri servizi.</p>
+
+  <h2 data-i18n="priv.s1.h2">1. Titolare del trattamento</h2>
+  <p data-i18n="priv.s1.p">Il Titolare del trattamento dei dati è Arcana di Simona Greco, con sede legale in Bolzano (BZ), via Silberleiten 16/D, email: <a href="mailto:info@arcanabeautyshop.com">info@arcanabeautyshop.com</a>.</p>
+
+  <h2 data-i18n="priv.s2.h2">2. Tipi di dati raccolti</h2>
+  <p data-i18n="priv.s2.intro">Durante l'utilizzo del nostro sito, potremmo raccogliere le seguenti tipologie di dati personali:</p>
+  <ul>
+    <li data-i18n="priv.s2.li1">Dati identificativi: nome, cognome, indirizzo email, numero di telefono.</li>
+    <li data-i18n="priv.s2.li2">Dati di fatturazione e spedizione: indirizzo di residenza, indirizzo di consegna, dettagli di pagamento.</li>
+    <li data-i18n="priv.s2.li3">Dati di navigazione: indirizzo IP, tipo di browser, pagine visitate e durata della navigazione.</li>
+    <li data-i18n="priv.s2.li4">Dati di acquisto: storico ordini, preferenze sui prodotti.</li>
+  </ul>
+  <p data-i18n="priv.s2.outro">Il conferimento dei dati personali è facoltativo, ma il mancato conferimento potrebbe impedire la fornitura di alcuni servizi.</p>
+
+  <h2 data-i18n="priv.s3.h2">3. Finalità del trattamento</h2>
+  <p data-i18n="priv.s3.intro">Utilizziamo i tuoi dati personali per i seguenti scopi:</p>
+  <ul>
+    <li data-i18n="priv.s3.li1">Gestione degli ordini e fornitura dei servizi: elaborazione degli ordini, spedizione e assistenza clienti.</li>
+    <li data-i18n="priv.s3.li2">Marketing e comunicazioni commerciali: invio di offerte promozionali, newsletter e sondaggi (previo consenso dell'utente).</li>
+    <li data-i18n="priv.s3.li3">Sicurezza e prevenzione delle frodi: protezione del sito e prevenzione di attività illecite.</li>
+    <li data-i18n="priv.s3.li4">Adempimenti legali e fiscali: rispettare obblighi normativi e contabili.</li>
+  </ul>
+
+  <h2 data-i18n="priv.s4.h2">4. Base giuridica del trattamento</h2>
+  <p data-i18n="priv.s4.intro">Trattiamo i tuoi dati personali sulla base delle seguenti basi giuridiche:</p>
+  <ul>
+    <li data-i18n="priv.s4.li1">Esecuzione di un contratto: per la gestione e consegna degli ordini.</li>
+    <li data-i18n="priv.s4.li2">Obblighi legali: per adempiere agli obblighi fiscali e normativi.</li>
+    <li data-i18n="priv.s4.li3">Legittimo interesse: per migliorare i nostri servizi e garantire la sicurezza del sito.</li>
+    <li data-i18n="priv.s4.li4">Consenso: per attività di marketing e comunicazioni promozionali.</li>
+  </ul>
+
+  <h2 data-i18n="priv.s5.h2">5. Modalità di trattamento e conservazione dei dati</h2>
+  <p data-i18n="priv.s5.p1">I dati vengono trattati con strumenti elettronici e cartacei nel rispetto delle misure di sicurezza previste dalla normativa vigente.</p>
+  <p data-i18n="priv.s5.intro2">Conserviamo i dati per il tempo necessario a soddisfare le finalità per cui sono stati raccolti e in conformità ai termini di legge applicabili. In particolare:</p>
+  <ul>
+    <li data-i18n="priv.s5.li1">Dati di fatturazione: 10 anni come richiesto dalle normative fiscali.</li>
+    <li data-i18n="priv.s5.li2">Dati di navigazione: fino a 12 mesi.</li>
+    <li data-i18n="priv.s5.li3">Dati per finalità di marketing: fino a revoca del consenso.</li>
+  </ul>
+
+  <h2 data-i18n="priv.s6.h2">6. Condivisione dei dati personali</h2>
+  <p data-i18n="priv.s6.intro">I tuoi dati possono essere condivisi con:</p>
+  <ul>
+    <li data-i18n="priv.s6.li1">Fornitori di servizi terzi (corrieri, processori di pagamento, piattaforme di marketing, fornitori IT).</li>
+    <li data-i18n="priv.s6.li2">Autorità competenti in caso di obblighi legali.</li>
+    <li data-i18n="priv.s6.li3">Piattaforme di pagamento come PayPal, Stripe o altri servizi simili.</li>
+  </ul>
+  <p data-i18n="priv.s6.outro">Non vendiamo né cediamo i tuoi dati personali a terzi per scopi di marketing.</p>
+
+  <h2 data-i18n="priv.s7.h2">7. Diritti dell'utente</h2>
+  <p data-i18n="priv.s7.intro">Hai il diritto di:</p>
+  <ul>
+    <li data-i18n="priv.s7.li1">Accedere ai tuoi dati personali.</li>
+    <li data-i18n="priv.s7.li2">Rettificare dati inesatti o incompleti.</li>
+    <li data-i18n="priv.s7.li3">Cancellare i tuoi dati in determinate circostanze.</li>
+    <li data-i18n="priv.s7.li4">Limitare il trattamento quando applicabile.</li>
+    <li data-i18n="priv.s7.li5">Opporti al trattamento per finalità di marketing.</li>
+    <li data-i18n="priv.s7.li6">Ottenere la portabilità dei dati in un formato strutturato.</li>
+  </ul>
+  <p data-i18n="priv.s7.outro">Puoi esercitare i tuoi diritti contattandoci all'indirizzo email: <a href="mailto:info@arcanabeautyshop.com">info@arcanabeautyshop.com</a>.</p>
+
+  <h2 data-i18n="priv.s8.h2">8. Cookie Policy</h2>
+  <p data-i18n="priv.s8.p">Utilizziamo cookie e tecnologie simili per migliorare l'esperienza utente e analizzare il traffico del sito. Per maggiori dettagli consulta la nostra <a href="cookie.html">Cookie Policy</a>.</p>
+
+  <h2 data-i18n="priv.s9.h2">9. Modifiche alla Privacy Policy</h2>
+  <p data-i18n="priv.s9.p1">Ci riserviamo il diritto di aggiornare questa Privacy Policy in qualsiasi momento. Ti invitiamo a consultarla periodicamente per essere sempre informato/a.</p>
+  <p data-i18n="priv.s9.p2">Se hai domande sulla nostra Privacy Policy, puoi contattarci a <a href="mailto:info@arcanabeautyshop.com">info@arcanabeautyshop.com</a>.</p>
+
+  <footer class="legal-foot">
+    <p style="margin:0;" data-i18n="priv.foot.p1">Arcana di Simona Greco — Via Silberleiten 16/D, Bolzano (BZ) — <a href="mailto:info@arcanabeautyshop.com">info@arcanabeautyshop.com</a></p>
+    <p style="margin:6px 0 0;" data-i18n="priv.foot.p2">Documento aggiornato in conformità al Regolamento (UE) 2016/679 (GDPR) e alle normative vigenti.</p>
+  </footer>
+</div>
+
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-brand-top">
+          <img src="assets/logo-bianco.png" alt="Arcana Studio">
+          <span class="foot-brand-word">Arcana Studio</span>
+        </div>
+        <p data-i18n="footer.tagline">Studio für Behandlungen von Simona Greco — Hauptmarke, bei der es jetzt auch Arcana Skincare gibt.</p>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/arcanasimonagreco/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.3"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://wa.me/393441712506" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.4 1.26 4.83L2 22l5.36-1.31a9.9 9.9 0 0 0 4.68 1.19h.004c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2zm0 18.2h-.003a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.76.84-3.03-.2-.31a8.18 8.18 0 0 1-1.26-4.36c0-4.52 3.68-8.2 8.22-8.2 2.2 0 4.26.86 5.82 2.41a8.15 8.15 0 0 1 2.41 5.8c0 4.53-3.69 8.26-8.2 8.26zm4.5-6.16c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.17.25-.64.8-.78.96-.14.17-.29.19-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.39-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31s-.87.85-.87 2.08.89 2.42 1.02 2.59c.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.66-1.17.21-.58.21-1.08.14-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="footer.quickLinks">Quick Links</h4>
+        <a href="behandlungen.html" data-i18n="nav.behandlungen">Behandlungen</a>
+        <a href="mediostar.html" data-i18n="nav.mediostar">Mediostar Monolith</a>
+        <a href="icoone.html" data-i18n="nav.icoone">Icoone</a>
+        <a href="kontakt.html" data-i18n="nav.kontakt">Kontakt</a>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="footer.moreHeading">Mehr</h4>
+        <a href="https://www.arcanabeautyshop.com" target="_blank" rel="noopener" data-i18n="footer.linkShop">Arcana Beauty Shop ↗</a>
+        <a href="https://www.instagram.com/arcanasimonagreco/" target="_blank" rel="noopener" data-i18n="footer.linkInstagram">Instagram ↗</a>
+      </div>
+    </div>
+    <div class="wrap foot-bottom" style="padding-left:0;padding-right:0;">
+      <span data-i18n="footer.copyright">© 2026 Arcana Studio · Simona Greco</span>
+      <div class="foot-legal">
+        <a href="impressum.html" data-i18n="footer.legalNotice">Impressum</a>
+        <a href="privacy.html" data-i18n="footer.privacyPolicy">Datenschutz</a>
+        <a href="cookie.html" data-i18n="footer.cookiePolicy">Cookies</a>
+      </div>
+      <span data-i18n="footer.draftnote">Entwurf — nicht die endgültige Version</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var translations = {
+    de: {
+      "banner": '<strong>Arcana</strong> kommt vom lateinischen <strong>arcanum</strong> — das Geheimnis, das Verborgene.',
+      "nav.behandlungen":"Behandlungen","nav.mediostar":"Mediostar Monolith","nav.icoone":"Icoone","nav.kontakt":"Kontakt","nav.shop":"Zum Shop ↗",
+      "footer.tagline":"Studio für Behandlungen von Simona Greco — Hauptmarke, bei der es jetzt auch Arcana Skincare gibt.",
+      "footer.studioHeading":"Studio","footer.quickLinks":"Quick Links","footer.linkAbout":"Über uns","footer.linkTreatments":"Behandlungen","footer.linkClass":"Simona Greco","footer.linkContact":"Kontakt",
+      "footer.moreHeading":"Mehr","footer.linkShop":"Arcana Beauty Shop ↗","footer.linkInstagram":"Instagram ↗",
+      "footer.copyright":"© 2026 Arcana Studio · Simona Greco","footer.draftnote":"Entwurf — nicht die endgültige Version",
+      "footer.legalNotice":"Impressum","footer.privacyPolicy":"Datenschutz","footer.cookiePolicy":"Cookies",
+      "priv.h1":"Datenschutzerklärung",
+      "priv.updated":"Letzte Aktualisierung: 06.03.2025",
+      "priv.intro":"Willkommen bei Arcana. Deine Privatsphäre ist uns wichtig. Diese Datenschutzerklärung erklärt, wie wir deine personenbezogenen Daten erheben, verwenden, offenlegen und schützen, wenn du unsere Website und unsere Dienstleistungen nutzt.",
+      "priv.s1.h2":"1. Verantwortlicher",
+      "priv.s1.p":'Verantwortlicher für die Datenverarbeitung ist Arcana di Simona Greco, mit Sitz in Bozen (BZ), Via Silberleiten 16/D, E-Mail: <a href="mailto:info@arcanabeautyshop.com">info@arcanabeautyshop.com</a>.',
+      "priv.s2.h2":"2. Erhobene Datenarten",
+      "priv.s2.intro":"Bei der Nutzung unserer Website können wir folgende Arten personenbezogener Daten erheben:",
+      "priv.s2.li1":"Identifikationsdaten: Vor- und Nachname, E-Mail-Adresse, Telefonnummer.",
+      "priv.s2.li2":"Rechnungs- und Versanddaten: Wohnadresse, Lieferadresse, Zahlungsdetails.",
+      "priv.s2.li3":"Navigationsdaten: IP-Adresse, Browsertyp, besuchte Seiten und Verweildauer.",
+      "priv.s2.li4":"Kaufdaten: Bestellverlauf, Produktpräferenzen.",
+      "priv.s2.outro":"Die Angabe personenbezogener Daten ist freiwillig, ihr Fehlen kann jedoch die Erbringung bestimmter Dienstleistungen verhindern.",
+      "priv.s3.h2":"3. Zweck der Verarbeitung",
+      "priv.s3.intro":"Wir verwenden deine personenbezogenen Daten für folgende Zwecke:",
+      "priv.s3.li1":"Auftragsabwicklung und Erbringung der Dienstleistungen: Bearbeitung von Bestellungen, Versand und Kundenservice.",
+      "priv.s3.li2":"Marketing und kommerzielle Kommunikation: Versand von Werbeangeboten, Newslettern und Umfragen (nach Einwilligung des Nutzers).",
+      "priv.s3.li3":"Sicherheit und Betrugsprävention: Schutz der Website und Vorbeugung rechtswidriger Aktivitäten.",
+      "priv.s3.li4":"Rechtliche und steuerliche Pflichten: Einhaltung gesetzlicher und buchhalterischer Vorgaben.",
+      "priv.s4.h2":"4. Rechtsgrundlage der Verarbeitung",
+      "priv.s4.intro":"Wir verarbeiten deine personenbezogenen Daten auf Grundlage folgender Rechtsgrundlagen:",
+      "priv.s4.li1":"Vertragserfüllung: für die Verwaltung und Lieferung von Bestellungen.",
+      "priv.s4.li2":"Gesetzliche Pflichten: zur Erfüllung steuerlicher und rechtlicher Vorgaben.",
+      "priv.s4.li3":"Berechtigtes Interesse: zur Verbesserung unserer Dienstleistungen und zur Gewährleistung der Sicherheit der Website.",
+      "priv.s4.li4":"Einwilligung: für Marketingaktivitäten und Werbekommunikation.",
+      "priv.s5.h2":"5. Art der Verarbeitung und Aufbewahrung der Daten",
+      "priv.s5.p1":"Die Daten werden mit elektronischen und papierbasierten Mitteln unter Beachtung der geltenden Sicherheitsmaßnahmen verarbeitet.",
+      "priv.s5.intro2":"Wir speichern die Daten so lange, wie es zur Erfüllung der Zwecke, für die sie erhoben wurden, erforderlich ist und gemäß den geltenden gesetzlichen Fristen. Im Einzelnen:",
+      "priv.s5.li1":"Rechnungsdaten: 10 Jahre gemäß steuerrechtlichen Vorgaben.",
+      "priv.s5.li2":"Navigationsdaten: bis zu 12 Monate.",
+      "priv.s5.li3":"Daten zu Marketingzwecken: bis zum Widerruf der Einwilligung.",
+      "priv.s6.h2":"6. Weitergabe personenbezogener Daten",
+      "priv.s6.intro":"Deine Daten können weitergegeben werden an:",
+      "priv.s6.li1":"Externe Dienstleister (Kurierdienste, Zahlungsdienstleister, Marketingplattformen, IT-Anbieter).",
+      "priv.s6.li2":"Zuständige Behörden bei gesetzlichen Verpflichtungen.",
+      "priv.s6.li3":"Zahlungsplattformen wie PayPal, Stripe oder ähnliche Dienste.",
+      "priv.s6.outro":"Wir verkaufen oder übertragen deine personenbezogenen Daten nicht zu Marketingzwecken an Dritte.",
+      "priv.s7.h2":"7. Rechte der betroffenen Person",
+      "priv.s7.intro":"Du hast das Recht:",
+      "priv.s7.li1":"auf Zugang zu deinen personenbezogenen Daten.",
+      "priv.s7.li2":"auf Berichtigung unrichtiger oder unvollständiger Daten.",
+      "priv.s7.li3":"auf Löschung deiner Daten unter bestimmten Umständen.",
+      "priv.s7.li4":"auf Einschränkung der Verarbeitung, soweit anwendbar.",
+      "priv.s7.li5":"der Verarbeitung zu Marketingzwecken zu widersprechen.",
+      "priv.s7.li6":"auf Datenübertragbarkeit in einem strukturierten Format.",
+      "priv.s7.outro":'Du kannst deine Rechte ausüben, indem du uns unter folgender E-Mail-Adresse kontaktierst: <a href="mailto:info@arcanabeautyshop.com">info@arcanabeautyshop.com</a>.',
+      "priv.s8.h2":"8. Cookie-Richtlinie",
+      "priv.s8.p":'Wir verwenden Cookies und ähnliche Technologien, um die Nutzererfahrung zu verbessern und den Website-Traffic zu analysieren. Weitere Details findest du in unserer <a href="cookie.html">Cookie-Richtlinie</a>.',
+      "priv.s9.h2":"9. Änderungen der Datenschutzerklärung",
+      "priv.s9.p1":"Wir behalten uns das Recht vor, diese Datenschutzerklärung jederzeit zu aktualisieren. Wir empfehlen dir, sie regelmäßig zu konsultieren, um stets informiert zu sein.",
+      "priv.s9.p2":'Bei Fragen zu unserer Datenschutzerklärung kannst du uns unter <a href="mailto:info@arcanabeautyshop.com">info@arcanabeautyshop.com</a> kontaktieren.',
+      "priv.foot.p1":'Arcana di Simona Greco — Via Silberleiten 16/D, Bozen (BZ) — <a href="mailto:info@arcanabeautyshop.com">info@arcanabeautyshop.com</a>',
+      "priv.foot.p2":"Dokument aktualisiert in Übereinstimmung mit der Verordnung (EU) 2016/679 (DSGVO) und den geltenden Vorschriften."
+    },
+    it: {
+      "banner": '<strong>Arcana</strong> deriva dal latino <strong>arcanum</strong>, che significa segreto, nascosto.',
+      "nav.behandlungen":"Trattamenti","nav.mediostar":"Mediostar Monolith","nav.icoone":"Icoone","nav.kontakt":"Contatto","nav.shop":"Vai allo Shop ↗",
+      "footer.tagline":"Studio per trattamenti di Simona Greco — marchio principale, dove ora si trova anche Arcana Skincare.",
+      "footer.studioHeading":"Studio","footer.quickLinks":"Quick Links","footer.linkAbout":"Chi siamo","footer.linkTreatments":"Trattamenti","footer.linkClass":"Simona Greco","footer.linkContact":"Contatto",
+      "footer.moreHeading":"Altro","footer.linkShop":"Arcana Beauty Shop ↗","footer.linkInstagram":"Instagram ↗",
+      "footer.copyright":"© 2026 Arcana Studio · Simona Greco","footer.draftnote":"Bozza — non è la versione definitiva",
+      "footer.legalNotice":"Note Legali","footer.privacyPolicy":"Privacy Policy","footer.cookiePolicy":"Cookie Policy",
+      "priv.h1":"Privacy Policy",
+      "priv.updated":"Ultimo aggiornamento: 06.03.2025",
+      "priv.intro":"Benvenuto/a su Arcana. La tua privacy è importante per noi. Questa Privacy Policy spiega come raccogliamo, utilizziamo, divulghiamo e proteggiamo le tue informazioni personali quando utilizzi il nostro sito web e i nostri servizi.",
+      "priv.s1.h2":"1. Titolare del trattamento",
+      "priv.s1.p":'Il Titolare del trattamento dei dati è Arcana di Simona Greco, con sede legale in Bolzano (BZ), via Silberleiten 16/D, email: <a href="mailto:info@arcanabeautyshop.com">info@arcanabeautyshop.com</a>.',
+      "priv.s2.h2":"2. Tipi di dati raccolti",
+      "priv.s2.intro":"Durante l'utilizzo del nostro sito, potremmo raccogliere le seguenti tipologie di dati personali:",
+      "priv.s2.li1":"Dati identificativi: nome, cognome, indirizzo email, numero di telefono.",
+      "priv.s2.li2":"Dati di fatturazione e spedizione: indirizzo di residenza, indirizzo di consegna, dettagli di pagamento.",
+      "priv.s2.li3":"Dati di navigazione: indirizzo IP, tipo di browser, pagine visitate e durata della navigazione.",
+      "priv.s2.li4":"Dati di acquisto: storico ordini, preferenze sui prodotti.",
+      "priv.s2.outro":"Il conferimento dei dati personali è facoltativo, ma il mancato conferimento potrebbe impedire la fornitura di alcuni servizi.",
+      "priv.s3.h2":"3. Finalità del trattamento",
+      "priv.s3.intro":"Utilizziamo i tuoi dati personali per i seguenti scopi:",
+      "priv.s3.li1":"Gestione degli ordini e fornitura dei servizi: elaborazione degli ordini, spedizione e assistenza clienti.",
+      "priv.s3.li2":"Marketing e comunicazioni commerciali: invio di offerte promozionali, newsletter e sondaggi (previo consenso dell'utente).",
+      "priv.s3.li3":"Sicurezza e prevenzione delle frodi: protezione del sito e prevenzione di attività illecite.",
+      "priv.s3.li4":"Adempimenti legali e fiscali: rispettare obblighi normativi e contabili.",
+      "priv.s4.h2":"4. Base giuridica del trattamento",
+      "priv.s4.intro":"Trattiamo i tuoi dati personali sulla base delle seguenti basi giuridiche:",
+      "priv.s4.li1":"Esecuzione di un contratto: per la gestione e consegna degli ordini.",
+      "priv.s4.li2":"Obblighi legali: per adempiere agli obblighi fiscali e normativi.",
+      "priv.s4.li3":"Legittimo interesse: per migliorare i nostri servizi e garantire la sicurezza del sito.",
+      "priv.s4.li4":"Consenso: per attività di marketing e comunicazioni promozionali.",
+      "priv.s5.h2":"5. Modalità di trattamento e conservazione dei dati",
+      "priv.s5.p1":"I dati vengono trattati con strumenti elettronici e cartacei nel rispetto delle misure di sicurezza previste dalla normativa vigente.",
+      "priv.s5.intro2":"Conserviamo i dati per il tempo necessario a soddisfare le finalità per cui sono stati raccolti e in conformità ai termini di legge applicabili. In particolare:",
+      "priv.s5.li1":"Dati di fatturazione: 10 anni come richiesto dalle normative fiscali.",
+      "priv.s5.li2":"Dati di navigazione: fino a 12 mesi.",
+      "priv.s5.li3":"Dati per finalità di marketing: fino a revoca del consenso.",
+      "priv.s6.h2":"6. Condivisione dei dati personali",
+      "priv.s6.intro":"I tuoi dati possono essere condivisi con:",
+      "priv.s6.li1":"Fornitori di servizi terzi (corrieri, processori di pagamento, piattaforme di marketing, fornitori IT).",
+      "priv.s6.li2":"Autorità competenti in caso di obblighi legali.",
+      "priv.s6.li3":"Piattaforme di pagamento come PayPal, Stripe o altri servizi simili.",
+      "priv.s6.outro":"Non vendiamo né cediamo i tuoi dati personali a terzi per scopi di marketing.",
+      "priv.s7.h2":"7. Diritti dell'utente",
+      "priv.s7.intro":"Hai il diritto di:",
+      "priv.s7.li1":"Accedere ai tuoi dati personali.",
+      "priv.s7.li2":"Rettificare dati inesatti o incompleti.",
+      "priv.s7.li3":"Cancellare i tuoi dati in determinate circostanze.",
+      "priv.s7.li4":"Limitare il trattamento quando applicabile.",
+      "priv.s7.li5":"Opporti al trattamento per finalità di marketing.",
+      "priv.s7.li6":"Ottenere la portabilità dei dati in un formato strutturato.",
+      "priv.s7.outro":'Puoi esercitare i tuoi diritti contattandoci all\'indirizzo email: <a href="mailto:info@arcanabeautyshop.com">info@arcanabeautyshop.com</a>.',
+      "priv.s8.h2":"8. Cookie Policy",
+      "priv.s8.p":'Utilizziamo cookie e tecnologie simili per migliorare l\'esperienza utente e analizzare il traffico del sito. Per maggiori dettagli consulta la nostra <a href="cookie.html">Cookie Policy</a>.',
+      "priv.s9.h2":"9. Modifiche alla Privacy Policy",
+      "priv.s9.p1":"Ci riserviamo il diritto di aggiornare questa Privacy Policy in qualsiasi momento. Ti invitiamo a consultarla periodicamente per essere sempre informato/a.",
+      "priv.s9.p2":'Se hai domande sulla nostra Privacy Policy, puoi contattarci a <a href="mailto:info@arcanabeautyshop.com">info@arcanabeautyshop.com</a>.',
+      "priv.foot.p1":'Arcana di Simona Greco — Via Silberleiten 16/D, Bolzano (BZ) — <a href="mailto:info@arcanabeautyshop.com">info@arcanabeautyshop.com</a>',
+      "priv.foot.p2":"Documento aggiornato in conformità al Regolamento (UE) 2016/679 (GDPR) e alle normative vigenti."
+    },
+    en: {
+      "banner": '<strong>Arcana</strong> comes from the Latin <strong>arcanum</strong>, meaning secret, hidden.',
+      "nav.behandlungen":"Treatments","nav.mediostar":"Mediostar Monolith","nav.icoone":"Icoone","nav.kontakt":"Contact","nav.shop":"Visit the Shop ↗",
+      "footer.tagline":"Treatment studio by Simona Greco — the main brand, now also home to Arcana Skincare.",
+      "footer.studioHeading":"Studio","footer.quickLinks":"Quick Links","footer.linkAbout":"About","footer.linkTreatments":"Treatments","footer.linkClass":"Simona Greco","footer.linkContact":"Contact",
+      "footer.moreHeading":"More","footer.linkShop":"Arcana Beauty Shop ↗","footer.linkInstagram":"Instagram ↗",
+      "footer.copyright":"© 2026 Arcana Studio · Simona Greco","footer.draftnote":"Draft — not the final version",
+      "footer.legalNotice":"Legal Notice","footer.privacyPolicy":"Privacy Policy","footer.cookiePolicy":"Cookie Policy",
+      "priv.h1":"Privacy Policy",
+      "priv.updated":"Last updated: 06.03.2025",
+      "priv.intro":"Welcome to Arcana. Your privacy is important to us. This Privacy Policy explains how we collect, use, disclose and protect your personal information when you use our website and our services.",
+      "priv.s1.h2":"1. Data Controller",
+      "priv.s1.p":'The data controller is Arcana di Simona Greco, registered office in Bolzano (BZ), Via Silberleiten 16/D, email: <a href="mailto:info@arcanabeautyshop.com">info@arcanabeautyshop.com</a>.',
+      "priv.s2.h2":"2. Types of Data Collected",
+      "priv.s2.intro":"While using our website, we may collect the following types of personal data:",
+      "priv.s2.li1":"Identification data: first and last name, email address, phone number.",
+      "priv.s2.li2":"Billing and shipping data: home address, delivery address, payment details.",
+      "priv.s2.li3":"Browsing data: IP address, browser type, pages visited and browsing duration.",
+      "priv.s2.li4":"Purchase data: order history, product preferences.",
+      "priv.s2.outro":"Providing personal data is optional, but failure to provide it may prevent us from delivering certain services.",
+      "priv.s3.h2":"3. Purpose of Processing",
+      "priv.s3.intro":"We use your personal data for the following purposes:",
+      "priv.s3.li1":"Order management and service provision: processing orders, shipping and customer support.",
+      "priv.s3.li2":"Marketing and commercial communications: sending promotional offers, newsletters and surveys (subject to user consent).",
+      "priv.s3.li3":"Security and fraud prevention: protecting the website and preventing unlawful activity.",
+      "priv.s3.li4":"Legal and tax compliance: fulfilling regulatory and accounting obligations.",
+      "priv.s4.h2":"4. Legal Basis for Processing",
+      "priv.s4.intro":"We process your personal data on the following legal bases:",
+      "priv.s4.li1":"Performance of a contract: for managing and delivering orders.",
+      "priv.s4.li2":"Legal obligations: to comply with tax and regulatory requirements.",
+      "priv.s4.li3":"Legitimate interest: to improve our services and ensure the security of the website.",
+      "priv.s4.li4":"Consent: for marketing activities and promotional communications.",
+      "priv.s5.h2":"5. Processing Methods and Data Retention",
+      "priv.s5.p1":"Data is processed using electronic and paper-based tools in compliance with the security measures required by applicable law.",
+      "priv.s5.intro2":"We retain data for as long as necessary to fulfil the purposes for which it was collected and in accordance with applicable legal terms. In particular:",
+      "priv.s5.li1":"Billing data: 10 years as required by tax regulations.",
+      "priv.s5.li2":"Browsing data: up to 12 months.",
+      "priv.s5.li3":"Data for marketing purposes: until consent is withdrawn.",
+      "priv.s6.h2":"6. Sharing of Personal Data",
+      "priv.s6.intro":"Your data may be shared with:",
+      "priv.s6.li1":"Third-party service providers (couriers, payment processors, marketing platforms, IT providers).",
+      "priv.s6.li2":"Competent authorities in case of legal obligations.",
+      "priv.s6.li3":"Payment platforms such as PayPal, Stripe or similar services.",
+      "priv.s6.outro":"We do not sell or transfer your personal data to third parties for marketing purposes.",
+      "priv.s7.h2":"7. User Rights",
+      "priv.s7.intro":"You have the right to:",
+      "priv.s7.li1":"Access your personal data.",
+      "priv.s7.li2":"Rectify inaccurate or incomplete data.",
+      "priv.s7.li3":"Erase your data under certain circumstances.",
+      "priv.s7.li4":"Restrict processing where applicable.",
+      "priv.s7.li5":"Object to processing for marketing purposes.",
+      "priv.s7.li6":"Request data portability in a structured format.",
+      "priv.s7.outro":'You can exercise your rights by contacting us at: <a href="mailto:info@arcanabeautyshop.com">info@arcanabeautyshop.com</a>.',
+      "priv.s8.h2":"8. Cookie Policy",
+      "priv.s8.p":'We use cookies and similar technologies to improve the user experience and analyse website traffic. See our <a href="cookie.html">Cookie Policy</a> for further details.',
+      "priv.s9.h2":"9. Changes to this Privacy Policy",
+      "priv.s9.p1":"We reserve the right to update this Privacy Policy at any time. We invite you to review it periodically to stay informed.",
+      "priv.s9.p2":'If you have any questions about our Privacy Policy, you can contact us at <a href="mailto:info@arcanabeautyshop.com">info@arcanabeautyshop.com</a>.',
+      "priv.foot.p1":'Arcana di Simona Greco — Via Silberleiten 16/D, Bolzano (BZ) — <a href="mailto:info@arcanabeautyshop.com">info@arcanabeautyshop.com</a>',
+      "priv.foot.p2":"Document updated in accordance with Regulation (EU) 2016/679 (GDPR) and applicable regulations."
+    },
+    fr: {
+      "banner": '<strong>Arcana</strong> vient du latin <strong>arcanum</strong>, qui signifie secret, caché.',
+      "nav.behandlungen":"Soins","nav.mediostar":"Mediostar Monolith","nav.icoone":"Icoone","nav.kontakt":"Contact","nav.shop":"Voir la boutique ↗",
+      "footer.tagline":"Studio de soins de Simona Greco — marque principale, où se trouve désormais aussi Arcana Skincare.",
+      "footer.studioHeading":"Studio","footer.quickLinks":"Quick Links","footer.linkAbout":"À propos","footer.linkTreatments":"Soins","footer.linkClass":"Simona Greco","footer.linkContact":"Contact",
+      "footer.moreHeading":"Plus","footer.linkShop":"Arcana Beauty Shop ↗","footer.linkInstagram":"Instagram ↗",
+      "footer.copyright":"© 2026 Arcana Studio · Simona Greco","footer.draftnote":"Brouillon — pas la version définitive",
+      "footer.legalNotice":"Mentions légales","footer.privacyPolicy":"Confidentialité","footer.cookiePolicy":"Cookies",
+      "priv.h1":"Politique de confidentialité",
+      "priv.updated":"Dernière mise à jour : 06.03.2025",
+      "priv.intro":"Bienvenue chez Arcana. Votre vie privée est importante pour nous. Cette politique de confidentialité explique comment nous collectons, utilisons, divulguons et protégeons vos informations personnelles lorsque vous utilisez notre site web et nos services.",
+      "priv.s1.h2":"1. Responsable du traitement",
+      "priv.s1.p":'Le responsable du traitement des données est Arcana di Simona Greco, dont le siège social est à Bolzano (BZ), via Silberleiten 16/D, e-mail : <a href="mailto:info@arcanabeautyshop.com">info@arcanabeautyshop.com</a>.',
+      "priv.s2.h2":"2. Types de données collectées",
+      "priv.s2.intro":"Lors de l'utilisation de notre site, nous pouvons collecter les types de données personnelles suivants :",
+      "priv.s2.li1":"Données d'identification : nom, prénom, adresse e-mail, numéro de téléphone.",
+      "priv.s2.li2":"Données de facturation et de livraison : adresse de résidence, adresse de livraison, détails de paiement.",
+      "priv.s2.li3":"Données de navigation : adresse IP, type de navigateur, pages visitées et durée de navigation.",
+      "priv.s2.li4":"Données d'achat : historique des commandes, préférences produits.",
+      "priv.s2.outro":"La fourniture de données personnelles est facultative, mais son absence peut empêcher la fourniture de certains services.",
+      "priv.s3.h2":"3. Finalité du traitement",
+      "priv.s3.intro":"Nous utilisons vos données personnelles aux fins suivantes :",
+      "priv.s3.li1":"Gestion des commandes et fourniture des services : traitement des commandes, expédition et assistance client.",
+      "priv.s3.li2":"Marketing et communications commerciales : envoi d'offres promotionnelles, newsletters et enquêtes (sous réserve du consentement de l'utilisateur).",
+      "priv.s3.li3":"Sécurité et prévention des fraudes : protection du site et prévention des activités illicites.",
+      "priv.s3.li4":"Obligations légales et fiscales : respect des obligations réglementaires et comptables.",
+      "priv.s4.h2":"4. Base juridique du traitement",
+      "priv.s4.intro":"Nous traitons vos données personnelles sur les bases juridiques suivantes :",
+      "priv.s4.li1":"Exécution d'un contrat : pour la gestion et la livraison des commandes.",
+      "priv.s4.li2":"Obligations légales : pour respecter les obligations fiscales et réglementaires.",
+      "priv.s4.li3":"Intérêt légitime : pour améliorer nos services et garantir la sécurité du site.",
+      "priv.s4.li4":"Consentement : pour les activités de marketing et les communications promotionnelles.",
+      "priv.s5.h2":"5. Modalités de traitement et conservation des données",
+      "priv.s5.p1":"Les données sont traitées à l'aide d'outils électroniques et papier dans le respect des mesures de sécurité prévues par la réglementation en vigueur.",
+      "priv.s5.intro2":"Nous conservons les données pendant le temps nécessaire pour répondre aux finalités pour lesquelles elles ont été collectées et conformément aux délais légaux applicables. En particulier :",
+      "priv.s5.li1":"Données de facturation : 10 ans, comme l'exige la réglementation fiscale.",
+      "priv.s5.li2":"Données de navigation : jusqu'à 12 mois.",
+      "priv.s5.li3":"Données à des fins de marketing : jusqu'au retrait du consentement.",
+      "priv.s6.h2":"6. Partage des données personnelles",
+      "priv.s6.intro":"Vos données peuvent être partagées avec :",
+      "priv.s6.li1":"Des prestataires de services tiers (transporteurs, processeurs de paiement, plateformes marketing, fournisseurs informatiques).",
+      "priv.s6.li2":"Les autorités compétentes en cas d'obligations légales.",
+      "priv.s6.li3":"Des plateformes de paiement telles que PayPal, Stripe ou services similaires.",
+      "priv.s6.outro":"Nous ne vendons ni ne cédons vos données personnelles à des tiers à des fins de marketing.",
+      "priv.s7.h2":"7. Droits de l'utilisateur",
+      "priv.s7.intro":"Vous avez le droit de :",
+      "priv.s7.li1":"Accéder à vos données personnelles.",
+      "priv.s7.li2":"Rectifier des données inexactes ou incomplètes.",
+      "priv.s7.li3":"Supprimer vos données dans certaines circonstances.",
+      "priv.s7.li4":"Limiter le traitement lorsque cela s'applique.",
+      "priv.s7.li5":"Vous opposer au traitement à des fins de marketing.",
+      "priv.s7.li6":"Bénéficier de la portabilité des données dans un format structuré.",
+      "priv.s7.outro":'Vous pouvez exercer vos droits en nous contactant à l\'adresse : <a href="mailto:info@arcanabeautyshop.com">info@arcanabeautyshop.com</a>.',
+      "priv.s8.h2":"8. Politique de cookies",
+      "priv.s8.p":'Nous utilisons des cookies et des technologies similaires pour améliorer l\'expérience utilisateur et analyser le trafic du site. Pour plus de détails, consultez notre <a href="cookie.html">politique de cookies</a>.',
+      "priv.s9.h2":"9. Modifications de la politique de confidentialité",
+      "priv.s9.p1":"Nous nous réservons le droit de mettre à jour cette politique de confidentialité à tout moment. Nous vous invitons à la consulter régulièrement pour rester informé(e).",
+      "priv.s9.p2":'Pour toute question concernant notre politique de confidentialité, vous pouvez nous contacter à <a href="mailto:info@arcanabeautyshop.com">info@arcanabeautyshop.com</a>.',
+      "priv.foot.p1":'Arcana di Simona Greco — Via Silberleiten 16/D, Bolzano (BZ) — <a href="mailto:info@arcanabeautyshop.com">info@arcanabeautyshop.com</a>',
+      "priv.foot.p2":"Document mis à jour conformément au Règlement (UE) 2016/679 (RGPD) et à la réglementation en vigueur."
+    },
+    es: {
+      "banner": '<strong>Arcana</strong> viene del latín <strong>arcanum</strong>, que significa secreto, oculto.',
+      "nav.behandlungen":"Tratamientos","nav.mediostar":"Mediostar Monolith","nav.icoone":"Icoone","nav.kontakt":"Contacto","nav.shop":"Ir a la tienda ↗",
+      "footer.tagline":"Estudio de tratamientos de Simona Greco — marca principal, donde ahora también se encuentra Arcana Skincare.",
+      "footer.studioHeading":"Estudio","footer.quickLinks":"Quick Links","footer.linkAbout":"Sobre nosotros","footer.linkTreatments":"Tratamientos","footer.linkClass":"Simona Greco","footer.linkContact":"Contacto",
+      "footer.moreHeading":"Más","footer.linkShop":"Arcana Beauty Shop ↗","footer.linkInstagram":"Instagram ↗",
+      "footer.copyright":"© 2026 Arcana Studio · Simona Greco","footer.draftnote":"Borrador — no es la versión definitiva",
+      "footer.legalNotice":"Aviso Legal","footer.privacyPolicy":"Política de Privacidad","footer.cookiePolicy":"Política de Cookies",
+      "priv.h1":"Política de Privacidad",
+      "priv.updated":"Última actualización: 06.03.2025",
+      "priv.intro":"Bienvenido/a a Arcana. Tu privacidad es importante para nosotros. Esta Política de Privacidad explica cómo recopilamos, utilizamos, divulgamos y protegemos tu información personal cuando utilizas nuestro sitio web y nuestros servicios.",
+      "priv.s1.h2":"1. Responsable del tratamiento",
+      "priv.s1.p":'El responsable del tratamiento de los datos es Arcana di Simona Greco, con domicilio social en Bolzano (BZ), Via Silberleiten 16/D, correo electrónico: <a href="mailto:info@arcanabeautyshop.com">info@arcanabeautyshop.com</a>.',
+      "priv.s2.h2":"2. Tipos de datos recopilados",
+      "priv.s2.intro":"Durante el uso de nuestro sitio, podemos recopilar los siguientes tipos de datos personales:",
+      "priv.s2.li1":"Datos identificativos: nombre, apellidos, dirección de correo electrónico, número de teléfono.",
+      "priv.s2.li2":"Datos de facturación y envío: dirección de residencia, dirección de entrega, datos de pago.",
+      "priv.s2.li3":"Datos de navegación: dirección IP, tipo de navegador, páginas visitadas y duración de la navegación.",
+      "priv.s2.li4":"Datos de compra: historial de pedidos, preferencias de productos.",
+      "priv.s2.outro":"Facilitar los datos personales es opcional, pero no hacerlo podría impedir la prestación de algunos servicios.",
+      "priv.s3.h2":"3. Finalidad del tratamiento",
+      "priv.s3.intro":"Utilizamos tus datos personales para los siguientes fines:",
+      "priv.s3.li1":"Gestión de pedidos y prestación de servicios: procesamiento de pedidos, envío y atención al cliente.",
+      "priv.s3.li2":"Marketing y comunicaciones comerciales: envío de ofertas promocionales, boletines y encuestas (previo consentimiento del usuario).",
+      "priv.s3.li3":"Seguridad y prevención del fraude: protección del sitio y prevención de actividades ilícitas.",
+      "priv.s3.li4":"Cumplimiento legal y fiscal: cumplir con las obligaciones normativas y contables.",
+      "priv.s4.h2":"4. Base jurídica del tratamiento",
+      "priv.s4.intro":"Tratamos tus datos personales sobre la base de las siguientes bases jurídicas:",
+      "priv.s4.li1":"Ejecución de un contrato: para la gestión y entrega de pedidos.",
+      "priv.s4.li2":"Obligaciones legales: para cumplir con las obligaciones fiscales y normativas.",
+      "priv.s4.li3":"Interés legítimo: para mejorar nuestros servicios y garantizar la seguridad del sitio.",
+      "priv.s4.li4":"Consentimiento: para actividades de marketing y comunicaciones promocionales.",
+      "priv.s5.h2":"5. Modalidades de tratamiento y conservación de los datos",
+      "priv.s5.p1":"Los datos se tratan mediante herramientas electrónicas y en papel, respetando las medidas de seguridad previstas por la normativa vigente.",
+      "priv.s5.intro2":"Conservamos los datos durante el tiempo necesario para cumplir con las finalidades para las que fueron recopilados y de conformidad con los plazos legales aplicables. En concreto:",
+      "priv.s5.li1":"Datos de facturación: 10 años, según lo exige la normativa fiscal.",
+      "priv.s5.li2":"Datos de navegación: hasta 12 meses.",
+      "priv.s5.li3":"Datos con fines de marketing: hasta la revocación del consentimiento.",
+      "priv.s6.h2":"6. Cesión de datos personales",
+      "priv.s6.intro":"Tus datos pueden compartirse con:",
+      "priv.s6.li1":"Proveedores de servicios externos (mensajería, procesadores de pago, plataformas de marketing, proveedores informáticos).",
+      "priv.s6.li2":"Autoridades competentes en caso de obligaciones legales.",
+      "priv.s6.li3":"Plataformas de pago como PayPal, Stripe u otros servicios similares.",
+      "priv.s6.outro":"No vendemos ni cedemos tus datos personales a terceros con fines de marketing.",
+      "priv.s7.h2":"7. Derechos del usuario",
+      "priv.s7.intro":"Tienes derecho a:",
+      "priv.s7.li1":"Acceder a tus datos personales.",
+      "priv.s7.li2":"Rectificar datos inexactos o incompletos.",
+      "priv.s7.li3":"Suprimir tus datos en determinadas circunstancias.",
+      "priv.s7.li4":"Limitar el tratamiento cuando corresponda.",
+      "priv.s7.li5":"Oponerte al tratamiento con fines de marketing.",
+      "priv.s7.li6":"Obtener la portabilidad de tus datos en un formato estructurado.",
+      "priv.s7.outro":'Puedes ejercer tus derechos contactándonos en la dirección: <a href="mailto:info@arcanabeautyshop.com">info@arcanabeautyshop.com</a>.',
+      "priv.s8.h2":"8. Política de Cookies",
+      "priv.s8.p":'Utilizamos cookies y tecnologías similares para mejorar la experiencia del usuario y analizar el tráfico del sitio. Para más detalles, consulta nuestra <a href="cookie.html">Política de Cookies</a>.',
+      "priv.s9.h2":"9. Modificaciones de la Política de Privacidad",
+      "priv.s9.p1":"Nos reservamos el derecho de actualizar esta Política de Privacidad en cualquier momento. Te invitamos a consultarla periódicamente para estar siempre informado/a.",
+      "priv.s9.p2":'Si tienes preguntas sobre nuestra Política de Privacidad, puedes contactarnos en <a href="mailto:info@arcanabeautyshop.com">info@arcanabeautyshop.com</a>.',
+      "priv.foot.p1":'Arcana di Simona Greco — Via Silberleiten 16/D, Bolzano (BZ) — <a href="mailto:info@arcanabeautyshop.com">info@arcanabeautyshop.com</a>',
+      "priv.foot.p2":"Documento actualizado de conformidad con el Reglamento (UE) 2016/679 (RGPD) y la normativa vigente."
+    }
+  };
+
+  function applyLang(lang){
+    var dict = translations[lang] || translations.de;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if(dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('.lang-option').forEach(function(btn){
+      btn.classList.toggle('is-active', btn.getAttribute('data-lang') === lang);
+    });
+    var langCurrentEl = document.querySelector('.lang-current');
+    if(langCurrentEl) langCurrentEl.textContent = lang.toUpperCase();
+    document.documentElement.setAttribute('lang', lang);
+    try{ localStorage.setItem('arcanaLang', lang); }catch(e){}
+  }
+
+  var langToggle = document.getElementById('lang-toggle');
+  var langMenu = document.getElementById('lang-menu');
+  function closeLangMenu(){ langMenu.hidden = true; langToggle.setAttribute('aria-expanded','false'); }
+  function openLangMenu(){ langMenu.hidden = false; langToggle.setAttribute('aria-expanded','true'); }
+  langToggle.addEventListener('click', function(e){
+    e.stopPropagation();
+    if(langMenu.hidden){ openLangMenu(); } else { closeLangMenu(); }
+  });
+  document.addEventListener('click', function(e){
+    if(!langMenu.hidden && !langMenu.contains(e.target) && e.target !== langToggle){ closeLangMenu(); }
+  });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLangMenu(); });
+  var navToggle = document.getElementById('nav-toggle');
+  var navLinksEl = document.querySelector('.nav-links');
+  if(navToggle && navLinksEl){
+    navToggle.addEventListener('click', function(e){
+      e.stopPropagation();
+      var isOpen = navLinksEl.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    navLinksEl.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        navLinksEl.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.addEventListener('click', function(e){
+      if(navLinksEl.classList.contains('is-open') && !navLinksEl.contains(e.target) && e.target !== navToggle){
+        navLinksEl.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){
+        navLinksEl.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+  document.querySelectorAll('.lang-option').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      applyLang(btn.getAttribute('data-lang'));
+      closeLangMenu();
+    });
+  });
+
+  var saved = 'it';
+  try{ saved = localStorage.getItem('arcanaLang') || 'it'; }catch(e){}
+  applyLang(translations[saved] ? saved : 'it');
+</script>
+</body>
+</html>

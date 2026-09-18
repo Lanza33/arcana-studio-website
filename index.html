@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<script>(function(){if('scrollRestoration' in history){history.scrollRestoration='manual';}var frames=0;function toTop(){window.scrollTo(0,0);frames++;if(frames<20){requestAnimationFrame(toTop);}}toTop();window.addEventListener('pageshow',function(){frames=0;toTop();});})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="assets/favicon-black.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" href="assets/favicon-white.png" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="favicon.ico" sizes="any">
+<title>Arcana Studio — Simona Greco</title>
+<meta name="description" content="Arcana Studio von Simona Greco: Behandlungen, Rituale und Ausbildung.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..500;0,6..96,600;1,6..96,500&family=Karla:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FCF8F1;
+    --cream-deep:#F4EDE0;
+    --ink:#241F17;
+    --taupe:#6B5D4D;
+    --terracotta:#6B5D4D;
+    --terracotta-deep:#564A3E;
+    --olive:#7C7220;
+    --line:#E3D9C8;
+    --line-strong:#CFC2AC;
+    --max:1180px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Karla', -apple-system, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  h1,h2,h3{
+    font-family:'Bodoni Moda', Georgia, serif;
+    font-weight:500;
+    margin:0;
+    text-wrap:balance;
+    letter-spacing:0.01em;
+  }
+  .wrap{max-width:var(--max);margin:0 auto;padding-inline:24px;}
+  @media (min-width:640px){ .wrap{padding-inline:40px;} }
+
+  .rule{
+    width:1px;
+    height:0.9em;
+    background:currentColor;
+    opacity:0.35;
+    display:inline-block;
+    margin:0 0.6em;
+    vertical-align:middle;
+  }
+
+  .eyebrow{
+    font-size:0.72rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--taupe);
+    display:flex;
+    align-items:center;
+    gap:0;
+  }
+
+  /* ---------- draft banner ---------- */
+  .draft-banner{
+    background:var(--ink);
+    color:var(--cream);
+    text-align:center;
+    font-size:0.78rem;
+    letter-spacing:0.03em;
+    padding:9px 16px;
+  }
+  .draft-banner strong{color:#E9C6A8;font-weight:600;}
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky;top:0;z-index:40;
+    background:var(--taupe);
+    border-bottom:1px solid rgba(0,0,0,0.15);
+  }
+  #studio, #theclass{
+    scroll-margin-top:69px;
+  }
+  nav.wrap{
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+    align-items:center;
+    gap:14px 24px;
+    padding-block:14px;
+  }
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--cream);justify-self:start;}
+  .brand img{height:34px;width:auto;}
+  .brand-word{
+    font-family:'Bodoni Moda',serif;
+    font-size:1.05rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+  .nav-right{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-self:end;}
+  .nav-links{
+    display:none;
+    align-items:center;
+    justify-self:center;
+    font-size:0.86rem;
+    letter-spacing:0.02em;
+    color:var(--cream);
+  }
+  .nav-links .rule{opacity:0.4;}
+  .nav-links a{text-decoration:none;padding:6px 0;border-bottom:1px solid transparent;color:var(--cream);}
+  .nav-links a:hover{border-color:#E9C6A8;}
+  @media (min-width:860px){ .nav-links{display:flex;} }
+  .nav-toggle{
+    display:none;
+    background:none;border:1px solid rgba(252,248,241,0.5);
+    width:38px;height:38px;flex-shrink:0;
+    align-items:center;justify-content:center;
+    cursor:pointer;position:relative;
+  }
+  .nav-toggle span{
+    display:block;width:18px;height:2px;background:var(--cream);
+    position:relative;transition:background 0.15s;
+  }
+  .nav-toggle span::before,.nav-toggle span::after{
+    content:'';position:absolute;left:0;width:18px;height:2px;background:var(--cream);
+    transition:transform 0.15s;
+  }
+  .nav-toggle span::before{top:-6px;}
+  .nav-toggle span::after{top:6px;}
+  .nav-toggle[aria-expanded="true"] span{background:transparent;}
+  .nav-toggle[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg);}
+  .nav-toggle[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg);}
+  @media (max-width:859px){
+    nav.wrap{position:relative;}
+    .nav-toggle{display:inline-flex;}
+    .nav-cta{display:none;}
+    .nav-links{
+      display:none;
+      position:absolute;top:100%;right:0;
+      flex-direction:column;align-items:stretch;
+      background:var(--taupe);
+      min-width:220px;
+      padding:0;
+      box-shadow:0 16px 30px rgba(0,0,0,0.18);
+      z-index:50;
+    }
+    .nav-links.is-open{display:flex;}
+    .nav-links .rule{display:none;}
+    .nav-links a{padding:14px 24px;border-bottom:1px solid rgba(252,248,241,0.15);text-align:left;}
+    .nav-links a:last-child{border-bottom:none;}
+  }
+
+  .lang-switch{position:relative;}
+  .lang-toggle{
+    display:flex;align-items:center;gap:8px;
+    background:none;
+    border:1px solid rgba(252,248,241,0.5);
+    color:var(--cream);
+    padding:8px 14px;
+    font:inherit;font-family:'Karla',sans-serif;
+    font-size:0.76rem;letter-spacing:0.06em;text-transform:uppercase;
+    cursor:pointer;
+    transition:border-color 0.15s;
+  }
+  .lang-toggle:hover{border-color:var(--cream);}
+  .lang-toggle svg{flex-shrink:0;transition:transform 0.15s;}
+  .lang-toggle[aria-expanded="true"] svg{transform:rotate(180deg);}
+  .lang-menu{
+    position:absolute;
+    top:calc(100% + 10px);
+    right:0;
+    display:flex;
+    flex-direction:column;
+    background:var(--cream);
+    border:1px solid var(--line-strong);
+    min-width:170px;
+    box-shadow:0 14px 30px rgba(36,31,23,0.2);
+    z-index:60;
+  }
+  .lang-menu[hidden]{display:none;}
+  .lang-option{
+    background:none;border:none;
+    text-align:left;
+    padding:11px 16px;
+    font:inherit;font-family:'Karla',sans-serif;
+    font-size:0.88rem;
+    color:var(--ink);
+    cursor:pointer;
+    border-bottom:1px solid var(--line);
+  }
+  .lang-option:last-child{border-bottom:none;}
+  .lang-option:hover{background:var(--cream-deep);}
+  .lang-option.is-active{font-weight:700;color:var(--terracotta);}
+
+  .nav-cta{
+    border:1px solid var(--cream);
+    color:var(--cream);
+    padding:9px 18px;
+    font-size:0.8rem;
+    letter-spacing:0.04em;
+    text-decoration:none;
+    white-space:nowrap;
+    transition:background 0.15s, color 0.15s;
+  }
+  .nav-cta:hover{background:var(--cream);color:var(--taupe);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+    padding-top:0;
+    padding-bottom:0;
+    min-height:580px;
+    display:flex;
+    align-items:center;
+    background-image:linear-gradient(rgba(252,248,241,0.55), rgba(252,248,241,0.55)), url('assets/hero-skin.jpg');
+    background-size:cover;
+    background-position:center top;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:40px;
+    padding-block:40px;
+    position:relative;
+    z-index:1;
+    width:100%;
+  }
+  @media (min-width:900px){
+    .hero{min-height:700px;}
+    .hero-grid{gap:56px; padding-block:56px;}
+  }
+  @media (max-width:899px){
+    .hero{
+      min-height:460px;
+      background-position:64% top;
+    }
+  }
+  .hero-panel-col{width:100%;}
+  .hero-copy{position:relative;}
+  .hero h1{
+    font-size:clamp(2.4rem, 5.4vw, 4.1rem);
+    line-height:1.05;
+    color:var(--ink);
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--taupe);
+  }
+  .hero p.lede{
+    max-width:46ch;
+    margin-top:22px;
+    color:var(--taupe);
+    font-size:1.05rem;
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;}
+  @media (max-width:899px){
+    .hero-actions{flex-direction:column;align-items:flex-start;}
+  }
+  .hero-actions .btn-fill{background:var(--taupe);color:#FFF8EE;}
+  .hero-actions .btn-fill:hover{background:var(--terracotta-deep);color:#FFF8EE;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 26px;
+    font-size:0.86rem;letter-spacing:0.03em;
+    text-decoration:none;
+    border:1px solid transparent;
+    transition:transform 0.15s, background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .btn-fill{background:var(--terracotta);color:#FFF8EE;}
+  .btn-fill:hover{background:var(--terracotta-deep);}
+  .btn-line{border-color:var(--ink);color:var(--ink);}
+  .btn-line:hover{background:var(--ink);color:var(--cream);}
+
+  .hero-panel{
+    position:relative;
+    border:1px solid var(--line-strong);
+    background:var(--cream-deep);
+    padding:40px 34px;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+  @media (min-width:640px){
+    .hero-panel{grid-template-columns:200px 1fr; align-items:start;}
+  }
+  .hero-panel-photo-col{display:flex;flex-direction:column;gap:16px;}
+  .hero-panel-photo{
+    aspect-ratio:3/4;
+    width:100%;
+    max-width:200px;
+    background:repeating-linear-gradient(45deg, var(--cream), var(--cream) 10px, var(--line) 10px, var(--line) 11px);
+    border:1px solid var(--line-strong);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:14px;
+    font-size:0.72rem;
+    letter-spacing:0.04em;
+    color:var(--taupe);
+    line-height:1.4;
+  }
+  .hero-panel-content{display:flex;flex-direction:column;align-items:flex-end;gap:22px;}
+  .hero-panel-content img{width:56px;}
+  .hero-panel .quote{
+    max-width:64ch;
+    font-family:'Bodoni Moda',serif;
+    font-style:italic;
+    font-size:1.15rem;
+    text-align:right;
+    color:var(--ink);
+  }
+  .hero-panel .quote.bio-text{
+    max-width:62ch;
+    font-family:'Karla',sans-serif;
+    font-style:normal;
+    text-align:right;
+    font-size:0.92rem;
+    line-height:1.65;
+    color:var(--ink);
+  }
+  .hero-panel .quote.bio-text b{color:var(--taupe);}
+  .hero-panel .sig{
+    text-align:left;
+    font-size:0.78rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--taupe);
+  }
+
+  /* ---------- section shells ---------- */
+  section{padding-block:76px;}
+  .section-head{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    margin-bottom:48px;
+    max-width:62ch;
+  }
+  .section-head h2{font-size:clamp(1.8rem,3.4vw,2.5rem);}
+
+  /* ---------- about / intro ---------- */
+  .about{border-bottom:1px solid var(--line);padding-top:56px;}
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:48px;
+  }
+  @media (min-width:860px){
+    .about-grid{grid-template-columns:1.1fr 1fr;gap:56px;align-items:center;}
+  }
+  .about-gallery{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    grid-template-rows:1fr 1fr 1fr;
+    gap:10px;
+    aspect-ratio:4/4.6;
+  }
+  .about-gallery .g-item{
+    overflow:hidden;
+    border-radius:14px;
+    border:1px solid var(--line-strong);
+    background:var(--cream-deep);
+    box-shadow:0 14px 30px -18px rgba(36,31,23,0.35);
+  }
+  .about-gallery .g-item img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    transition:transform 0.5s cubic-bezier(0.16,1,0.3,1);
+  }
+  .about-gallery .g-item:hover img{transform:scale(1.08);}
+  .about-gallery .g1{grid-column:1;grid-row:1 / 3;}
+  .about-gallery .g2{grid-column:2;grid-row:1;}
+  .about-gallery .g3{grid-column:2;grid-row:2;}
+  .about-gallery .g4{grid-column:1;grid-row:3;}
+  .about-gallery .g5{grid-column:2;grid-row:3;}
+  .about-text p{color:var(--taupe);max-width:58ch;}
+  .about-text p + p{margin-top:16px;}
+  .about-text .lead{
+    font-family:'Bodoni Moda',serif;
+    font-size:1.3rem;
+    font-style:italic;
+    color:var(--ink);
+    margin-bottom:18px;
+  }
+
+  /* ---------- shop bridge ---------- */
+  .shop-bridge{
+    background:var(--cream-deep);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:64px 24px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .shop-bridge .wrap{max-width:640px;margin:0 auto;position:relative;z-index:1;}
+  .shop-bridge .eyebrow{justify-content:center;margin-bottom:14px;}
+  .shop-bridge h2{font-size:1.9rem;}
+  .shop-bridge p{color:var(--taupe);margin:18px auto 30px;max-width:50ch;}
+
+  /* ---------- treatments menu ---------- */
+  .menu-note{
+    font-size:0.82rem;
+    color:var(--taupe);
+    margin-top:-30px;
+    margin-bottom:40px;
+  }
+  .menu-cats{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:52px;
+  }
+  @media (min-width:760px){
+    .menu-cats{grid-template-columns:1fr 1fr;gap:56px;}
+  }
+  .menu-cat h3{
+    font-size:1.15rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--terracotta);
+    padding-bottom:14px;
+    border-bottom:1px solid var(--line-strong);
+    margin-bottom:20px;
+  }
+  .menu-card{
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+    padding-block:18px;
+    border-bottom:1px dashed var(--line);
+  }
+  .menu-card:last-child{border-bottom:none;}
+  .menu-card-photo{
+    flex:0 0 88px;
+    width:88px;height:88px;
+    border:1px solid var(--line-strong);
+    background:var(--cream-deep);
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;
+    font-size:0.6rem;
+    color:var(--taupe);
+    overflow:hidden;
+  }
+  .menu-card-photo img{width:100%;height:100%;object-fit:cover;}
+  .menu-card-body{flex:1;min-width:0;}
+  .menu-card-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:12px;
+  }
+  .menu-card .name{font-weight:600;font-size:0.98rem;}
+  .menu-card .dur{color:var(--taupe);font-size:0.78rem;white-space:nowrap;}
+  .menu-card .desc{
+    color:var(--taupe);
+    font-size:0.86rem;
+    margin-top:6px;
+  }
+  @media (max-width:420px){
+    .menu-card{gap:12px;}
+    .menu-card-photo{flex-basis:64px;width:64px;height:64px;}
+  }
+
+  /* ---------- the class ---------- */
+  .theclass{
+    background:var(--ink);
+    color:var(--cream);
+  }
+  .theclass .eyebrow{color:#D8AE84;}
+  .about .eyebrow{color:var(--terracotta-deep);font-weight:600;}
+  .theclass h2{color:var(--cream);}
+  .theclass-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:44px;
+  }
+  @media (min-width:900px){
+    .theclass-grid{grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+  }
+  .theclass p{color:#CFC5B4;max-width:52ch;}
+  .theclass ul{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-direction:column;gap:16px;}
+  .theclass li{
+    display:flex;gap:14px;
+    padding-bottom:16px;
+    border-bottom:1px solid rgba(255,255,255,0.12);
+    color:#EDE6D9;
+    font-size:0.94rem;
+  }
+  .theclass li:last-child{border-bottom:none;padding-bottom:0;}
+  .theclass li .num{
+    font-family:'Bodoni Moda',serif;
+    font-style:italic;
+    color:#D8AE84;
+    min-width:1.6em;
+  }
+  .theclass .btn-fill{margin-top:32px;}
+  .theclass-photo{
+    border:1px solid rgba(255,255,255,0.14);
+    max-width:360px;
+    margin:0 auto;
+  }
+  .theclass-photo img{width:100%;height:100%;object-fit:cover;aspect-ratio:245/325;}
+  @media (min-width:900px){ .theclass-photo{margin:0 0 0 auto;} }
+
+  /* ---------- instagram bg (used by shop-bridge) ---------- */
+  .ig-bg{
+    position:absolute;
+    inset:0;
+    display:flex;
+    z-index:0;
+  }
+  .ig-bg img{
+    width:20%;
+    height:100%;
+    object-fit:cover;
+    opacity:0.24;
+  }
+  @media (max-width:640px){
+    .ig-bg img:nth-child(4),.ig-bg img:nth-child(5){display:none;}
+    .ig-bg img{width:33.333%;}
+  }
+
+  /* ---------- contact ---------- */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:52px;
+  }
+  @media (min-width:900px){
+    .contact-grid{grid-template-columns:1fr 1fr;gap:72px;}
+  }
+  .info-list{display:flex;flex-direction:column;gap:22px;margin-top:28px;}
+  .info-list div{border-bottom:1px solid var(--line);padding-bottom:18px;}
+  .info-list .k{
+    font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--terracotta);margin-bottom:6px;
+  }
+  .info-list .v{color:var(--ink);font-size:0.98rem;}
+
+  /* ---------- contact form section (full-bleed, flows into footer) ---------- */
+  .form-section{
+    background:var(--cream-deep);
+    border-top:1px solid var(--line);
+    margin-top:0;
+    padding:76px 24px 84px;
+  }
+  .form-wrap{max-width:700px;margin:0 auto;padding:0;}
+  .form-wrap .eyebrow{text-align:center;}
+  .form-wrap h2{text-align:center;}
+  .form-wrap > p{text-align:center;margin-left:auto;margin-right:auto;margin-bottom:36px;}
+  form{display:grid;grid-template-columns:1fr 1fr;gap:18px 28px;width:100%;}
+  form .field:has(select),form .field:has(textarea),form > button{grid-column:1 / -1;}
+  @media (max-width:560px){
+    form{grid-template-columns:1fr;}
+    form > *{grid-column:auto;}
+  }
+  .field{display:flex;flex-direction:column;gap:6px;}
+  .field label{
+    font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--taupe);
+  }
+  .field input,.field select,.field textarea{
+    font-family:'Karla',sans-serif;
+    font-size:0.98rem;
+    padding:12px 4px;
+    border:none;
+    border-bottom:1px solid var(--terracotta);
+    background:transparent;
+    color:var(--ink);
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{
+    outline:none;border-bottom-color:var(--terracotta-deep);
+  }
+  .field select{
+    appearance:none;-webkit-appearance:none;-moz-appearance:none;
+    background:var(--terracotta) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23FFF8EE' stroke-width='1.6'><path d='M5 8l5 5 5-5'/></svg>") no-repeat right 14px center;
+    background-size:15px;
+    border:1px solid var(--terracotta);
+    color:#FFF8EE;
+    padding:12px 40px 12px 14px;
+    cursor:pointer;
+  }
+  .field select:hover{background-color:#564A3E;border-color:#564A3E;}
+  .field select:focus{border-color:#564A3E;}
+  .field select option{background:var(--cream);color:var(--ink);}
+  .field textarea{resize:vertical;min-height:90px;}
+  form .btn-fill{justify-self:start;border:none;cursor:pointer;margin-top:6px;}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--ink);color:#CFC5B4;padding-block:52px 28px;}
+  .foot-grid{
+    display:grid;grid-template-columns:1fr;gap:36px;
+    padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+  @media (min-width:760px){
+    .foot-grid{grid-template-columns:1.2fr 0.8fr 0.8fr;}
+  }
+  .foot-brand-top{display:flex;align-items:center;gap:16px;margin-bottom:16px;}
+  .foot-brand img{height:48px;width:auto;}
+  .foot-brand-word{font-family:'Bodoni Moda',serif;font-size:1.4rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--cream);}
+  .foot-brand p{max-width:34ch;font-size:0.88rem;color:#B4A997;}
+  .foot-social{display:flex;gap:12px;margin-top:18px;}
+  .foot-social a{
+    width:38px;height:38px;border-radius:50%;
+    border:1px solid rgba(207,197,180,0.35);
+    display:flex;align-items:center;justify-content:center;
+    color:#CFC5B4;transition:border-color 0.15s,color 0.15s;
+  }
+  .foot-social a:hover{color:#fff;border-color:#fff;}
+  .foot-social svg{width:18px;height:18px;}
+  .foot-col h4{
+    font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;
+    color:#D8AE84;margin-bottom:14px;font-family:'Karla',sans-serif;font-weight:600;
+  }
+  .foot-col a{display:block;text-decoration:none;color:#CFC5B4;font-size:0.9rem;padding-block:5px;}
+  .foot-col a:hover{color:#fff;}
+  .foot-bottom{
+    display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
+    padding-top:22px;font-size:0.78rem;color:#8C816E;
+  }
+  .foot-legal{display:flex;flex-wrap:wrap;gap:16px;}
+  .foot-legal a{color:#8C816E;text-decoration:none;}
+  .foot-legal a:hover{color:#CFC5B4;}
+
+  ::selection{background:var(--terracotta);color:#fff;}
+</style>
+</head>
+<body>
+
+<div class="draft-banner" data-i18n="banner">
+  <strong>Arcana</strong> kommt vom lateinischen <strong>arcanum</strong> — das Geheimnis, das Verborgene.
+</div>
+
+<header>
+  <nav class="wrap">
+    <a class="brand" href="#top">
+      <img src="assets/logo-bianco.png" alt="Arcana Studio Logo">
+      <span class="brand-word">Arcana Studio</span>
+    </a>
+    <div class="nav-links">
+      <a href="behandlungen.html" data-i18n="nav.behandlungen">Behandlungen</a><span class="rule"></span>
+      <a href="mediostar.html" data-i18n="nav.mediostar">Mediostar Monolith</a><span class="rule"></span>
+      <a href="icoone.html" data-i18n="nav.icoone">Icoone</a><span class="rule"></span>
+      <a href="kontakt.html" data-i18n="nav.kontakt">Kontakt</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-switch">
+        <button type="button" class="lang-toggle" id="lang-toggle" aria-haspopup="true" aria-expanded="false">
+          <span class="lang-current">DE</span>
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.4"/></svg>
+        </button>
+        <div class="lang-menu" id="lang-menu" hidden>
+          <button type="button" class="lang-option" data-lang="it">Italiano</button>
+          <button type="button" class="lang-option" data-lang="de">Deutsch</button>
+          <button type="button" class="lang-option" data-lang="en">English</button>
+          <button type="button" class="lang-option" data-lang="es">Español</button>
+          <button type="button" class="lang-option" data-lang="fr">Français</button>
+        </div>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span></span></button>
+      <a class="nav-cta" href="https://www.arcanabeautyshop.com" target="_blank" rel="noopener" data-i18n="nav.shop">Zum Shop ↗</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow" data-i18n="hero.eyebrow">Kompetenz<span class="rule"></span>Präzision<span class="rule"></span>Leidenschaft</div>
+        <h1 data-i18n="hero.title" style="margin-top:18px;">Schönheit als<br><em>Handwerk</em>, nicht als Zufall.</h1>
+        <p class="lede" data-i18n="hero.lede">Arcana Studio ist der Ort, an dem Simona Greco Behandlungen mit hochmodernen professionellen Geräten wie Mediostar und Icoone durchführt.</p>
+        <div class="hero-actions">
+          <a class="btn btn-fill" href="kontakt.html" data-i18n="hero.cta1">Termin anfragen</a>
+          <a class="btn btn-line" href="behandlungen.html" data-i18n="hero.cta2">Behandlungen ansehen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="studio">
+    <div class="wrap">
+      <div class="eyebrow" data-i18n="about.eyebrow" style="margin-bottom:32px;">Studio</div>
+    </div>
+    <div class="wrap about-grid">
+      <div class="about-gallery">
+        <div class="g-item g1"><img src="assets/studio-lounge-1.jpg" alt="Arcana Studio — Loungebereich" loading="lazy"></div>
+        <div class="g-item g2"><img src="assets/studio-lounge-2.jpg" alt="Arcana Studio — Wartebereich" loading="lazy"></div>
+        <div class="g-item g3"><img src="assets/studio-device.jpg" alt="Arcana Studio — Behandlungsraum" loading="lazy"></div>
+        <div class="g-item g4"><img src="assets/studio-detail.jpg" alt="Arcana Studio — Interieur-Detail" loading="lazy"></div>
+        <div class="g-item g5"><img src="assets/studio-building.jpg" alt="Arcana Studio — Gebäude" loading="lazy"></div>
+      </div>
+      <div class="about-text">
+        <p class="lead" data-i18n="about.lead">Alles begann im Dezember 2018 auf der Piazza delle Erbe: das erste Studio von Simona Greco, die von Anfang an mit professionellen Geräten arbeiten wollte. Ein Weg, der sich von Jahr zu Jahr weiter verfeinerte und schließlich zu einer bedeutenden Investition in Technologien der obersten Klasse führte: Mediostar und Icoone.</p>
+        <p data-i18n="about.p1">Mediostar kam im Januar 2020 — genau in dem Moment, als Italien wegen Covid zum Stillstand kam. Während die Arbeit unmöglich wurde, verwandelte Simona diese schwierige Zeit in eine Chance zum Wachstum und widmete sich dem eingehenden Studium der Haarmatrix und der Frage, wie man am wirksamsten auf sie einwirken kann. Aus dieser Forschung entstand das Metodo Incrociato, eine Technik, die entwickelt wurde, um Behandlungszeit und Anzahl der nötigen Sitzungen zu reduzieren.</p>
+        <p data-i18n="about.p2">Von diesem ersten Studio aus führte der Weg weiter bis nach Lana, wo Arcana Studio heute in größeren Räumlichkeiten in einem neuen Wohngebiet zu finden ist. Ein moderner, gepflegter Ort, an dem sich Kompetenz, Präzision und Leidenschaft jeden Tag begegnen, und an dem die Zahlen von einem Weg voller Beständigkeit und Ergebnissen erzählen: Hunderte Kundinnen und Kunden, die ihren Laser-Behandlungsweg abgeschlossen haben, mit Hunderten eröffneten Akten und ebenso vielen bereits erfolgreich abgeschlossenen.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="theclass" id="theclass">
+    <div class="wrap theclass-grid">
+      <div>
+        <div class="eyebrow" data-i18n="theclass.eyebrow">Über mich</div>
+        <h2 data-i18n="theclass.h2">Simona Greco</h2>
+        <p style="margin-top:18px;" data-i18n="theclass.p">Ich bin eine erfahrene Fachfrau im Bereich Ästhetik und Ästhetische Medizin, die für die Qualität ihrer Beauty-Behandlungen sehr geschätzt wird. Mit langjähriger Erfahrung habe ich mich bewusst dafür entschieden, mich ausschließlich dem Wohlbefinden und der Pflege von Frauen zu widmen und ein einzigartiges Umfeld zu schaffen, in dem sich jede Kundin besonders fühlt.</p>
+        <p data-i18n="theclass.p2">Im Laufe meiner Karriere habe ich das entwickelt, was ich "The Lady Secret" nenne.</p>
+        <p data-i18n="theclass.p3">Ich wollte eine Marke schaffen, die nicht nur ästhetisch, sondern auch heilsam ist. Jede Frau verdient es, sich schön zu fühlen — und ich bin fest davon überzeugt, dass Schönheit eine Entscheidung ist.</p>
+      </div>
+      <div class="theclass-photo"><img src="assets/simona-greco-theclass.jpg" alt="Simona Greco"></div>
+    </div>
+  </section>
+
+  <section class="form-section">
+    <div class="wrap form-wrap">
+      <h2 data-i18n="contact.h2">Termin & Anfragen</h2>
+      <p data-i18n="contact.p">Schreib uns, welche Behandlung dich interessiert oder ob du mehr über "Simona Greco" erfahren möchtest.</p>
+      <form id="contact-form">
+        <input type="hidden" name="access_key" value="22289528-7c2a-49ff-b3d9-6c207a4f23b5">
+        <input type="hidden" name="subject" value="Neue Anfrage von arcanastudio.bz">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="field">
+          <label for="cf-home-name" data-i18n="form.name">Name</label>
+          <input id="cf-home-name" name="name" type="text" required>
+        </div>
+        <div class="field">
+          <label for="cf-home-email" data-i18n="form.email">E-Mail</label>
+          <input id="cf-home-email" name="email" type="email" required>
+        </div>
+        <div class="field">
+          <label for="cf-home-interesse" data-i18n="form.interest">Interesse</label>
+          <select id="cf-home-interesse" name="interesse">
+            <option data-i18n="form.opt1">Behandlung</option>
+            <option data-i18n="form.opt3">Sonstiges</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cf-home-message" data-i18n="form.message">Nachricht</label>
+          <textarea id="cf-home-message" name="message" required></textarea>
+        </div>
+        <button class="btn btn-fill" type="submit" data-i18n="form.submit">Anfrage senden</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="shop-bridge" id="shop">
+    <div class="ig-bg" aria-hidden="true">
+      <img src="assets/insta-line/insta-1.png" alt="">
+      <img src="assets/insta-line/insta-3.png" alt="">
+      <img src="assets/insta-line/insta-2.png" alt="">
+      <img src="assets/insta-line/insta-4.png" alt="">
+      <img src="assets/insta-line/insta-5.png" alt="">
+    </div>
+    <div class="wrap">
+      <div class="eyebrow" data-i18n="shop.eyebrow">Pflegeprodukte</div>
+      <h2 data-i18n="shop.h2">Arcana Skincare</h2>
+      <p data-i18n="shop.p">Handgefertigte Pflegeprodukte von Simona Greco — entwickelt für die Anwendung zuhause, im Einklang mit den Behandlungen im Studio. Entdecken Sie die ganze Kollektion in unserem Online-Shop.</p>
+      <a class="btn btn-fill" href="https://www.arcanabeautyshop.com" target="_blank" rel="noopener" data-i18n="shop.cta">Zum Shop ↗</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-brand-top">
+          <img src="assets/logo-bianco.png" alt="Arcana Studio">
+          <span class="foot-brand-word">Arcana Studio</span>
+        </div>
+        <p data-i18n="footer.tagline">Studio für Behandlungen von Simona Greco — Hauptmarke, bei der es jetzt auch Arcana Skincare gibt.</p>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/arcanasimonagreco/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.3"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://wa.me/393441712506" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.4 1.26 4.83L2 22l5.36-1.31a9.9 9.9 0 0 0 4.68 1.19h.004c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2zm0 18.2h-.003a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.76.84-3.03-.2-.31a8.18 8.18 0 0 1-1.26-4.36c0-4.52 3.68-8.2 8.22-8.2 2.2 0 4.26.86 5.82 2.41a8.15 8.15 0 0 1 2.41 5.8c0 4.53-3.69 8.26-8.2 8.26zm4.5-6.16c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.17.25-.64.8-.78.96-.14.17-.29.19-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.39-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31s-.87.85-.87 2.08.89 2.42 1.02 2.59c.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.66-1.17.21-.58.21-1.08.14-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="footer.quickLinks">Quick Links</h4>
+        <a href="behandlungen.html" data-i18n="nav.behandlungen">Behandlungen</a>
+        <a href="mediostar.html" data-i18n="nav.mediostar">Mediostar Monolith</a>
+        <a href="icoone.html" data-i18n="nav.icoone">Icoone</a>
+        <a href="kontakt.html" data-i18n="nav.kontakt">Kontakt</a>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="footer.moreHeading">Mehr</h4>
+        <a href="https://www.arcanabeautyshop.com" target="_blank" rel="noopener" data-i18n="footer.linkShop">Arcana Beauty Shop ↗</a>
+        <a href="https://www.instagram.com/arcanasimonagreco/" target="_blank" rel="noopener" data-i18n="footer.linkInstagram">Instagram ↗</a>
+      </div>
+    </div>
+    <div class="wrap foot-bottom" style="padding-left:0;padding-right:0;">
+      <span data-i18n="footer.copyright">© 2026 Arcana Studio · Simona Greco</span>
+      <div class="foot-legal">
+        <a href="impressum.html" data-i18n="footer.legalNotice">Impressum</a>
+        <a href="privacy.html" data-i18n="footer.privacyPolicy">Datenschutz</a>
+        <a href="cookie.html" data-i18n="footer.cookiePolicy">Cookies</a>
+      </div>
+      <span data-i18n="footer.draftnote">Entwurf — nicht die endgültige Version</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var translations = {
+    de: {
+      "banner": '<strong>Arcana</strong> kommt vom lateinischen <strong>arcanum</strong> — das Geheimnis, das Verborgene.',
+      "nav.behandlungen":"Behandlungen","nav.mediostar":"Mediostar Monolith","nav.icoone":"Icoone","nav.kontakt":"Kontakt","nav.shop":"Zum Shop ↗",
+      "hero.eyebrow":'Kompetenz<span class="rule"></span>Präzision<span class="rule"></span>Leidenschaft',
+      "hero.title":'Schönheit als<br><em>Handwerk</em>, nicht als Zufall.',
+      "hero.lede":"Arcana Studio ist der Ort, an dem Simona Greco Behandlungen mit hochmodernen professionellen Geräten wie Mediostar und Icoone durchführt.",
+      "hero.cta1":"Termin anfragen","hero.cta2":"Behandlungen ansehen",
+      "hero.quote":'„Jede Behandlung ist ein kleines Ritual — für die Haut und für einen Moment der Ruhe.“',
+      "hero.sig":"Simona Greco · Gründerin",
+      "about.eyebrow":"Studio",
+      "about.lead":"Alles begann im Dezember 2018 auf der Piazza delle Erbe: das erste Studio von Simona Greco, die von Anfang an mit professionellen Geräten arbeiten wollte. Ein Weg, der sich von Jahr zu Jahr weiter verfeinerte und schließlich zu einer bedeutenden Investition in Technologien der obersten Klasse führte: Mediostar und Icoone.",
+      "about.p1":"Mediostar kam im Januar 2020 — genau in dem Moment, als Italien wegen Covid zum Stillstand kam. Während die Arbeit unmöglich wurde, verwandelte Simona diese schwierige Zeit in eine Chance zum Wachstum und widmete sich dem eingehenden Studium der Haarmatrix und der Frage, wie man am wirksamsten auf sie einwirken kann. Aus dieser Forschung entstand das Metodo Incrociato, eine Technik, die entwickelt wurde, um Behandlungszeit und Anzahl der nötigen Sitzungen zu reduzieren.",
+      "about.p2":"Von diesem ersten Studio aus führte der Weg weiter bis nach Lana, wo Arcana Studio heute in größeren Räumlichkeiten in einem neuen Wohngebiet zu finden ist. Ein moderner, gepflegter Ort, an dem sich Kompetenz, Präzision und Leidenschaft jeden Tag begegnen, und an dem die Zahlen von einem Weg voller Beständigkeit und Ergebnissen erzählen: Hunderte Kundinnen und Kunden, die ihren Laser-Behandlungsweg abgeschlossen haben, mit Hunderten eröffneten Akten und ebenso vielen bereits erfolgreich abgeschlossenen.",
+      "shop.eyebrow":"Pflegeprodukte","shop.h2":"Arcana Skincare","shop.p":"Pflegeprodukte von Simona Greco, hergestellt nach eigener Rezeptur — entwickelt für die Anwendung zuhause, im Einklang mit den Behandlungen im Studio. Entdecken Sie die ganze Kollektion in unserem Online-Shop.","shop.cta":"Zum Shop ↗",
+      "theclass.eyebrow":"Über mich","theclass.h2":"Simona Greco",
+      "theclass.p":'Ich bin eine erfahrene Fachfrau im Bereich Ästhetik und Ästhetische Medizin, die für die Qualität ihrer Beauty-Behandlungen sehr geschätzt wird. Mit langjähriger Erfahrung habe ich mich bewusst dafür entschieden, mich ausschließlich dem Wohlbefinden und der Pflege von Frauen zu widmen und ein einzigartiges Umfeld zu schaffen, in dem sich jede Kundin besonders fühlt.',
+      "theclass.p2":'Im Laufe meiner Karriere habe ich das entwickelt, was ich "The Lady Secret" nenne.',
+      "theclass.p3":'Ich wollte eine Marke schaffen, die nicht nur ästhetisch, sondern auch heilsam ist. Jede Frau verdient es, sich schön zu fühlen — und ich bin fest davon überzeugt, dass Schönheit eine Entscheidung ist.',
+      "theclass.cta":"Kursdetails anfragen",
+      "theclass.li1":"[Platzhalter] Grundlagenkurs — Technik, Hygiene und Produktkunde für Einsteiger:innen.",
+      "theclass.li2":"[Platzhalter] Aufbaumodul — Vertiefung einzelner Behandlungstechniken in Kleingruppen.",
+      "theclass.li3":"[Platzhalter] Mentoring — begleitete Praxisstunden mit echten Modellen.",
+      "theclass.li4":"[Platzhalter] Zertifikat & Zugang zur Arcana-Community.",
+      
+      "contact.eyebrow":"Kontakt","contact.h2":"Termin & Anfragen",
+      "contact.p":'Schreib uns, welche Behandlung dich interessiert oder ob du mehr über "Simona Greco" erfahren möchtest.',
+      "info.address.k":"Adresse","info.address.v":"[Platzhalter] Musterstraße 1, 1010 Wien",
+      "info.hours.k":"Öffnungszeiten","info.hours.v":"[Platzhalter] Di–Fr 10–18 Uhr · Sa 10–14 Uhr",
+      "info.contact.k":"Kontakt","info.contact.v":"[Platzhalter] hallo@arcanastudio.example · +43 000 000 000",
+      "form.name":"Name","form.email":"E-Mail","form.interest":"Interesse","form.opt1":"Behandlungen","form.opt3":"Sonstiges",
+      "form.message":"Nachricht","form.submit":"Anfrage senden","form.submitted":"Danke, wir melden uns!","form.error":"Fehler beim Senden. Bitte versuchen Sie es erneut.",
+      "footer.tagline":"Studio für Behandlungen von Simona Greco — Hauptmarke, bei der es jetzt auch Arcana Skincare gibt.",
+      "footer.studioHeading":"Studio","footer.quickLinks":"Quick Links","footer.linkAbout":"Über uns","footer.linkTreatments":"Behandlungen","footer.linkClass":"Simona Greco","footer.linkContact":"Kontakt",
+      "footer.moreHeading":"Mehr","footer.linkShop":"Arcana Beauty Shop ↗","footer.linkInstagram":"Instagram ↗",
+      "footer.copyright":"© 2026 Arcana Studio · Simona Greco","footer.draftnote":"Entwurf — nicht die endgültige Version",
+      "footer.legalNotice":"Impressum","footer.privacyPolicy":"Datenschutz","footer.cookiePolicy":"Cookies",
+      "meta.title":"Arcana Studio — Simona Greco","meta.description":"Arcana Studio von Simona Greco: Behandlungen, Rituale und Ausbildung."
+    },
+    it: {
+      "banner": '<strong>Arcana</strong> deriva dal latino <strong>arcanum</strong>, che significa segreto, nascosto.',
+      "nav.behandlungen":"Trattamenti","nav.mediostar":"Mediostar Monolith","nav.icoone":"Icoone","nav.kontakt":"Contatto","nav.shop":"Vai allo Shop ↗",
+      "hero.eyebrow":'Competenza<span class="rule"></span>Precisione<span class="rule"></span>Passione',
+      "hero.title":'La bellezza come<br><em>mestiere</em>, non per caso.',
+      "hero.lede":"Arcana Studio è il luogo dove Simona Greco esegue trattamenti con macchinari professionali all'avanguardia, come Mediostar e Icoone.",
+      "hero.cta1":"Richiedi un appuntamento","hero.cta2":"Scopri i trattamenti",
+      "hero.quote":'«Ogni trattamento è un piccolo rituale — per la pelle, e per un momento di calma.»',
+      "hero.sig":"Simona Greco · Fondatrice",
+      "about.eyebrow":"Studio",
+      "about.lead":"Tutto è iniziato nel dicembre 2018, in Piazza delle Erbe: il primo studio di Simona Greco, che fin da subito ha scelto di lavorare con macchinari professionali. Un percorso che, di anno in anno, si è affinato sempre di più, portando a un investimento importante in tecnologie di livello superiore: Mediostar e Icoone.",
+      "about.p1":"Mediostar è arrivato a gennaio 2020, proprio nel momento in cui l'Italia si fermava per il Covid. Mentre il lavoro diventava impossibile, Simona ha trasformato quel periodo difficile in un'opportunità di crescita, dedicandosi allo studio approfondito della matrice del pelo e di come agire su di essa nel modo più efficace possibile. Da questa ricerca è nato il metodo incrociato, una tecnica pensata per ridurre tempi e numero di sedute necessarie.",
+      "about.p2":"Da quel primo studio il percorso è proseguito fino a Lana, dove oggi Arcana Studio si trova in uno spazio più grande, all'interno di una nuova zona residenziale. Un luogo moderno e curato, dove competenza, precisione e passione si incontrano ogni giorno, e dove i numeri raccontano un percorso fatto di costanza e risultati: centinaia di clienti che hanno completato il proprio percorso laser, con centinaia di cartelle aperte e altrettante già portate a termine con successo.",
+      "shop.eyebrow":"Cura della pelle","shop.h2":"Arcana Skincare","shop.p":"Prodotti per la cura della pelle di Simona Greco, realizzati con una propria miscela esclusiva — pensati per l'uso a casa, in armonia con i trattamenti in studio. Scopri l'intera collezione nel nostro shop online.","shop.cta":"Vai allo Shop ↗",
+      "theclass.eyebrow":"Chi sono","theclass.h2":"Simona Greco",
+      "theclass.p":"Sono una professionista esperta nel campo dell'Estetica e Medicina Estetica, ampiamente apprezzata per la qualità dei miei trattamenti di bellezza. Con anni di esperienza, ho scelto di dedicarmi esclusivamente al benessere e alla cura delle donne, creando un ambiente unico in cui ogni cliente si sente speciale.",
+      "theclass.p2":'Nel corso della mia carriera, ho sviluppato quello che chiamo "The Lady Secret".',
+      "theclass.p3":"Ho voluto creare un brand che fosse non solo estetico, ma anche curativo. Ogni donna merita di sentirsi bella, e credo fermamente che la bellezza sia una scelta.",
+      "theclass.cta":"Richiedi info sul corso",
+      "theclass.li1":"[Segnaposto] Corso base — tecnica, igiene e conoscenza dei prodotti per principianti.",
+      "theclass.li2":"[Segnaposto] Modulo avanzato — approfondimento delle singole tecniche in piccoli gruppi.",
+      "theclass.li3":"[Segnaposto] Mentoring — ore di pratica seguite con modelle reali.",
+      "theclass.li4":"[Segnaposto] Certificato & accesso alla community Arcana.",
+      
+      "contact.eyebrow":"Contatti","contact.h2":"Appuntamenti & richieste",
+      "contact.p":'Scrivici quale trattamento ti interessa o se vuoi saperne di più su "Simona Greco".',
+      "info.address.k":"Indirizzo","info.address.v":"[Segnaposto] Via Esempio 1, 1010 Vienna",
+      "info.hours.k":"Orari","info.hours.v":"[Segnaposto] Mar–Ven 10–18 · Sab 10–14",
+      "info.contact.k":"Contatto","info.contact.v":"[Segnaposto] hallo@arcanastudio.example · +43 000 000 000",
+      "form.name":"Nome","form.email":"E-mail","form.interest":"Interesse","form.opt1":"Trattamenti","form.opt3":"Altro",
+      "form.message":"Messaggio","form.submit":"Invia richiesta","form.submitted":"Grazie, ti risponderemo presto!","form.error":"Errore durante l'invio. Riprova.",
+      "footer.tagline":"Studio per trattamenti di Simona Greco — marchio principale, dove ora si trova anche Arcana Skincare.",
+      "footer.studioHeading":"Studio","footer.quickLinks":"Quick Links","footer.linkAbout":"Chi siamo","footer.linkTreatments":"Trattamenti","footer.linkClass":"Simona Greco","footer.linkContact":"Contatto",
+      "footer.moreHeading":"Altro","footer.linkShop":"Arcana Beauty Shop ↗","footer.linkInstagram":"Instagram ↗",
+      "footer.copyright":"© 2026 Arcana Studio · Simona Greco","footer.draftnote":"Bozza — non è la versione definitiva",
+      "footer.legalNotice":"Note Legali","footer.privacyPolicy":"Privacy Policy","footer.cookiePolicy":"Cookie Policy",
+      "meta.title":"Arcana Studio — Simona Greco","meta.description":"Arcana Studio di Simona Greco: trattamenti, rituali e formazione."
+    },
+    en: {
+      "banner": '<strong>Arcana</strong> comes from the Latin <strong>arcanum</strong>, meaning secret, hidden.',
+      "nav.behandlungen":"Treatments","nav.mediostar":"Mediostar Monolith","nav.icoone":"Icoone","nav.kontakt":"Contact","nav.shop":"Visit the Shop ↗",
+      "hero.eyebrow":'Expertise<span class="rule"></span>Precision<span class="rule"></span>Passion',
+      "hero.title":'Beauty as<br><em>craft</em>, not chance.',
+      "hero.lede":"Arcana Studio is the place where Simona Greco performs treatments with state-of-the-art professional equipment, such as Mediostar and Icoone.",
+      "hero.cta1":"Request an appointment","hero.cta2":"View treatments",
+      "hero.quote":'"Every treatment is a small ritual — for the skin, and for a moment of calm."',
+      "hero.sig":"Simona Greco · Founder",
+      "about.eyebrow":"Studio",
+      "about.lead":"It all began in December 2018, in Piazza delle Erbe: Simona Greco's first studio, where she chose from the very start to work with professional equipment. A path that, year after year, became more refined, leading to a major investment in top-tier technology: Mediostar and Icoone.",
+      "about.p1":"Mediostar arrived in January 2020, right as Italy came to a standstill because of Covid. While work became impossible, Simona turned that difficult period into an opportunity for growth, immersing herself in an in-depth study of the hair matrix and how to act on it as effectively as possible. From this research came the Metodo Incrociato, a technique designed to reduce treatment time and the number of sessions needed.",
+      "about.p2":"From that first studio, the journey continued to Lana, where Arcana Studio is now located in a larger space, in a new residential area. A modern, carefully designed place where competence, precision and passion come together every day, and where the numbers tell a story of consistency and results: hundreds of clients who have completed their laser treatment journey, with hundreds of files opened and just as many successfully completed.",
+      "shop.eyebrow":"Skincare","shop.h2":"Arcana Skincare","shop.p":"Skincare products by Simona Greco, made with her own exclusive formula — designed for use at home, in harmony with the studio treatments. Discover the full collection in our online shop.","shop.cta":"Visit the Shop ↗",
+      "theclass.eyebrow":"About me","theclass.h2":"Simona Greco",
+      "theclass.p":"I am an experienced professional in the field of Aesthetics and Aesthetic Medicine, widely valued for the quality of my beauty treatments. With years of experience, I have chosen to dedicate myself exclusively to the wellbeing and care of women, creating a unique environment where every client feels special.",
+      "theclass.p2":'Over the course of my career, I developed what I call "The Lady Secret".',
+      "theclass.p3":"I wanted to create a brand that is not only aesthetic, but also healing. Every woman deserves to feel beautiful, and I firmly believe that beauty is a choice.",
+      "theclass.cta":"Ask about the course",
+      "theclass.li1":"[Placeholder] Foundation course — technique, hygiene and product knowledge for beginners.",
+      "theclass.li2":"[Placeholder] Advanced module — deepening individual treatment techniques in small groups.",
+      "theclass.li3":"[Placeholder] Mentoring — supervised practice hours with real models.",
+      "theclass.li4":"[Placeholder] Certificate & access to the Arcana community.",
+      
+      "contact.eyebrow":"Contact","contact.h2":"Appointments & enquiries",
+      "contact.p":'Let us know which treatment interests you, or if you\'d like to learn more about "Simona Greco".',
+      "info.address.k":"Address","info.address.v":"[Placeholder] Musterstraße 1, 1010 Vienna",
+      "info.hours.k":"Opening hours","info.hours.v":"[Placeholder] Tue–Fri 10am–6pm · Sat 10am–2pm",
+      "info.contact.k":"Contact","info.contact.v":"[Placeholder] hallo@arcanastudio.example · +43 000 000 000",
+      "form.name":"Name","form.email":"Email","form.interest":"Interest","form.opt1":"Treatments","form.opt3":"Other",
+      "form.message":"Message","form.submit":"Send request","form.submitted":"Thank you, we'll be in touch!","form.error":"Something went wrong. Please try again.",
+      "footer.tagline":"Treatment studio by Simona Greco — the main brand, now also home to Arcana Skincare.",
+      "footer.studioHeading":"Studio","footer.quickLinks":"Quick Links","footer.linkAbout":"About","footer.linkTreatments":"Treatments","footer.linkClass":"Simona Greco","footer.linkContact":"Contact",
+      "footer.moreHeading":"More","footer.linkShop":"Arcana Beauty Shop ↗","footer.linkInstagram":"Instagram ↗",
+      "footer.copyright":"© 2026 Arcana Studio · Simona Greco","footer.draftnote":"Draft — not the final version",
+      "footer.legalNotice":"Legal Notice","footer.privacyPolicy":"Privacy Policy","footer.cookiePolicy":"Cookie Policy",
+      "meta.title":"Arcana Studio — Simona Greco","meta.description":"Arcana Studio by Simona Greco: treatments, rituals and training."
+    },
+    fr: {
+      "banner": '<strong>Arcana</strong> vient du latin <strong>arcanum</strong>, qui signifie secret, caché.',
+      "nav.behandlungen":"Soins","nav.mediostar":"Mediostar Monolith","nav.icoone":"Icoone","nav.kontakt":"Contact","nav.shop":"Voir la boutique ↗",
+      "hero.eyebrow":'Compétence<span class="rule"></span>Précision<span class="rule"></span>Passion',
+      "hero.title":'La beauté comme<br><em>un métier</em>, pas un hasard.',
+      "hero.lede":"Arcana Studio est le lieu où Simona Greco réalise des soins avec des équipements professionnels de pointe, comme Mediostar et Icoone.",
+      "hero.cta1":"Demander un rendez-vous","hero.cta2":"Voir les soins",
+      "hero.quote":'« Chaque soin est un petit rituel — pour la peau, et pour un instant de calme. »',
+      "hero.sig":"Simona Greco · Fondatrice",
+      "about.eyebrow":"Studio",
+      "about.lead":"Tout a commencé en décembre 2018, Piazza delle Erbe : le premier studio de Simona Greco, qui a choisi dès le départ de travailler avec des équipements professionnels. Un parcours qui, année après année, s'est affiné toujours davantage, menant à un investissement important dans des technologies de tout premier niveau : Mediostar et Icoone.",
+      "about.p1":"Mediostar est arrivé en janvier 2020, au moment même où l'Italie s'arrêtait à cause du Covid. Alors que le travail devenait impossible, Simona a transformé cette période difficile en une opportunité de croissance, en se consacrant à l'étude approfondie de la matrice pilaire et de la meilleure façon d'agir sur elle. C'est de cette recherche qu'est né le Metodo Incrociato, une technique pensée pour réduire le temps et le nombre de séances nécessaires.",
+      "about.p2":"Depuis ce premier studio, le parcours s'est poursuivi jusqu'à Lana, où Arcana Studio se trouve aujourd'hui dans un espace plus grand, au sein d'un nouveau quartier résidentiel. Un lieu moderne et soigné, où compétence, précision et passion se rencontrent chaque jour, et où les chiffres racontent un parcours fait de constance et de résultats : des centaines de clientes et clients ayant terminé leur parcours laser, avec des centaines de dossiers ouverts et tout autant déjà menés à bien avec succès.",
+      "shop.eyebrow":"Soins de la peau","shop.h2":"Arcana Skincare","shop.p":"Des produits de soin par Simona Greco, fabriqués selon sa propre formule exclusive — conçus pour un usage à la maison, en harmonie avec les soins réalisés en studio. Découvrez toute la collection dans notre boutique en ligne.","shop.cta":"Voir la boutique ↗",
+      "theclass.eyebrow":"À propos de moi","theclass.h2":"Simona Greco",
+      "theclass.p":"Je suis une professionnelle expérimentée dans le domaine de l'Esthétique et de la Médecine Esthétique, largement appréciée pour la qualité de mes soins de beauté. Après des années d'expérience, j'ai choisi de me consacrer exclusivement au bien-être et au soin des femmes, en créant un environnement unique où chaque cliente se sent spéciale.",
+      "theclass.p2":'Au fil de ma carrière, j\'ai développé ce que j\'appelle "The Lady Secret".',
+      "theclass.p3":"J'ai voulu créer une marque qui ne soit pas seulement esthétique, mais aussi curative. Chaque femme mérite de se sentir belle, et je crois fermement que la beauté est un choix.",
+      "theclass.cta":"Demander le programme",
+      "theclass.li1":"[Provisoire] Cours de base — technique, hygiène et connaissance des produits pour débutant·e·s.",
+      "theclass.li2":"[Provisoire] Module avancé — approfondissement de techniques en petits groupes.",
+      "theclass.li3":"[Provisoire] Mentorat — heures de pratique encadrées avec de vrais modèles.",
+      "theclass.li4":"[Provisoire] Certificat & accès à la communauté Arcana.",
+      
+      "contact.eyebrow":"Contact","contact.h2":"Rendez-vous & demandes",
+      "contact.p":'Écrivez-nous quel soin vous intéresse, ou si vous souhaitez en savoir plus sur "Simona Greco".',
+      "info.address.k":"Adresse","info.address.v":"[Provisoire] Musterstraße 1, 1010 Vienne",
+      "info.hours.k":"Horaires","info.hours.v":"[Provisoire] Mar–Ven 10h–18h · Sam 10h–14h",
+      "info.contact.k":"Contact","info.contact.v":"[Provisoire] hallo@arcanastudio.example · +43 000 000 000",
+      "form.name":"Nom","form.email":"E-mail","form.interest":"Intérêt","form.opt1":"Soins","form.opt3":"Autre",
+      "form.message":"Message","form.submit":"Envoyer la demande","form.submitted":"Merci, nous revenons vers vous !","form.error":"Une erreur est survenue. Veuillez réessayer.",
+      "footer.tagline":"Studio de soins de Simona Greco — marque principale, où se trouve désormais aussi Arcana Skincare.",
+      "footer.studioHeading":"Studio","footer.quickLinks":"Quick Links","footer.linkAbout":"À propos","footer.linkTreatments":"Soins","footer.linkClass":"Simona Greco","footer.linkContact":"Contact",
+      "footer.moreHeading":"Plus","footer.linkShop":"Arcana Beauty Shop ↗","footer.linkInstagram":"Instagram ↗",
+      "footer.copyright":"© 2026 Arcana Studio · Simona Greco","footer.draftnote":"Brouillon — pas la version définitive",
+      "footer.legalNotice":"Mentions légales","footer.privacyPolicy":"Confidentialité","footer.cookiePolicy":"Cookies",
+      "meta.title":"Arcana Studio — Simona Greco","meta.description":"Arcana Studio par Simona Greco : soins, rituels et formation."
+    },
+    es: {
+      "banner": '<strong>Arcana</strong> viene del latín <strong>arcanum</strong>, que significa secreto, oculto.',
+      "nav.behandlungen":"Tratamientos","nav.mediostar":"Mediostar Monolith","nav.icoone":"Icoone","nav.kontakt":"Contacto","nav.shop":"Ir a la tienda ↗",
+      "hero.eyebrow":'Competencia<span class="rule"></span>Precisión<span class="rule"></span>Pasión',
+      "hero.title":'La belleza como<br><em>oficio</em>, no como azar.',
+      "hero.lede":"Arcana Studio es el lugar donde Simona Greco realiza tratamientos con equipos profesionales de vanguardia, como Mediostar e Icoone.",
+      "hero.cta1":"Solicitar una cita","hero.cta2":"Ver tratamientos",
+      "hero.quote":'«Cada tratamiento es un pequeño ritual — para la piel y para un momento de calma.»',
+      "hero.sig":"Simona Greco · Fundadora",
+      "about.eyebrow":"Estudio",
+      "about.lead":"Todo comenzó en diciembre de 2018, en Piazza delle Erbe: el primer estudio de Simona Greco, quien desde el principio eligió trabajar con equipos profesionales. Un recorrido que, año tras año, se fue perfeccionando cada vez más, llevando a una inversión importante en tecnologías de primer nivel: Mediostar e Icoone.",
+      "about.p1":"Mediostar llegó en enero de 2020, justo en el momento en que Italia se paralizaba por el Covid. Mientras el trabajo se volvía imposible, Simona transformó ese periodo difícil en una oportunidad de crecimiento, dedicándose al estudio profundo de la matriz del vello y de cómo actuar sobre ella del modo más eficaz posible. De esta investigación nació el Metodo Incrociato, una técnica pensada para reducir los tiempos y el número de sesiones necesarias.",
+      "about.p2":"Desde aquel primer estudio, el recorrido continuó hasta Lana, donde hoy Arcana Studio se encuentra en un espacio más amplio, dentro de una nueva zona residencial. Un lugar moderno y cuidado, donde competencia, precisión y pasión se encuentran cada día, y donde los números cuentan un recorrido hecho de constancia y resultados: cientos de clientas y clientes que han completado su recorrido láser, con cientos de expedientes abiertos y otros tantos ya finalizados con éxito.",
+      "shop.eyebrow":"Cuidado de la piel","shop.h2":"Arcana Skincare","shop.p":"Productos de cuidado de la piel de Simona Greco, elaborados con su propia fórmula exclusiva — pensados para el uso en casa, en armonía con los tratamientos del estudio. Descubre toda la colección en nuestra tienda online.","shop.cta":"Ir a la tienda ↗",
+      "theclass.eyebrow":"Sobre mí","theclass.h2":"Simona Greco",
+      "theclass.p":"Soy una profesional experta en el campo de la Estética y la Medicina Estética, muy valorada por la calidad de mis tratamientos de belleza. Con años de experiencia, he decidido dedicarme exclusivamente al bienestar y al cuidado de las mujeres, creando un ambiente único en el que cada clienta se siente especial.",
+      "theclass.p2":'A lo largo de mi carrera, he desarrollado lo que yo llamo "The Lady Secret".',
+      "theclass.p3":"Quise crear una marca que fuera no solo estética, sino también curativa. Toda mujer merece sentirse bella, y creo firmemente que la belleza es una elección.",
+      "theclass.cta":"Pedir información del curso",
+      "theclass.li1":"[Marcador de posición] Curso base — técnica, higiene y conocimiento de producto para principiantes.",
+      "theclass.li2":"[Marcador de posición] Módulo avanzado — profundización en técnicas concretas en grupos reducidos.",
+      "theclass.li3":"[Marcador de posición] Mentoría — horas de práctica supervisada con modelos reales.",
+      "theclass.li4":"[Marcador de posición] Certificado & acceso a la comunidad Arcana.",
+      
+      "contact.eyebrow":"Contacto","contact.h2":"Citas & consultas",
+      "contact.p":'Escríbenos qué tratamiento te interesa, o si quieres saber más sobre "Simona Greco".',
+      "info.address.k":"Dirección","info.address.v":"[Marcador de posición] Musterstraße 1, 1010 Viena",
+      "info.hours.k":"Horario","info.hours.v":"[Marcador de posición] Mar–Vie 10–18 h · Sáb 10–14 h",
+      "info.contact.k":"Contacto","info.contact.v":"[Marcador de posición] hallo@arcanastudio.example · +43 000 000 000",
+      "form.name":"Nombre","form.email":"Correo electrónico","form.interest":"Interés","form.opt1":"Tratamientos","form.opt3":"Otro",
+      "form.message":"Mensaje","form.submit":"Enviar solicitud","form.submitted":"¡Gracias, te responderemos pronto!","form.error":"Ha ocurrido un error. Inténtalo de nuevo.",
+      "footer.tagline":"Estudio de tratamientos de Simona Greco — marca principal, donde ahora también se encuentra Arcana Skincare.",
+      "footer.studioHeading":"Estudio","footer.quickLinks":"Quick Links","footer.linkAbout":"Sobre nosotros","footer.linkTreatments":"Tratamientos","footer.linkClass":"Simona Greco","footer.linkContact":"Contacto",
+      "footer.moreHeading":"Más","footer.linkShop":"Arcana Beauty Shop ↗","footer.linkInstagram":"Instagram ↗",
+      "footer.copyright":"© 2026 Arcana Studio · Simona Greco","footer.draftnote":"Borrador — no es la versión definitiva",
+      "footer.legalNotice":"Aviso Legal","footer.privacyPolicy":"Política de Privacidad","footer.cookiePolicy":"Política de Cookies",
+      "meta.title":"Arcana Studio — Simona Greco","meta.description":"Arcana Studio de Simona Greco: tratamientos, rituales y formación."
+    }
+  };
+
+  var currentLang = 'de';
+
+  function applyLang(lang){
+    if(!translations[lang]) return;
+    currentLang = lang;
+    var dict = translations[lang];
+    document.documentElement.lang = lang;
+    document.title = dict['meta.title'];
+    var metaDesc = document.querySelector('meta[name="description"]');
+    if(metaDesc) metaDesc.setAttribute('content', dict['meta.description']);
+
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if(dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+
+    document.querySelectorAll('.lang-option').forEach(function(btn){
+      btn.classList.toggle('is-active', btn.getAttribute('data-lang') === lang);
+    });
+    var langCurrentEl = document.querySelector('.lang-current');
+    if(langCurrentEl) langCurrentEl.textContent = lang.toUpperCase();
+
+    try{ localStorage.setItem('arcanaLang', lang); }catch(e){}
+  }
+
+  var langToggle = document.getElementById('lang-toggle');
+  var langMenu = document.getElementById('lang-menu');
+
+  function closeLangMenu(){
+    langMenu.hidden = true;
+    langToggle.setAttribute('aria-expanded', 'false');
+  }
+  function openLangMenu(){
+    langMenu.hidden = false;
+    langToggle.setAttribute('aria-expanded', 'true');
+  }
+
+  langToggle.addEventListener('click', function(e){
+    e.stopPropagation();
+    if(langMenu.hidden){ openLangMenu(); } else { closeLangMenu(); }
+  });
+  document.addEventListener('click', function(e){
+    if(!langMenu.hidden && !langMenu.contains(e.target) && e.target !== langToggle){
+      closeLangMenu();
+    }
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeLangMenu();
+  });
+  var navToggle = document.getElementById('nav-toggle');
+  var navLinksEl = document.querySelector('.nav-links');
+  if(navToggle && navLinksEl){
+    navToggle.addEventListener('click', function(e){
+      e.stopPropagation();
+      var isOpen = navLinksEl.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    navLinksEl.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        navLinksEl.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.addEventListener('click', function(e){
+      if(navLinksEl.classList.contains('is-open') && !navLinksEl.contains(e.target) && e.target !== navToggle){
+        navLinksEl.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){
+        navLinksEl.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  document.querySelectorAll('.lang-option').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      applyLang(btn.getAttribute('data-lang'));
+      closeLangMenu();
+    });
+  });
+
+  var form = document.getElementById('contact-form');
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var btn = form.querySelector('.btn-fill');
+      var originalText = btn.textContent;
+      btn.disabled = true;
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(form)))
+      }).then(function(res){ return res.json(); }).then(function(data){
+        if(data.success){
+          btn.textContent = translations[currentLang]['form.submitted'];
+          form.reset();
+        }else{
+          btn.disabled = false;
+          btn.textContent = translations[currentLang]['form.error'];
+        }
+      }).catch(function(){
+        btn.disabled = false;
+        btn.textContent = translations[currentLang]['form.error'];
+      });
+    });
+  }
+
+  var saved = null;
+  try{ saved = localStorage.getItem('arcanaLang'); }catch(e){}
+  applyLang(saved && translations[saved] ? saved : 'it');
+})();
+</script>
+
+</body>
+</html>

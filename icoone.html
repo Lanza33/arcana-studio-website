@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<script>(function(){if('scrollRestoration' in history){history.scrollRestoration='manual';}var frames=0;function toTop(){window.scrollTo(0,0);frames++;if(frames<20){requestAnimationFrame(toTop);}}toTop();window.addEventListener('pageshow',function(){frames=0;toTop();});})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="assets/favicon-black.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" href="assets/favicon-white.png" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="favicon.ico" sizes="any">
+<title>Icoone — Arcana Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..500;0,6..96,600;1,6..96,500&family=Karla:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FCF8F1;
+    --cream-deep:#F4EDE0;
+    --ink:#241F17;
+    --taupe:#6B5D4D;
+    --terracotta:#6B5D4D;
+    --line:#E3D9C8;
+    --line-strong:#CFC2AC;
+    --max:760px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Karla', -apple-system, sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  h1,h2{
+    font-family:'Bodoni Moda', Georgia, serif;
+    font-weight:500;
+    margin:0;
+  }
+  img{max-width:100%;display:block;}
+  .rule{
+    width:1px;height:0.9em;background:currentColor;opacity:0.35;
+    display:inline-block;margin:0 0.6em;vertical-align:middle;
+  }
+  .eyebrow{
+    font-size:0.76rem;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--taupe);margin-bottom:6px;
+  }
+  .eyebrow{text-align:center;}
+  h1{text-align:center;}
+  .intro-text{margin-left:auto;margin-right:auto;text-align:center;}
+
+  /* ---------- draft banner ---------- */
+  .draft-banner{
+    background:var(--ink);color:var(--cream);text-align:center;
+    font-size:0.78rem;letter-spacing:0.03em;padding:9px 16px;
+  }
+  .draft-banner strong{color:#E9C6A8;font-weight:600;}
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky;top:0;z-index:40;
+    background:var(--taupe);
+    border-bottom:1px solid rgba(0,0,0,0.15);
+  }
+  nav.wrap{
+    display:grid;grid-template-columns:auto 1fr auto;align-items:center;
+    gap:14px 24px;padding-block:14px;
+    max-width:1180px;margin:0 auto;padding-inline:24px;
+  }
+  @media (min-width:640px){ nav.wrap{padding-inline:40px;} }
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--cream);justify-self:start;}
+  .brand img{height:34px;width:auto;}
+  .brand-word{font-family:'Bodoni Moda',serif;font-size:1.05rem;letter-spacing:0.08em;text-transform:uppercase;}
+  .nav-right{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-self:end;}
+  .nav-links{
+    display:none;align-items:center;justify-self:center;
+    font-size:0.86rem;letter-spacing:0.02em;color:var(--cream);
+  }
+  .nav-links .rule{opacity:0.4;}
+  .nav-links a{text-decoration:none;padding:6px 0;border-bottom:1px solid transparent;color:var(--cream);}
+  .nav-links a:hover{border-color:#E9C6A8;}
+  @media (min-width:860px){ .nav-links{display:flex;} }
+  .nav-toggle{
+    display:none;
+    background:none;border:1px solid rgba(252,248,241,0.5);
+    width:38px;height:38px;flex-shrink:0;
+    align-items:center;justify-content:center;
+    cursor:pointer;position:relative;
+  }
+  .nav-toggle span{
+    display:block;width:18px;height:2px;background:var(--cream);
+    position:relative;transition:background 0.15s;
+  }
+  .nav-toggle span::before,.nav-toggle span::after{
+    content:'';position:absolute;left:0;width:18px;height:2px;background:var(--cream);
+    transition:transform 0.15s;
+  }
+  .nav-toggle span::before{top:-6px;}
+  .nav-toggle span::after{top:6px;}
+  .nav-toggle[aria-expanded="true"] span{background:transparent;}
+  .nav-toggle[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg);}
+  .nav-toggle[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg);}
+  @media (max-width:859px){
+    nav.wrap{position:relative;}
+    .nav-toggle{display:inline-flex;}
+    .nav-cta{display:none;}
+    .nav-links{
+      display:none;
+      position:absolute;top:100%;right:0;
+      flex-direction:column;align-items:stretch;
+      background:var(--taupe);
+      min-width:220px;
+      padding:0;
+      box-shadow:0 16px 30px rgba(0,0,0,0.18);
+      z-index:50;
+    }
+    .nav-links.is-open{display:flex;}
+    .nav-links .rule{display:none;}
+    .nav-links a{padding:14px 24px;border-bottom:1px solid rgba(252,248,241,0.15);text-align:left;}
+    .nav-links a:last-child{border-bottom:none;}
+  }
+
+  .lang-switch{position:relative;}
+  .lang-toggle{
+    display:flex;align-items:center;gap:8px;
+    background:none;border:1px solid rgba(252,248,241,0.5);color:var(--cream);
+    padding:8px 14px;font:inherit;font-family:'Karla',sans-serif;
+    font-size:0.76rem;letter-spacing:0.06em;text-transform:uppercase;
+    cursor:pointer;transition:border-color 0.15s;
+  }
+  .lang-toggle:hover{border-color:var(--cream);}
+  .lang-toggle svg{flex-shrink:0;transition:transform 0.15s;}
+  .lang-toggle[aria-expanded="true"] svg{transform:rotate(180deg);}
+  .lang-menu{
+    position:absolute;top:calc(100% + 10px);right:0;
+    display:flex;flex-direction:column;
+    background:var(--cream);border:1px solid var(--line-strong);
+    min-width:170px;box-shadow:0 14px 30px rgba(36,31,23,0.2);z-index:60;
+  }
+  .lang-menu[hidden]{display:none;}
+  .lang-option{
+    background:none;border:none;text-align:left;padding:11px 16px;
+    font:inherit;font-family:'Karla',sans-serif;font-size:0.88rem;
+    color:var(--ink);cursor:pointer;border-bottom:1px solid var(--line);
+  }
+  .lang-option:last-child{border-bottom:none;}
+  .lang-option:hover{background:var(--cream-deep);}
+  .lang-option.is-active{font-weight:700;color:var(--terracotta);}
+
+  .nav-cta{
+    border:1px solid var(--cream);color:var(--cream);padding:9px 18px;
+    font-size:0.8rem;letter-spacing:0.04em;text-decoration:none;white-space:nowrap;
+    transition:background 0.15s, color 0.15s;
+  }
+  .nav-cta:hover{background:var(--cream);color:var(--taupe);}
+
+  .wrap{max-width:var(--max);margin:0 auto;padding:56px 24px 64px;}
+  @media (max-width:600px){ .wrap{padding-bottom:48px;} }
+  h1{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:20px;}
+  .hero-rule{width:52px;height:2px;background:#D8AE84;margin:0 auto 24px;}
+  p{color:var(--taupe);font-size:0.96rem;margin:0 0 14px;max-width:58ch;}
+  p a{color:var(--ink);text-decoration-color:var(--line-strong);}
+  p a:hover{color:var(--terracotta);}
+
+  .benefits-heading{
+    font-family:'Bodoni Moda',serif;font-weight:300;
+    font-size:1.9rem;text-align:center;color:var(--ink);
+    margin-top:56px;margin-bottom:32px;
+  }
+  @media (max-width:600px){ .benefits-heading{font-size:1.5rem;margin-top:40px;margin-bottom:24px;} }
+
+  .how-heading{
+    font-family:'Bodoni Moda',serif;font-weight:300;
+    font-size:2.1rem;text-align:center;color:var(--ink);
+    margin-top:64px;margin-bottom:40px;
+  }
+  @media (max-width:600px){ .how-heading{font-size:1.6rem;margin-top:48px;margin-bottom:32px;} }
+
+  /* ---------- photo gallery ---------- */
+  .photo-row-bleed{
+    width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
+    margin-top:0;margin-bottom:8px;
+  }
+  .photo-row{
+    display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(2,1fr);
+    gap:10px;
+    padding:10px;
+    max-width:1100px;margin-left:auto;margin-right:auto;
+    aspect-ratio:2/1;
+    background:var(--cream);
+  }
+  .photo-cell{position:relative;overflow:hidden;background:var(--cream-deep);}
+  .photo-cell img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  }
+  .photo-cell.is-big{grid-column:1;grid-row:1 / 3;}
+  .photo-cell.is-small-a{grid-column:2;grid-row:1;}
+  .photo-cell.is-small-b{grid-column:2;grid-row:2;}
+  .photo-cell.is-product{background:#fff;}
+  .photo-cell.is-product img{object-fit:contain;padding:22px;}
+  @media (max-width:600px){
+    .photo-row{
+      grid-template-columns:1fr 1fr;grid-template-rows:repeat(2,1fr);
+      aspect-ratio:3/4;
+    }
+    .photo-cell.is-big{grid-column:1 / 3;grid-row:1;}
+    .photo-cell.is-small-a{grid-column:1;grid-row:2;}
+    .photo-cell.is-small-b{grid-column:2;grid-row:2;}
+  }
+
+  /* ---------- how it works: numbered feature cards ---------- */
+  .feature-grid{
+    display:grid;grid-template-columns:1fr;gap:16px;
+    margin:0 0 8px;
+  }
+  .feature-card{
+    padding:26px 28px;text-align:left;
+    background:#fff;
+    border:1px solid rgba(107,93,77,0.18);
+    border-radius:8px;
+    box-shadow:0 10px 30px rgba(36,31,23,0.05);
+    transition:transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .feature-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 16px 36px rgba(107,93,77,0.14);
+    border-color:rgba(216,174,132,0.5);
+  }
+  .feature-card .feature-number{
+    display:block;
+    font-family:'Bodoni Moda',serif;font-weight:300;font-size:1.6rem;
+    color:#D8AE84;margin-bottom:10px;
+  }
+  .feature-card p{margin:0;font-size:0.92rem;color:var(--taupe);line-height:1.65;max-width:none;}
+  .feature-card p strong{
+    display:block;
+    font-family:'Bodoni Moda',serif;font-weight:600;font-size:1.08rem;
+    color:var(--ink);margin-bottom:8px;
+  }
+
+  /* ---------- how it works: slideshow ---------- */
+  .points-slideshow{
+    width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
+    margin-top:0;margin-bottom:110px;
+  }
+  .points-stage{position:relative;max-width:1100px;margin-inline:auto;padding-inline:16px;}
+  .points-viewport{
+    overflow:hidden;min-height:1px;max-width:620px;margin-inline:auto;
+    display:flex;flex-direction:column;justify-content:center;
+  }
+  .point-slide{display:none;}
+  .point-slide.is-active{display:block;animation:pointFadeIn 0.45s ease;}
+  @keyframes pointFadeIn{from{opacity:0;transform:translateX(10px);}to{opacity:1;transform:translateX(0);}}
+  .points-arrow{
+    position:absolute;top:calc(50% - 32px);
+    width:64px;height:64px;border-radius:50%;
+    background:#fff;border:1px solid rgba(107,93,77,0.25);
+    color:var(--taupe);display:flex;align-items:center;justify-content:center;
+    cursor:pointer;padding:0;box-shadow:0 8px 20px rgba(36,31,23,0.1);
+    transition:background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  }
+  .points-arrow svg{width:28px;height:28px;}
+  .points-arrow:hover{background:#D8AE84;color:#fff;border-color:#D8AE84;}
+  .points-arrow:active{transform:scale(0.92);}
+  .points-arrow-prev{left:0;}
+  .points-arrow-next{right:0;}
+  @media (max-width:600px){
+    .points-slideshow{margin-bottom:40px;}
+    .points-stage{padding-inline:52px;}
+    .points-arrow{width:46px;height:46px;top:calc(50% - 23px);}
+    .points-arrow svg{width:22px;height:22px;}
+  }
+  .points-dots{display:none;justify-content:center;gap:9px;margin-top:20px;}
+  .points-dot{width:8px;height:8px;border-radius:50%;background:var(--line-strong);border:0;cursor:pointer;padding:0;}
+  .points-dot.is-active{background:#D8AE84;}
+
+  /* ---------- areas of application: full-bleed gold band ---------- */
+  .areas-band{
+    width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
+    background:var(--cream-deep);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:46px 24px 42px;
+    margin-top:44px;margin-bottom:8px;
+  }
+  .areas-band-inner{max-width:1140px;margin:0 auto;}
+  .areas-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+  }
+  @media (max-width:900px){ .areas-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .areas-grid{grid-template-columns:1fr;} }
+  .areas-item{
+    display:flex;flex-direction:column;gap:14px;align-items:flex-start;
+    background:#fff;border-radius:8px;
+    border:1px solid rgba(107,93,77,0.14);
+    box-shadow:0 8px 22px rgba(36,31,23,0.05);
+    padding:24px 22px;
+  }
+  .areas-icon{
+    flex:0 0 auto;width:48px;height:48px;border-radius:50%;
+    background:var(--cream-deep);border:1px solid rgba(216,174,132,0.55);
+    display:flex;align-items:center;justify-content:center;color:#D8AE84;
+  }
+  .areas-icon svg{width:24px;height:24px;}
+  .areas-text{font-size:0.92rem;color:var(--taupe);line-height:1.6;padding-top:2px;}
+  .areas-text strong{
+    display:block;color:var(--ink);
+    font-family:'Bodoni Moda',serif;font-weight:600;font-size:1rem;margin-bottom:3px;
+  }
+
+  /* ---------- benefits: rotating badge carousel ---------- */
+  .benefit-carousel{margin:0;}
+  .benefit-dial{display:flex;justify-content:center;gap:22px;margin-bottom:26px;}
+  .benefit-badge{
+    width:72px;height:72px;border-radius:50%;flex:0 0 auto;
+    background:#fff;border:2px solid rgba(216,174,132,0.4);
+    display:flex;align-items:center;justify-content:center;color:#D8AE84;
+    cursor:pointer;padding:0;
+    transition:transform 0.35s ease, border-color 0.35s ease, background 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
+  }
+  .benefit-badge svg{width:28px;height:28px;}
+  .benefit-badge.is-active{
+    background:#D8AE84;border-color:#D8AE84;color:var(--ink);
+    transform:scale(1.18);
+    box-shadow:0 10px 26px rgba(216,174,132,0.4);
+  }
+  .benefit-detail{
+    position:relative;min-height:104px;
+    background:#fff;border:1px solid var(--line);border-radius:22px;padding:32px 36px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .benefit-detail-text{
+    display:none;color:var(--taupe);font-size:0.98rem;line-height:1.7;
+    margin:0;text-align:center;max-width:46ch;
+  }
+  .benefit-detail-text strong{
+    display:block;color:var(--ink);
+    font-family:'Bodoni Moda',serif;font-weight:600;font-size:1.15rem;margin-bottom:6px;
+  }
+  .benefit-detail-text.is-active{display:block;animation:benefitFade 0.4s ease;}
+  @keyframes benefitFade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+  @media (max-width:600px){
+    .benefit-dial{gap:14px;}
+    .benefit-badge{width:58px;height:58px;}
+    .benefit-badge svg{width:22px;height:22px;}
+    .benefit-detail{padding:26px 22px;min-height:130px;}
+  }
+
+  footer{background:var(--ink);color:#CFC5B4;padding-block:52px 28px;}
+  footer .wrap{max-width:1180px;padding-top:0;padding-bottom:0;}
+  .foot-grid{
+    display:grid;grid-template-columns:1fr;gap:36px;
+    padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+  @media (min-width:760px){
+    .foot-grid{grid-template-columns:1.2fr 0.8fr 0.8fr;}
+  }
+  .foot-brand-top{display:flex;align-items:center;gap:16px;margin-bottom:16px;}
+  .foot-brand img{height:48px;width:auto;}
+  .foot-brand-word{font-family:'Bodoni Moda',serif;font-size:1.4rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--cream);}
+  .foot-brand p{max-width:34ch;font-size:0.88rem;color:#B4A997;}
+  .foot-social{display:flex;gap:12px;margin-top:18px;}
+  .foot-social a{
+    width:38px;height:38px;border-radius:50%;
+    border:1px solid rgba(207,197,180,0.35);
+    display:flex;align-items:center;justify-content:center;
+    color:#CFC5B4;transition:border-color 0.15s,color 0.15s;
+  }
+  .foot-social a:hover{color:#fff;border-color:#fff;}
+  .foot-social svg{width:18px;height:18px;}
+  .foot-col h4{
+    font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;
+    color:#D8AE84;margin-bottom:14px;font-family:'Karla',sans-serif;font-weight:600;
+  }
+  .foot-col a{display:block;text-decoration:none;color:#CFC5B4;font-size:0.9rem;padding-block:5px;}
+  .foot-col a:hover{color:#fff;}
+  .foot-bottom{
+    display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
+    padding-top:22px;font-size:0.78rem;color:#8C816E;
+  }
+  .foot-legal{display:flex;flex-wrap:wrap;gap:16px;}
+  .foot-legal a{color:#8C816E;text-decoration:none;}
+  .foot-legal a:hover{color:#CFC5B4;}
+</style>
+</head>
+<body>
+<div class="draft-banner" data-i18n="banner">
+  <strong>Arcana</strong> deriva dal latino <strong>arcanum</strong>, che significa segreto, nascosto.
+</div>
+
+<header>
+  <nav class="wrap">
+    <a class="brand" href="index.html">
+      <img src="assets/logo-bianco.png" alt="Arcana Studio Logo">
+      <span class="brand-word">Arcana Studio</span>
+    </a>
+    <div class="nav-links">
+      <a href="behandlungen.html" data-i18n="nav.behandlungen">Trattamenti</a><span class="rule"></span>
+      <a href="mediostar.html" data-i18n="nav.mediostar">Mediostar Monolith</a><span class="rule"></span>
+      <a href="icoone.html" data-i18n="nav.icoone">Icoone</a><span class="rule"></span>
+      <a href="kontakt.html" data-i18n="nav.kontakt">Contatti</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-switch">
+        <button type="button" class="lang-toggle" id="lang-toggle" aria-haspopup="true" aria-expanded="false">
+          <span class="lang-current">IT</span>
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.4"/></svg>
+        </button>
+        <div class="lang-menu" id="lang-menu" hidden>
+          <button type="button" class="lang-option" data-lang="it">Italiano</button>
+          <button type="button" class="lang-option" data-lang="de">Deutsch</button>
+          <button type="button" class="lang-option" data-lang="en">English</button>
+          <button type="button" class="lang-option" data-lang="es">Español</button>
+          <button type="button" class="lang-option" data-lang="fr">Français</button>
+        </div>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span></span></button>
+      <a class="nav-cta" href="https://www.arcanabeautyshop.com" target="_blank" rel="noopener" data-i18n="nav.shop">Vai allo Shop ↗</a>
+    </div>
+  </nav>
+</header>
+<div class="wrap">
+  <div class="eyebrow" data-i18n="page.eyebrow">Corpo &amp; viso</div>
+  <h1 data-i18n="page.h1">Icoone</h1>
+  <div class="hero-rule"></div>
+  <p class="intro-text" data-i18n="page.intro">Icoone è una tecnologia che fa parte del gruppo Esthelogue, esperti nella cura del corpo.</p>
+
+  <div class="photo-row-bleed">
+    <div class="photo-row">
+      <div class="photo-cell is-big is-product"><img src="assets/icoone-machine.png" alt="Icoone Laser – Gerät"></div>
+      <div class="photo-cell is-small-a"><img src="assets/icoone-handstueck-1.jpg" alt="Icoone Laser – Anwendung des Handstücks am Dekolleté"></div>
+      <div class="photo-cell is-small-b"><img src="assets/icoone-handstueck-2.jpg" alt="Icoone Laser – Anwendung des Handstücks am Bein"></div>
+    </div>
+  </div>
+
+  <p class="how-heading" data-i18n="page.howHeading">Come funziona l'Icoone Laser?</p>
+  <div class="points-slideshow" id="howSlideshow">
+    <div class="points-stage">
+      <div class="points-viewport">
+        <div class="point-slide is-active" data-index="0">
+          <div class="feature-card">
+            <span class="feature-number">01</span>
+            <p data-i18n="page.how1"><strong>Stimolazione micro-alveolare:</strong> rulli motorizzati speciali (tecnologia Roboderm) con minuscoli fori scorrono sulla pelle e generano una stimolazione tissutale delicata ma profonda, simile a un massaggio a due mani.</p>
+          </div>
+        </div>
+        <div class="point-slide" data-index="1">
+          <div class="feature-card">
+            <span class="feature-number">02</span>
+            <p data-i18n="page.how2"><strong>Energia laser e LED:</strong> laser a diodi e sorgenti luminose LED integrati penetrano negli strati più profondi della pelle. La luce stimola la produzione di collagene ed elastina, favorisce la lipolisi (scissione dei grassi) e rende le cellule adipose più permeabili.</p>
+          </div>
+        </div>
+        <div class="point-slide" data-index="2">
+          <div class="feature-card">
+            <span class="feature-number">03</span>
+            <p data-i18n="page.how3"><strong>Attivazione linfatica:</strong> il movimento simultaneo di vuoto e rulli stimola la microcircolazione e il flusso linfatico.</p>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="points-arrow points-arrow-prev" aria-label="Precedente">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <button type="button" class="points-arrow points-arrow-next" aria-label="Successivo">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
+    <div class="points-dots">
+      <button type="button" class="points-dot is-active" data-index="0" aria-label="Slide 1"></button>
+      <button type="button" class="points-dot" data-index="1" aria-label="Slide 2"></button>
+      <button type="button" class="points-dot" data-index="2" aria-label="Slide 3"></button>
+    </div>
+  </div>
+
+  <div class="areas-band">
+    <div class="areas-band-inner">
+      <div class="areas-grid">
+        <div class="areas-item">
+          <div class="areas-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8c1.5-2 3.5-2 5 0s3.5 2 5 0 3.5-2 5 0 3.5 2 5 0"/><path d="M2 14c1.5-2 3.5-2 5 0s3.5 2 5 0 3.5-2 5 0 3.5 2 5 0"/></svg>
+          </div>
+          <div class="areas-text" data-i18n="page.area1"><strong>Riduzione della cellulite:</strong> leviga l'aspetto della pelle e riduce gli inestetismi.</div>
+        </div>
+        <div class="areas-item">
+          <div class="areas-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 12c2-3 4-3 5 0s3 3 5 0"/></svg>
+          </div>
+          <div class="areas-text" data-i18n="page.area2"><strong>Tonificazione della pelle:</strong> migliora l'elasticità della pelle rilassata (ad es. su gambe, addome o braccia).</div>
+        </div>
+        <div class="areas-item">
+          <div class="areas-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8"/><path d="M8 20h8"/><path d="M8 4c0 4 4 6 4 8s-4 4-4 8"/><path d="M16 4c0 4-4 6-4 8s4 4 4 8"/></svg>
+          </div>
+          <div class="areas-text" data-i18n="page.area3"><strong>Rimodellamento corporeo (bodyforming):</strong> aiuta a ridurre i depositi di grasso localizzati e ostinati.</div>
+        </div>
+        <div class="areas-item">
+          <div class="areas-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 5 7 9 7 12a7 7 0 0 1-14 0c0-3 3-7 7-12z"/></svg>
+          </div>
+          <div class="areas-text" data-i18n="page.area4"><strong>Drenaggio:</strong> favorisce l'eliminazione dei liquidi in eccesso e riduce i gonfiori.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="benefits-heading" data-i18n="page.benefitsHeading">Vantaggi del trattamento</p>
+  <div class="benefit-carousel" id="benefitCarousel">
+    <div class="benefit-dial">
+      <button type="button" class="benefit-badge is-active" data-index="0" aria-label="Indolore">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.6-10-9.3C.6 8.4 2 4.8 5.4 4A5 5 0 0 1 12 6.5 5 5 0 0 1 18.6 4C22 4.8 23.4 8.4 22 11.7 19.5 16.4 12 21 12 21z"/></svg>
+      </button>
+      <button type="button" class="benefit-badge" data-index="1" aria-label="Adatto alla routine quotidiana">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M8 3v4"/><path d="M16 3v4"/><circle cx="8" cy="15" r="1"/><circle cx="12" cy="15" r="1"/><circle cx="16" cy="15" r="1"/></svg>
+      </button>
+      <button type="button" class="benefit-badge" data-index="2" aria-label="Per ogni tipo di pelle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 3 6 6.5 6 10a6 6 0 0 1-12 0c0-3.5 3-7 6-10z"/><path d="M9.5 14a2.5 2.5 0 0 0 2.5 2.5"/></svg>
+      </button>
+    </div>
+    <div class="benefit-detail">
+      <p class="benefit-detail-text is-active" data-i18n="page.benefit1"><strong>Indolore:</strong> non comporta tempi di inattività.</p>
+      <p class="benefit-detail-text" data-i18n="page.benefit2"><strong>Adatto alla routine quotidiana:</strong> è talmente delicato che (a seconda del protocollo) può essere applicato anche quotidianamente.</p>
+      <p class="benefit-detail-text" data-i18n="page.benefit3"><strong>Per ogni tipo di pelle:</strong> adatto a quasi tutti i tipi di pelle e persino alle zone sensibili del viso e del corpo!!!</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-brand-top">
+          <img src="assets/logo-bianco.png" alt="Arcana Studio">
+          <span class="foot-brand-word">Arcana Studio</span>
+        </div>
+        <p data-i18n="footer.tagline">Studio für Behandlungen von Simona Greco — Hauptmarke, bei der es jetzt auch Arcana Skincare gibt.</p>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/arcanasimonagreco/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.3"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://wa.me/393441712506" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.4 1.26 4.83L2 22l5.36-1.31a9.9 9.9 0 0 0 4.68 1.19h.004c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2zm0 18.2h-.003a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.76.84-3.03-.2-.31a8.18 8.18 0 0 1-1.26-4.36c0-4.52 3.68-8.2 8.22-8.2 2.2 0 4.26.86 5.82 2.41a8.15 8.15 0 0 1 2.41 5.8c0 4.53-3.69 8.26-8.2 8.26zm4.5-6.16c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.17.25-.64.8-.78.96-.14.17-.29.19-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.39-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31s-.87.85-.87 2.08.89 2.42 1.02 2.59c.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.66-1.17.21-.58.21-1.08.14-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="footer.quickLinks">Quick Links</h4>
+        <a href="behandlungen.html" data-i18n="nav.behandlungen">Behandlungen</a>
+        <a href="mediostar.html" data-i18n="nav.mediostar">Mediostar Monolith</a>
+        <a href="icoone.html" data-i18n="nav.icoone">Icoone</a>
+        <a href="kontakt.html" data-i18n="nav.kontakt">Kontakt</a>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="footer.moreHeading">Mehr</h4>
+        <a href="https://www.arcanabeautyshop.com" target="_blank" rel="noopener" data-i18n="footer.linkShop">Arcana Beauty Shop ↗</a>
+        <a href="https://www.instagram.com/arcanasimonagreco/" target="_blank" rel="noopener" data-i18n="footer.linkInstagram">Instagram ↗</a>
+      </div>
+    </div>
+    <div class="wrap foot-bottom" style="padding-left:0;padding-right:0;">
+      <span data-i18n="footer.copyright">© 2026 Arcana Studio · Simona Greco</span>
+      <div class="foot-legal">
+        <a href="impressum.html" data-i18n="footer.legalNotice">Impressum</a>
+        <a href="privacy.html" data-i18n="footer.privacyPolicy">Datenschutz</a>
+        <a href="cookie.html" data-i18n="footer.cookiePolicy">Cookies</a>
+      </div>
+      <span data-i18n="footer.draftnote">Entwurf — nicht die endgültige Version</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var translations = {
+    de: {
+      "banner": '<strong>Arcana</strong> kommt vom lateinischen <strong>arcanum</strong> — das Geheimnis, das Verborgene.',
+      "nav.behandlungen":"Behandlungen","nav.mediostar":"Mediostar Monolith","nav.icoone":"Icoone","nav.kontakt":"Kontakt","nav.shop":"Zum Shop ↗",
+      "footer.tagline":"Studio für Behandlungen von Simona Greco — Hauptmarke, bei der es jetzt auch Arcana Skincare gibt.",
+      "footer.studioHeading":"Studio","footer.quickLinks":"Quick Links","footer.linkAbout":"Über uns","footer.linkTreatments":"Behandlungen","footer.linkClass":"Simona Greco","footer.linkContact":"Kontakt",
+      "footer.moreHeading":"Mehr","footer.linkShop":"Arcana Beauty Shop ↗","footer.linkInstagram":"Instagram ↗",
+      "footer.copyright":"© 2026 Arcana Studio · Simona Greco","footer.draftnote":"Entwurf — nicht die endgültige Version",
+      "footer.legalNotice":"Impressum","footer.privacyPolicy":"Datenschutz","footer.cookiePolicy":"Cookies",
+      "page.eyebrow":"Körper & Gesicht","page.h1":"Icoone",
+      "page.intro":"Der Icoone Laser ist ein innovatives, nicht-invasives Gerät für die apparative Kosmetik und Körperformung (Bodyforming), das eine mechanische Bindegewebsmassage mit Laser- und LED-Licht kombiniert.",
+      "page.howHeading":"Wie funktioniert der Icoone Laser?",
+      "page.how1":"<strong>Mikro-alveoläre Stimulation:</strong> Spezielle motorisierte Rollen (Roboderm-Technologie) mit winzigen Löchern rollen über die Haut und erzeugen eine sanfte, aber tiefe Gewebestimulation, die sich wie eine zweihändige Massage anfühlt.",
+      "page.how2":"<strong>Laser- und LED-Energie:</strong> Integrierte Dioden-Laser und LED-Lichtquellen dringen in tiefere Hautschichten ein. Das Licht regt die Kollagen- und Elastinproduktion an, fördert die Fettspaltung (Lipolyse) und macht die Fettzellen durchlässiger.",
+      "page.how3":"<strong>Lymphaktivierung:</strong> Die gleichzeitige Vakuum- und Rollenbewegung regt die Mikrozirkulation und den Lymphfluss an.",
+      "page.areasHeading":"Anwendungsbereiche",
+      "page.area1":"<strong>Cellulite-Reduktion:</strong> Glättet das Hautbild und mindert Dellen.",
+      "page.area2":"<strong>Hautstraffung:</strong> Verbessert die Elastizität bei schlaffer Haut (z. B. an Beinen, Bauch oder Armen).",
+      "page.area3":"<strong>Körperformung (Bodyforming):</strong> Hilft beim Reduzieren hartnäckiger, lokaler Fettdepots.",
+      "page.area4":"<strong>Entwässerung:</strong> Unterstützt den Abtransport von eingelagertem Wasser und reduziert Schwellungen.",
+      "page.benefitsHeading":"Vorteile der Behandlung",
+      "page.benefit1":"<strong>Schmerzfrei:</strong> hinterlässt keine Ausfallzeiten.",
+      "page.benefit2":"<strong>Für den Alltag geeignet:</strong> so schonend, dass sie (je nach Protokoll) sogar täglich angewendet werden kann.",
+      "page.benefit3":"<strong>Für jeden Hauttyp:</strong> geeignet für fast jeden Hauttyp, selbst für sensible Bereiche im Gesicht und am Körper!!!",
+      "page.cta":"Termin anfragen"
+    },
+    it: {
+      "banner": '<strong>Arcana</strong> deriva dal latino <strong>arcanum</strong>, che significa segreto, nascosto.',
+      "nav.behandlungen":"Trattamenti","nav.mediostar":"Mediostar Monolith","nav.icoone":"Icoone","nav.kontakt":"Contatto","nav.shop":"Vai allo Shop ↗",
+      "footer.tagline":"Studio per trattamenti di Simona Greco — marchio principale, dove ora si trova anche Arcana Skincare.",
+      "footer.studioHeading":"Studio","footer.quickLinks":"Quick Links","footer.linkAbout":"Chi siamo","footer.linkTreatments":"Trattamenti","footer.linkClass":"Simona Greco","footer.linkContact":"Contatto",
+      "footer.moreHeading":"Altro","footer.linkShop":"Arcana Beauty Shop ↗","footer.linkInstagram":"Instagram ↗",
+      "footer.copyright":"© 2026 Arcana Studio · Simona Greco","footer.draftnote":"Bozza — non è la versione definitiva",
+      "footer.legalNotice":"Note Legali","footer.privacyPolicy":"Privacy Policy","footer.cookiePolicy":"Cookie Policy",
+      "page.eyebrow":"Corpo & viso","page.h1":"Icoone",
+      "page.intro":"Il laser Icoone è un dispositivo innovativo e non invasivo per la cosmetica strumentale e il rimodellamento corporeo (bodyforming), che combina un massaggio meccanico del tessuto connettivo con luce laser e LED.",
+      "page.howHeading":"Come funziona il laser Icoone?",
+      "page.how1":"<strong>Stimolazione micro-alveolare:</strong> rulli motorizzati speciali (tecnologia Roboderm) con minuscoli fori scorrono sulla pelle e generano una stimolazione tissutale delicata ma profonda, simile a un massaggio a due mani.",
+      "page.how2":"<strong>Energia laser e LED:</strong> laser a diodi e sorgenti luminose LED integrati penetrano negli strati più profondi della pelle. La luce stimola la produzione di collagene ed elastina, favorisce la lipolisi (scissione dei grassi) e rende le cellule adipose più permeabili.",
+      "page.how3":"<strong>Attivazione linfatica:</strong> il movimento simultaneo di vuoto e rulli stimola la microcircolazione e il flusso linfatico.",
+      "page.areasHeading":"Ambiti di applicazione",
+      "page.area1":"<strong>Riduzione della cellulite:</strong> leviga l'aspetto della pelle e riduce gli inestetismi.",
+      "page.area2":"<strong>Tonificazione della pelle:</strong> migliora l'elasticità della pelle rilassata (ad es. su gambe, addome o braccia).",
+      "page.area3":"<strong>Rimodellamento corporeo (bodyforming):</strong> aiuta a ridurre i depositi di grasso localizzati e ostinati.",
+      "page.area4":"<strong>Drenaggio:</strong> favorisce l'eliminazione dei liquidi in eccesso e riduce i gonfiori.",
+      "page.benefitsHeading":"Vantaggi del trattamento",
+      "page.benefit1":"<strong>Indolore:</strong> non comporta tempi di inattività.",
+      "page.benefit2":"<strong>Adatto alla routine quotidiana:</strong> è talmente delicato che (a seconda del protocollo) può essere applicato anche quotidianamente.",
+      "page.benefit3":"<strong>Per ogni tipo di pelle:</strong> adatto a quasi tutti i tipi di pelle e persino alle zone sensibili del viso e del corpo!!!",
+      "page.cta":"Richiedi un appuntamento"
+    },
+    en: {
+      "banner": '<strong>Arcana</strong> comes from the Latin <strong>arcanum</strong>, meaning secret, hidden.',
+      "nav.behandlungen":"Treatments","nav.mediostar":"Mediostar Monolith","nav.icoone":"Icoone","nav.kontakt":"Contact","nav.shop":"Visit the Shop ↗",
+      "footer.tagline":"Treatment studio by Simona Greco — the main brand, now also home to Arcana Skincare.",
+      "footer.studioHeading":"Studio","footer.quickLinks":"Quick Links","footer.linkAbout":"About","footer.linkTreatments":"Treatments","footer.linkClass":"Simona Greco","footer.linkContact":"Contact",
+      "footer.moreHeading":"More","footer.linkShop":"Arcana Beauty Shop ↗","footer.linkInstagram":"Instagram ↗",
+      "footer.copyright":"© 2026 Arcana Studio · Simona Greco","footer.draftnote":"Draft — not the final version",
+      "footer.legalNotice":"Legal Notice","footer.privacyPolicy":"Privacy Policy","footer.cookiePolicy":"Cookie Policy",
+      "page.eyebrow":"Body & Face","page.h1":"Icoone",
+      "page.intro":"The Icoone Laser is an innovative, non-invasive device for aesthetic body treatments and body contouring (bodyforming), combining a mechanical connective-tissue massage with laser and LED light.",
+      "page.howHeading":"How does the Icoone Laser work?",
+      "page.how1":"<strong>Micro-alveolar stimulation:</strong> special motorized rollers (Roboderm technology) with tiny holes roll over the skin, creating a gentle yet deep tissue stimulation that feels like a two-handed massage.",
+      "page.how2":"<strong>Laser and LED energy:</strong> integrated diode lasers and LED light sources penetrate deeper layers of the skin. The light stimulates collagen and elastin production, promotes fat breakdown (lipolysis) and makes fat cells more permeable.",
+      "page.how3":"<strong>Lymphatic activation:</strong> the simultaneous vacuum and rolling motion stimulates microcirculation and lymphatic flow.",
+      "page.areasHeading":"Areas of application",
+      "page.area1":"<strong>Cellulite reduction:</strong> smooths the appearance of the skin and reduces dimpling.",
+      "page.area2":"<strong>Skin firming:</strong> improves elasticity in sagging skin (e.g. on legs, abdomen or arms).",
+      "page.area3":"<strong>Body contouring (bodyforming):</strong> helps reduce stubborn, localized fat deposits.",
+      "page.area4":"<strong>Drainage:</strong> supports the removal of retained water and reduces swelling.",
+      "page.benefitsHeading":"Benefits of the treatment",
+      "page.benefit1":"<strong>Painless:</strong> leaves no downtime.",
+      "page.benefit2":"<strong>Fits your routine:</strong> so gentle it can even be applied daily, depending on the protocol.",
+      "page.benefit3":"<strong>For every skin type:</strong> suitable for almost every skin type, even sensitive areas on the face and body!!!",
+      "page.cta":"Request an appointment"
+    },
+    fr: {
+      "banner": '<strong>Arcana</strong> vient du latin <strong>arcanum</strong>, qui signifie secret, caché.',
+      "nav.behandlungen":"Soins","nav.mediostar":"Mediostar Monolith","nav.icoone":"Icoone","nav.kontakt":"Contact","nav.shop":"Voir la boutique ↗",
+      "footer.tagline":"Studio de soins de Simona Greco — marque principale, où se trouve désormais aussi Arcana Skincare.",
+      "footer.studioHeading":"Studio","footer.quickLinks":"Quick Links","footer.linkAbout":"À propos","footer.linkTreatments":"Soins","footer.linkClass":"Simona Greco","footer.linkContact":"Contact",
+      "footer.moreHeading":"Plus","footer.linkShop":"Arcana Beauty Shop ↗","footer.linkInstagram":"Instagram ↗",
+      "footer.copyright":"© 2026 Arcana Studio · Simona Greco","footer.draftnote":"Brouillon — pas la version définitive",
+      "footer.legalNotice":"Mentions légales","footer.privacyPolicy":"Confidentialité","footer.cookiePolicy":"Cookies",
+      "page.eyebrow":"Corps & visage","page.h1":"Icoone",
+      "page.intro":"Le laser Icoone est un appareil innovant et non invasif pour la cosmétique instrumentale et le remodelage corporel (bodyforming), qui combine un massage mécanique du tissu conjonctif avec de la lumière laser et LED.",
+      "page.howHeading":"Comment fonctionne le laser Icoone ?",
+      "page.how1":"<strong>Stimulation micro-alvéolaire :</strong> des rouleaux motorisés spéciaux (technologie Roboderm) munis de minuscules orifices glissent sur la peau et créent une stimulation tissulaire douce mais profonde, comparable à un massage à deux mains.",
+      "page.how2":"<strong>Énergie laser et LED :</strong> des lasers à diode et des sources lumineuses LED intégrés pénètrent dans les couches plus profondes de la peau. La lumière stimule la production de collagène et d'élastine, favorise la lipolyse (dégradation des graisses) et rend les cellules graisseuses plus perméables.",
+      "page.how3":"<strong>Activation lymphatique :</strong> le mouvement simultané de vide et de roulement stimule la microcirculation et le flux lymphatique.",
+      "page.areasHeading":"Domaines d'application",
+      "page.area1":"<strong>Réduction de la cellulite :</strong> lisse l'aspect de la peau et atténue les capitons.",
+      "page.area2":"<strong>Raffermissement de la peau :</strong> améliore l'élasticité d'une peau relâchée (par ex. sur les jambes, le ventre ou les bras).",
+      "page.area3":"<strong>Remodelage corporel (bodyforming) :</strong> aide à réduire les dépôts de graisse localisés et tenaces.",
+      "page.area4":"<strong>Drainage :</strong> favorise l'élimination de l'eau retenue et réduit les gonflements.",
+      "page.benefitsHeading":"Avantages du traitement",
+      "page.benefit1":"<strong>Indolore :</strong> aucun temps de récupération.",
+      "page.benefit2":"<strong>Adapté à un usage quotidien :</strong> si doux qu'il peut même être appliqué quotidiennement, selon le protocole.",
+      "page.benefit3":"<strong>Pour tous les types de peau :</strong> convient à presque tous les types de peau, y compris les zones sensibles du visage et du corps !!!",
+      "page.cta":"Demander un rendez-vous"
+    },
+    es: {
+      "banner": '<strong>Arcana</strong> viene del latín <strong>arcanum</strong>, que significa secreto, oculto.',
+      "nav.behandlungen":"Tratamientos","nav.mediostar":"Mediostar Monolith","nav.icoone":"Icoone","nav.kontakt":"Contacto","nav.shop":"Ir a la tienda ↗",
+      "footer.tagline":"Estudio de tratamientos de Simona Greco — marca principal, donde ahora también se encuentra Arcana Skincare.",
+      "footer.studioHeading":"Estudio","footer.quickLinks":"Quick Links","footer.linkAbout":"Sobre nosotros","footer.linkTreatments":"Tratamientos","footer.linkClass":"Simona Greco","footer.linkContact":"Contacto",
+      "footer.moreHeading":"Más","footer.linkShop":"Arcana Beauty Shop ↗","footer.linkInstagram":"Instagram ↗",
+      "footer.copyright":"© 2026 Arcana Studio · Simona Greco","footer.draftnote":"Borrador — no es la versión definitiva",
+      "footer.legalNotice":"Aviso Legal","footer.privacyPolicy":"Política de Privacidad","footer.cookiePolicy":"Política de Cookies",
+      "page.eyebrow":"Cuerpo & rostro","page.h1":"Icoone",
+      "page.intro":"El láser Icoone es un dispositivo innovador y no invasivo para la cosmética instrumental y el modelado corporal (bodyforming), que combina un masaje mecánico del tejido conectivo con luz láser y LED.",
+      "page.howHeading":"¿Cómo funciona el láser Icoone?",
+      "page.how1":"<strong>Estimulación microalveolar:</strong> rodillos motorizados especiales (tecnología Roboderm) con pequeños orificios se deslizan sobre la piel y generan una estimulación tisular suave pero profunda, similar a un masaje a dos manos.",
+      "page.how2":"<strong>Energía láser y LED:</strong> los láseres de diodo y las fuentes de luz LED integrados penetran en capas más profundas de la piel. La luz estimula la producción de colágeno y elastina, favorece la lipólisis (descomposición de grasas) y hace que las células grasas sean más permeables.",
+      "page.how3":"<strong>Activación linfática:</strong> el movimiento simultáneo de vacío y rodillos estimula la microcirculación y el flujo linfático.",
+      "page.areasHeading":"Áreas de aplicación",
+      "page.area1":"<strong>Reducción de la celulitis:</strong> alisa el aspecto de la piel y reduce los hoyuelos.",
+      "page.area2":"<strong>Reafirmación de la piel:</strong> mejora la elasticidad de la piel flácida (por ejemplo, en piernas, abdomen o brazos).",
+      "page.area3":"<strong>Modelado corporal (bodyforming):</strong> ayuda a reducir depósitos de grasa localizados y resistentes.",
+      "page.area4":"<strong>Drenaje:</strong> favorece la eliminación del agua retenida y reduce la hinchazón.",
+      "page.benefitsHeading":"Ventajas del tratamiento",
+      "page.benefit1":"<strong>Indoloro:</strong> no deja tiempo de inactividad.",
+      "page.benefit2":"<strong>Se adapta a tu rutina:</strong> es tan suave que (según el protocolo) puede aplicarse incluso a diario.",
+      "page.benefit3":"<strong>Para todo tipo de piel:</strong> ¡adecuado para casi todos los tipos de piel, incluso para zonas sensibles del rostro y el cuerpo!!!",
+      "page.cta":"Solicitar una cita"
+    }
+  };
+
+  function applyLang(lang){
+    var dict = translations[lang] || translations.de;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if(dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('.lang-option').forEach(function(btn){
+      btn.classList.toggle('is-active', btn.getAttribute('data-lang') === lang);
+    });
+    var langCurrentEl = document.querySelector('.lang-current');
+    if(langCurrentEl) langCurrentEl.textContent = lang.toUpperCase();
+    document.documentElement.setAttribute('lang', lang);
+    try{ localStorage.setItem('arcanaLang', lang); }catch(e){}
+  }
+
+  var langToggle = document.getElementById('lang-toggle');
+  var langMenu = document.getElementById('lang-menu');
+  function closeLangMenu(){ langMenu.hidden = true; langToggle.setAttribute('aria-expanded','false'); }
+  function openLangMenu(){ langMenu.hidden = false; langToggle.setAttribute('aria-expanded','true'); }
+  langToggle.addEventListener('click', function(e){
+    e.stopPropagation();
+    if(langMenu.hidden){ openLangMenu(); } else { closeLangMenu(); }
+  });
+  document.addEventListener('click', function(e){
+    if(!langMenu.hidden && !langMenu.contains(e.target) && e.target !== langToggle){ closeLangMenu(); }
+  });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLangMenu(); });
+  var navToggle = document.getElementById('nav-toggle');
+  var navLinksEl = document.querySelector('.nav-links');
+  if(navToggle && navLinksEl){
+    navToggle.addEventListener('click', function(e){
+      e.stopPropagation();
+      var isOpen = navLinksEl.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    navLinksEl.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        navLinksEl.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.addEventListener('click', function(e){
+      if(navLinksEl.classList.contains('is-open') && !navLinksEl.contains(e.target) && e.target !== navToggle){
+        navLinksEl.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){
+        navLinksEl.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+  document.querySelectorAll('.lang-option').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      applyLang(btn.getAttribute('data-lang'));
+      closeLangMenu();
+    });
+  });
+
+  var saved = 'it';
+  try{ saved = localStorage.getItem('arcanaLang') || 'it'; }catch(e){}
+  applyLang(translations[saved] ? saved : 'it');
+
+  (function(){
+    var root = document.getElementById('howSlideshow');
+    if(!root) return;
+    var viewport = root.querySelector('.points-viewport');
+    var slides = Array.prototype.slice.call(root.querySelectorAll('.point-slide'));
+    var dots = Array.prototype.slice.call(root.querySelectorAll('.points-dot'));
+    var current = 0;
+    function lockHeight(){
+      var maxH = 0;
+      slides.forEach(function(slide){
+        var prevDisplay = slide.style.display;
+        slide.style.display = 'block';
+        maxH = Math.max(maxH, slide.offsetHeight);
+        slide.style.display = prevDisplay;
+      });
+      viewport.style.minHeight = maxH + 'px';
+    }
+    lockHeight();
+    var resizeTimer;
+    window.addEventListener('resize', function(){
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(lockHeight, 150);
+    });
+    if(document.fonts && document.fonts.ready){ document.fonts.ready.then(lockHeight); }
+    function goTo(index){
+      current = (index + slides.length) % slides.length;
+      slides.forEach(function(slide, i){ slide.classList.toggle('is-active', i === current); });
+      dots.forEach(function(dot, i){ dot.classList.toggle('is-active', i === current); });
+    }
+    function next(){ goTo(current + 1); }
+    function prev(){ goTo(current - 1); }
+    root.querySelector('.points-arrow-next').addEventListener('click', next);
+    root.querySelector('.points-arrow-prev').addEventListener('click', prev);
+    dots.forEach(function(dot){
+      dot.addEventListener('click', function(){ goTo(parseInt(dot.getAttribute('data-index'), 10)); });
+    });
+    var touchStartX = null;
+    root.addEventListener('touchstart', function(e){ touchStartX = e.touches[0].clientX; }, {passive:true});
+    root.addEventListener('touchend', function(e){
+      if(touchStartX === null) return;
+      var dx = e.changedTouches[0].clientX - touchStartX;
+      if(Math.abs(dx) > 40){ dx < 0 ? next() : prev(); }
+      touchStartX = null;
+    }, {passive:true});
+  })();
+
+  (function(){
+    var root = document.getElementById('benefitCarousel');
+    if(!root) return;
+    var badges = Array.prototype.slice.call(root.querySelectorAll('.benefit-badge'));
+    var texts = Array.prototype.slice.call(root.querySelectorAll('.benefit-detail-text'));
+    var current = 0;
+    var timer = null;
+    function goTo(index){
+      current = (index + badges.length) % badges.length;
+      badges.forEach(function(b, i){ b.classList.toggle('is-active', i === current); });
+      texts.forEach(function(t, i){ t.classList.toggle('is-active', i === current); });
+    }
+    function startAuto(){
+      clearInterval(timer);
+      timer = setInterval(function(){ goTo(current + 1); }, 4000);
+    }
+    badges.forEach(function(badge){
+      badge.addEventListener('click', function(){
+        goTo(parseInt(badge.getAttribute('data-index'), 10));
+        startAuto();
+      });
+    });
+    startAuto();
+  })();
+</script>
+</body>
+</html>

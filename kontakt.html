@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<script>(function(){if('scrollRestoration' in history){history.scrollRestoration='manual';}var frames=0;function toTop(){window.scrollTo(0,0);frames++;if(frames<20){requestAnimationFrame(toTop);}}toTop();window.addEventListener('pageshow',function(){frames=0;toTop();});})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="assets/favicon-black.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" href="assets/favicon-white.png" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="favicon.ico" sizes="any">
+<title>Kontakt — Arcana Studio</title>
+<meta name="description" content="Kontaktiere Arcana Studio von Simona Greco für Termine und Anfragen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..500;0,6..96,600;1,6..96,500&family=Karla:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FCF8F1;
+    --cream-deep:#F4EDE0;
+    --ink:#241F17;
+    --taupe:#6B5D4D;
+    --terracotta:#6B5D4D;
+    --line:#E3D9C8;
+    --line-strong:#CFC2AC;
+    --max:960px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Karla', -apple-system, sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  h1,h2{
+    font-family:'Bodoni Moda', Georgia, serif;
+    font-weight:500;
+    margin:0;
+  }
+  img{max-width:100%;display:block;}
+  .rule{
+    width:1px;height:0.9em;background:currentColor;opacity:0.35;
+    display:inline-block;margin:0 0.6em;vertical-align:middle;
+  }
+  .eyebrow{
+    font-size:0.76rem;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--taupe);margin-bottom:6px;
+    text-align:center;
+  }
+
+  /* ---------- draft banner ---------- */
+  .draft-banner{
+    background:var(--ink);color:var(--cream);text-align:center;
+    font-size:0.78rem;letter-spacing:0.03em;padding:9px 16px;
+  }
+  .draft-banner strong{color:#E9C6A8;font-weight:600;}
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky;top:0;z-index:40;
+    background:var(--taupe);
+    border-bottom:1px solid rgba(0,0,0,0.15);
+  }
+  nav.wrap{
+    display:grid;grid-template-columns:auto 1fr auto;align-items:center;
+    gap:14px 24px;padding-block:14px;
+    max-width:1180px;margin:0 auto;padding-inline:24px;
+  }
+  @media (min-width:640px){ nav.wrap{padding-inline:40px;} }
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--cream);justify-self:start;}
+  .brand img{height:34px;width:auto;}
+  .brand-word{font-family:'Bodoni Moda',serif;font-size:1.05rem;letter-spacing:0.08em;text-transform:uppercase;}
+  .nav-right{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-self:end;}
+  .nav-links{
+    display:none;align-items:center;justify-self:center;
+    font-size:0.86rem;letter-spacing:0.02em;color:var(--cream);
+  }
+  .nav-links .rule{opacity:0.4;}
+  .nav-links a{text-decoration:none;padding:6px 0;border-bottom:1px solid transparent;color:var(--cream);}
+  .nav-links a:hover{border-color:#E9C6A8;}
+  @media (min-width:860px){ .nav-links{display:flex;} }
+  .nav-toggle{
+    display:none;
+    background:none;border:1px solid rgba(252,248,241,0.5);
+    width:38px;height:38px;flex-shrink:0;
+    align-items:center;justify-content:center;
+    cursor:pointer;position:relative;
+  }
+  .nav-toggle span{
+    display:block;width:18px;height:2px;background:var(--cream);
+    position:relative;transition:background 0.15s;
+  }
+  .nav-toggle span::before,.nav-toggle span::after{
+    content:'';position:absolute;left:0;width:18px;height:2px;background:var(--cream);
+    transition:transform 0.15s;
+  }
+  .nav-toggle span::before{top:-6px;}
+  .nav-toggle span::after{top:6px;}
+  .nav-toggle[aria-expanded="true"] span{background:transparent;}
+  .nav-toggle[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg);}
+  .nav-toggle[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg);}
+  @media (max-width:859px){
+    nav.wrap{position:relative;}
+    .nav-toggle{display:inline-flex;}
+    .nav-cta{display:none;}
+    .nav-links{
+      display:none;
+      position:absolute;top:100%;right:0;
+      flex-direction:column;align-items:stretch;
+      background:var(--taupe);
+      min-width:220px;
+      padding:0;
+      box-shadow:0 16px 30px rgba(0,0,0,0.18);
+      z-index:50;
+    }
+    .nav-links.is-open{display:flex;}
+    .nav-links .rule{display:none;}
+    .nav-links a{padding:14px 24px;border-bottom:1px solid rgba(252,248,241,0.15);text-align:left;}
+    .nav-links a:last-child{border-bottom:none;}
+  }
+
+  .lang-switch{position:relative;}
+  .lang-toggle{
+    display:flex;align-items:center;gap:8px;
+    background:none;border:1px solid rgba(252,248,241,0.5);color:var(--cream);
+    padding:8px 14px;font:inherit;font-family:'Karla',sans-serif;
+    font-size:0.76rem;letter-spacing:0.06em;text-transform:uppercase;
+    cursor:pointer;transition:border-color 0.15s;
+  }
+  .lang-toggle:hover{border-color:var(--cream);}
+  .lang-toggle svg{flex-shrink:0;transition:transform 0.15s;}
+  .lang-toggle[aria-expanded="true"] svg{transform:rotate(180deg);}
+  .lang-menu{
+    position:absolute;top:calc(100% + 10px);right:0;
+    display:flex;flex-direction:column;
+    background:var(--cream);border:1px solid var(--line-strong);
+    min-width:170px;box-shadow:0 14px 30px rgba(36,31,23,0.2);z-index:60;
+  }
+  .lang-menu[hidden]{display:none;}
+  .lang-option{
+    background:none;border:none;text-align:left;padding:11px 16px;
+    font:inherit;font-family:'Karla',sans-serif;font-size:0.88rem;
+    color:var(--ink);cursor:pointer;border-bottom:1px solid var(--line);
+  }
+  .lang-option:last-child{border-bottom:none;}
+  .lang-option:hover{background:var(--cream-deep);}
+  .lang-option.is-active{font-weight:700;color:var(--terracotta);}
+
+  .nav-cta{
+    border:1px solid var(--cream);color:var(--cream);padding:9px 18px;
+    font-size:0.8rem;letter-spacing:0.04em;text-decoration:none;white-space:nowrap;
+    transition:background 0.15s, color 0.15s;
+  }
+  .nav-cta:hover{background:var(--cream);color:var(--taupe);}
+
+  .wrap{max-width:var(--max);margin:0 auto;padding:56px 24px 40px;}
+  h1{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:10px;text-align:center;}
+  p{color:var(--taupe);font-size:0.96rem;margin:0 0 14px;max-width:58ch;}
+  p a{color:var(--ink);text-decoration-color:var(--line-strong);}
+  p a:hover{color:var(--terracotta);}
+
+  /* ---------- contact ---------- */
+  .contact-intro{text-align:center;margin-bottom:44px;}
+  .contact-intro p{margin-left:auto;margin-right:auto;}
+  .contact-top{
+    display:grid;grid-template-columns:1fr;gap:36px;
+    max-width:900px;margin:0 auto;
+  }
+  @media (min-width:700px){
+    .contact-top{grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+  }
+  .info-list{
+    display:grid;grid-template-columns:1fr;gap:22px;
+  }
+  .info-list > div{border-bottom:1px solid var(--line);padding-bottom:18px;}
+  .info-list .k{
+    font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--terracotta);margin-bottom:6px;
+  }
+  .info-list .v{color:var(--ink);font-size:0.98rem;}
+
+  .map-embed{
+    width:100%;min-height:240px;height:100%;
+    border:1px solid var(--line-strong);overflow:hidden;
+  }
+  .map-embed iframe{width:100%;height:100%;min-height:240px;border:0;display:block;}
+
+  /* ---------- form section (full-bleed, flows into footer) ---------- */
+  .form-section{
+    background:var(--cream-deep);
+    border-top:1px solid var(--line-strong);
+    margin-top:0;
+    padding:48px 24px 76px;
+  }
+  .form-wrap{max-width:700px;margin:0 auto;padding:0;}
+  .form-heading{
+    font-size:clamp(1.4rem,3vw,1.8rem);text-align:center;
+    margin:0 0 30px;
+  }
+  form{display:grid;grid-template-columns:1fr 1fr;gap:18px 28px;width:100%;}
+  form .field:has(select),form .field:has(textarea),form > button{grid-column:1 / -1;}
+  @media (max-width:560px){
+    form{grid-template-columns:1fr;}
+    form > *{grid-column:auto;}
+  }
+  .field{display:flex;flex-direction:column;gap:6px;}
+  .field label{
+    font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--taupe);
+  }
+  .field input,.field select,.field textarea{
+    font-family:'Karla',sans-serif;
+    font-size:0.98rem;
+    padding:12px 4px;
+    border:none;
+    border-bottom:1px solid var(--terracotta);
+    background:transparent;
+    color:var(--ink);
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{
+    outline:none;border-bottom-color:#564A3E;
+  }
+  .field select{
+    appearance:none;-webkit-appearance:none;-moz-appearance:none;
+    background:var(--terracotta) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23FFF8EE' stroke-width='1.6'><path d='M5 8l5 5 5-5'/></svg>") no-repeat right 14px center;
+    background-size:15px;
+    border:1px solid var(--terracotta);
+    color:#FFF8EE;
+    padding:12px 40px 12px 14px;
+    cursor:pointer;
+  }
+  .field select:hover{background-color:#564A3E;border-color:#564A3E;}
+  .field select:focus{
+    border-color:#564A3E;
+  }
+  .field select option{
+    background:var(--cream);color:var(--ink);
+  }
+  .field textarea{resize:vertical;min-height:90px;}
+  form .btn-fill{justify-self:start;border:none;cursor:pointer;margin-top:6px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 26px;
+    font-size:0.86rem;letter-spacing:0.03em;
+    text-decoration:none;
+    border:1px solid transparent;
+    transition:transform 0.15s, background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .btn-fill{background:var(--terracotta);color:#FFF8EE;}
+  .btn-fill:hover{background:#564A3E;}
+
+  footer{background:var(--ink);color:#CFC5B4;padding-block:52px 28px;}
+  footer .wrap{max-width:1180px;padding-top:0;padding-bottom:0;}
+  .foot-grid{
+    display:grid;grid-template-columns:1fr;gap:36px;
+    padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+  @media (min-width:760px){
+    .foot-grid{grid-template-columns:1.2fr 0.8fr 0.8fr;}
+  }
+  .foot-brand-top{display:flex;align-items:center;gap:16px;margin-bottom:16px;}
+  .foot-brand img{height:48px;width:auto;}
+  .foot-brand-word{font-family:'Bodoni Moda',serif;font-size:1.4rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--cream);}
+  .foot-brand p{max-width:34ch;font-size:0.88rem;color:#B4A997;}
+  .foot-social{display:flex;gap:12px;margin-top:18px;}
+  .foot-social a{
+    width:38px;height:38px;border-radius:50%;
+    border:1px solid rgba(207,197,180,0.35);
+    display:flex;align-items:center;justify-content:center;
+    color:#CFC5B4;transition:border-color 0.15s,color 0.15s;
+  }
+  .foot-social a:hover{color:#fff;border-color:#fff;}
+  .foot-social svg{width:18px;height:18px;}
+  .foot-col h4{
+    font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;
+    color:#D8AE84;margin-bottom:14px;font-family:'Karla',sans-serif;font-weight:600;
+  }
+  .foot-col a{display:block;text-decoration:none;color:#CFC5B4;font-size:0.9rem;padding-block:5px;}
+  .foot-col a:hover{color:#fff;}
+  .foot-bottom{
+    display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
+    padding-top:22px;font-size:0.78rem;color:#8C816E;
+  }
+  .foot-legal{display:flex;flex-wrap:wrap;gap:16px;}
+  .foot-legal a{color:#8C816E;text-decoration:none;}
+  .foot-legal a:hover{color:#CFC5B4;}
+</style>
+</head>
+<body>
+<div class="draft-banner" data-i18n="banner">
+  <strong>Arcana</strong> kommt vom lateinischen <strong>arcanum</strong> — das Geheimnis, das Verborgene.
+</div>
+
+<header>
+  <nav class="wrap">
+    <a class="brand" href="index.html">
+      <img src="assets/logo-bianco.png" alt="Arcana Studio Logo">
+      <span class="brand-word">Arcana Studio</span>
+    </a>
+    <div class="nav-links">
+      <a href="behandlungen.html" data-i18n="nav.behandlungen">Behandlungen</a><span class="rule"></span>
+      <a href="mediostar.html" data-i18n="nav.mediostar">Mediostar Monolith</a><span class="rule"></span>
+      <a href="icoone.html" data-i18n="nav.icoone">Icoone</a><span class="rule"></span>
+      <a href="kontakt.html" data-i18n="nav.kontakt">Kontakt</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-switch">
+        <button type="button" class="lang-toggle" id="lang-toggle" aria-haspopup="true" aria-expanded="false">
+          <span class="lang-current">DE</span>
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.4"/></svg>
+        </button>
+        <div class="lang-menu" id="lang-menu" hidden>
+          <button type="button" class="lang-option" data-lang="it">Italiano</button>
+          <button type="button" class="lang-option" data-lang="de">Deutsch</button>
+          <button type="button" class="lang-option" data-lang="en">English</button>
+          <button type="button" class="lang-option" data-lang="es">Español</button>
+          <button type="button" class="lang-option" data-lang="fr">Français</button>
+        </div>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span></span></button>
+      <a class="nav-cta" href="https://www.arcanabeautyshop.com" target="_blank" rel="noopener" data-i18n="nav.shop">Zum Shop ↗</a>
+    </div>
+  </nav>
+</header>
+<div class="wrap">
+  <div class="contact-intro">
+    <h1 data-i18n="contact.h2">Kontakt &amp; Wo wir sind</h1>
+    <p data-i18n="contact.p">Schreib uns, welche Behandlung dich interessiert oder ob du mehr über "Simona Greco" erfahren möchtest.</p>
+  </div>
+  <div class="contact-top">
+    <div class="info-list">
+      <div><div class="k" data-i18n="info.address.k">Adresse</div><div class="v" data-i18n="info.address.v">Boznerstraße 2C, 39011 Lana, Südtirol (Italien)</div></div>
+      <div><div class="k" data-i18n="info.contact.k">Kontakt</div><div class="v" data-i18n="info.contact.v">+39 344 171 2506</div></div>
+      <div><div class="k" data-i18n="info.hours.k">Öffnungszeiten</div><div class="v" data-i18n="info.hours.v">[Platzhalter] Di–Fr 10–18 Uhr · Sa 10–14 Uhr</div></div>
+    </div>
+    <div class="map-embed">
+      <iframe id="map-iframe" src="https://www.google.com/maps?q=Boznerstra%C3%9Fe+2C,+39011+Lana,+BZ,+Italy&hl=de&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Arcana Studio auf Google Maps"></iframe>
+    </div>
+  </div>
+</div>
+
+<section class="form-section">
+  <div class="wrap form-wrap">
+    <h2 class="form-heading" data-i18n="form.heading">Kontaktformular</h2>
+    <form id="contact-form">
+      <input type="hidden" name="access_key" value="22289528-7c2a-49ff-b3d9-6c207a4f23b5">
+      <input type="hidden" name="subject" value="Neue Anfrage von arcanastudio.bz">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="field">
+        <label for="cf-name" data-i18n="form.name">Name</label>
+        <input id="cf-name" name="name" type="text" required>
+      </div>
+      <div class="field">
+        <label for="cf-email" data-i18n="form.email">E-Mail</label>
+        <input id="cf-email" name="email" type="email" required>
+      </div>
+      <div class="field">
+        <label for="cf-interesse" data-i18n="form.interest">Interesse</label>
+        <select id="cf-interesse" name="interesse">
+          <option data-i18n="form.opt1">Behandlung</option>
+          <option data-i18n="form.opt3">Sonstiges</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="cf-message" data-i18n="form.message">Nachricht</label>
+        <textarea id="cf-message" name="message" required></textarea>
+      </div>
+      <button class="btn btn-fill" type="submit" data-i18n="form.submit">Anfrage senden</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-brand-top">
+          <img src="assets/logo-bianco.png" alt="Arcana Studio">
+          <span class="foot-brand-word">Arcana Studio</span>
+        </div>
+        <p data-i18n="footer.tagline">Studio für Behandlungen von Simona Greco — Hauptmarke, bei der es jetzt auch Arcana Skincare gibt.</p>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/arcanasimonagreco/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.3"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://wa.me/393441712506" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.4 1.26 4.83L2 22l5.36-1.31a9.9 9.9 0 0 0 4.68 1.19h.004c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2zm0 18.2h-.003a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.76.84-3.03-.2-.31a8.18 8.18 0 0 1-1.26-4.36c0-4.52 3.68-8.2 8.22-8.2 2.2 0 4.26.86 5.82 2.41a8.15 8.15 0 0 1 2.41 5.8c0 4.53-3.69 8.26-8.2 8.26zm4.5-6.16c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.17.25-.64.8-.78.96-.14.17-.29.19-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.39-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31s-.87.85-.87 2.08.89 2.42 1.02 2.59c.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.66-1.17.21-.58.21-1.08.14-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="footer.quickLinks">Quick Links</h4>
+        <a href="behandlungen.html" data-i18n="nav.behandlungen">Behandlungen</a>
+        <a href="mediostar.html" data-i18n="nav.mediostar">Mediostar Monolith</a>
+        <a href="icoone.html" data-i18n="nav.icoone">Icoone</a>
+        <a href="kontakt.html" data-i18n="nav.kontakt">Kontakt</a>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="footer.moreHeading">Mehr</h4>
+        <a href="https://www.arcanabeautyshop.com" target="_blank" rel="noopener" data-i18n="footer.linkShop">Arcana Beauty Shop ↗</a>
+        <a href="https://www.instagram.com/arcanasimonagreco/" target="_blank" rel="noopener" data-i18n="footer.linkInstagram">Instagram ↗</a>
+      </div>
+    </div>
+    <div class="wrap foot-bottom" style="padding-left:0;padding-right:0;">
+      <span data-i18n="footer.copyright">© 2026 Arcana Studio · Simona Greco</span>
+      <div class="foot-legal">
+        <a href="impressum.html" data-i18n="footer.legalNotice">Impressum</a>
+        <a href="privacy.html" data-i18n="footer.privacyPolicy">Datenschutz</a>
+        <a href="cookie.html" data-i18n="footer.cookiePolicy">Cookies</a>
+      </div>
+      <span data-i18n="footer.draftnote">Entwurf — nicht die endgültige Version</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var translations = {
+    de: {
+      "banner": '<strong>Arcana</strong> kommt vom lateinischen <strong>arcanum</strong> — das Geheimnis, das Verborgene.',
+      "nav.behandlungen":"Behandlungen","nav.mediostar":"Mediostar Monolith","nav.icoone":"Icoone","nav.kontakt":"Kontakt","nav.shop":"Zum Shop ↗",
+      "footer.tagline":"Studio für Behandlungen von Simona Greco — Hauptmarke, bei der es jetzt auch Arcana Skincare gibt.",
+      "footer.studioHeading":"Studio","footer.quickLinks":"Quick Links","footer.linkAbout":"Über uns","footer.linkTreatments":"Behandlungen","footer.linkClass":"Simona Greco","footer.linkContact":"Kontakt",
+      "footer.moreHeading":"Mehr","footer.linkShop":"Arcana Beauty Shop ↗","footer.linkInstagram":"Instagram ↗",
+      "footer.copyright":"© 2026 Arcana Studio · Simona Greco","footer.draftnote":"Entwurf — nicht die endgültige Version",
+      "footer.legalNotice":"Impressum","footer.privacyPolicy":"Datenschutz","footer.cookiePolicy":"Cookies",
+      "contact.eyebrow":"Kontakt","contact.h2":"Kontakt & Wo wir sind",
+      "contact.p":'Schreib uns, welche Behandlung dich interessiert oder ob du mehr über "Simona Greco" erfahren möchtest.',
+      "form.heading":"Kontaktformular",
+      "info.address.k":"Adresse","info.address.v":"Boznerstraße 2C, 39011 Lana, Südtirol (Italien)",
+      "info.hours.k":"Öffnungszeiten","info.hours.v":"Mo–Fr 09:00–17:00 Uhr · Sa/So geschlossen",
+      "info.contact.k":"Kontakt","info.contact.v":"+39 344 171 2506",
+      "form.name":"Name","form.email":"E-Mail","form.interest":"Interesse","form.opt1":"Behandlungen","form.opt3":"Sonstiges",
+      "form.message":"Nachricht","form.submit":"Anfrage senden","form.submitted":"Danke, wir melden uns!","form.error":"Fehler beim Senden. Bitte versuchen Sie es erneut."
+    },
+    it: {
+      "banner": '<strong>Arcana</strong> deriva dal latino <strong>arcanum</strong>, che significa segreto, nascosto.',
+      "nav.behandlungen":"Trattamenti","nav.mediostar":"Mediostar Monolith","nav.icoone":"Icoone","nav.kontakt":"Contatto","nav.shop":"Vai allo Shop ↗",
+      "footer.tagline":"Studio per trattamenti di Simona Greco — marchio principale, dove ora si trova anche Arcana Skincare.",
+      "footer.studioHeading":"Studio","footer.quickLinks":"Quick Links","footer.linkAbout":"Chi siamo","footer.linkTreatments":"Trattamenti","footer.linkClass":"Simona Greco","footer.linkContact":"Contatto",
+      "footer.moreHeading":"Altro","footer.linkShop":"Arcana Beauty Shop ↗","footer.linkInstagram":"Instagram ↗",
+      "footer.copyright":"© 2026 Arcana Studio · Simona Greco","footer.draftnote":"Bozza — non è la versione definitiva",
+      "footer.legalNotice":"Note Legali","footer.privacyPolicy":"Privacy Policy","footer.cookiePolicy":"Cookie Policy",
+      "contact.eyebrow":"Contatti","contact.h2":"Contatti & Dove siamo",
+      "contact.p":'Scrivici quale trattamento ti interessa o se vuoi saperne di più su "Simona Greco".',
+      "form.heading":"Modulo di contatto",
+      "info.address.k":"Indirizzo","info.address.v":"Via Bolzano 2C, 39011 Lana (BZ), Alto Adige (Italia)",
+      "info.hours.k":"Orari","info.hours.v":"Lun–Ven 09:00–17:00 · Sab/Dom chiuso",
+      "info.contact.k":"Contatto","info.contact.v":"+39 344 171 2506",
+      "form.name":"Nome","form.email":"E-mail","form.interest":"Interesse","form.opt1":"Trattamenti","form.opt3":"Altro",
+      "form.message":"Messaggio","form.submit":"Invia richiesta","form.submitted":"Grazie, ti risponderemo presto!","form.error":"Errore durante l'invio. Riprova."
+    },
+    en: {
+      "banner": '<strong>Arcana</strong> comes from the Latin <strong>arcanum</strong>, meaning secret, hidden.',
+      "nav.behandlungen":"Treatments","nav.mediostar":"Mediostar Monolith","nav.icoone":"Icoone","nav.kontakt":"Contact","nav.shop":"Visit the Shop ↗",
+      "footer.tagline":"Treatment studio by Simona Greco — the main brand, now also home to Arcana Skincare.",
+      "footer.studioHeading":"Studio","footer.quickLinks":"Quick Links","footer.linkAbout":"About","footer.linkTreatments":"Treatments","footer.linkClass":"Simona Greco","footer.linkContact":"Contact",
+      "footer.moreHeading":"More","footer.linkShop":"Arcana Beauty Shop ↗","footer.linkInstagram":"Instagram ↗",
+      "footer.copyright":"© 2026 Arcana Studio · Simona Greco","footer.draftnote":"Draft — not the final version",
+      "footer.legalNotice":"Legal Notice","footer.privacyPolicy":"Privacy Policy","footer.cookiePolicy":"Cookie Policy",
+      "contact.eyebrow":"Contact","contact.h2":"Contact & Where to find us",
+      "contact.p":'Let us know which treatment interests you, or if you\'d like to learn more about "Simona Greco".',
+      "form.heading":"Contact form",
+      "info.address.k":"Address","info.address.v":"Via Bolzano 2C, 39011 Lana, South Tyrol (Italy)",
+      "info.hours.k":"Opening hours","info.hours.v":"Mon–Fri 9am–5pm · Sat/Sun closed",
+      "info.contact.k":"Contact","info.contact.v":"+39 344 171 2506",
+      "form.name":"Name","form.email":"Email","form.interest":"Interest","form.opt1":"Treatments","form.opt3":"Other",
+      "form.message":"Message","form.submit":"Send request","form.submitted":"Thank you, we'll be in touch!","form.error":"Something went wrong. Please try again."
+    },
+    fr: {
+      "banner": '<strong>Arcana</strong> vient du latin <strong>arcanum</strong>, qui signifie secret, caché.',
+      "nav.behandlungen":"Soins","nav.mediostar":"Mediostar Monolith","nav.icoone":"Icoone","nav.kontakt":"Contact","nav.shop":"Voir la boutique ↗",
+      "footer.tagline":"Studio de soins de Simona Greco — marque principale, où se trouve désormais aussi Arcana Skincare.",
+      "footer.studioHeading":"Studio","footer.quickLinks":"Quick Links","footer.linkAbout":"À propos","footer.linkTreatments":"Soins","footer.linkClass":"Simona Greco","footer.linkContact":"Contact",
+      "footer.moreHeading":"Plus","footer.linkShop":"Arcana Beauty Shop ↗","footer.linkInstagram":"Instagram ↗",
+      "footer.copyright":"© 2026 Arcana Studio · Simona Greco","footer.draftnote":"Brouillon — pas la version définitive",
+      "footer.legalNotice":"Mentions légales","footer.privacyPolicy":"Confidentialité","footer.cookiePolicy":"Cookies",
+      "contact.eyebrow":"Contact","contact.h2":"Contact & Où nous trouver",
+      "contact.p":'Écrivez-nous quel soin vous intéresse, ou si vous souhaitez en savoir plus sur "Simona Greco".',
+      "form.heading":"Formulaire de contact",
+      "info.address.k":"Adresse","info.address.v":"Via Bolzano 2C, 39011 Lana, Tyrol du Sud (Italie)",
+      "info.hours.k":"Horaires","info.hours.v":"Lun–Ven 9h–17h · Sam/Dim fermé",
+      "info.contact.k":"Contact","info.contact.v":"+39 344 171 2506",
+      "form.name":"Nom","form.email":"E-mail","form.interest":"Intérêt","form.opt1":"Soins","form.opt3":"Autre",
+      "form.message":"Message","form.submit":"Envoyer la demande","form.submitted":"Merci, nous revenons vers vous !","form.error":"Une erreur est survenue. Veuillez réessayer."
+    },
+    es: {
+      "banner": '<strong>Arcana</strong> viene del latín <strong>arcanum</strong>, que significa secreto, oculto.',
+      "nav.behandlungen":"Tratamientos","nav.mediostar":"Mediostar Monolith","nav.icoone":"Icoone","nav.kontakt":"Contacto","nav.shop":"Ir a la tienda ↗",
+      "footer.tagline":"Estudio de tratamientos de Simona Greco — marca principal, donde ahora también se encuentra Arcana Skincare.",
+      "footer.studioHeading":"Estudio","footer.quickLinks":"Quick Links","footer.linkAbout":"Sobre nosotros","footer.linkTreatments":"Tratamientos","footer.linkClass":"Simona Greco","footer.linkContact":"Contacto",
+      "footer.moreHeading":"Más","footer.linkShop":"Arcana Beauty Shop ↗","footer.linkInstagram":"Instagram ↗",
+      "footer.copyright":"© 2026 Arcana Studio · Simona Greco","footer.draftnote":"Borrador — no es la versión definitiva",
+      "footer.legalNotice":"Aviso Legal","footer.privacyPolicy":"Política de Privacidad","footer.cookiePolicy":"Política de Cookies",
+      "contact.eyebrow":"Contacto","contact.h2":"Contacto & Dónde estamos",
+      "contact.p":'Escríbenos qué tratamiento te interesa, o si quieres saber más sobre "Simona Greco".',
+      "form.heading":"Formulario de contacto",
+      "info.address.k":"Dirección","info.address.v":"Via Bolzano 2C, 39011 Lana, Tirol del Sur (Italia)",
+      "info.hours.k":"Horario","info.hours.v":"Lun–Vie 9:00–17:00 h · Sáb/Dom cerrado",
+      "info.contact.k":"Contacto","info.contact.v":"+39 344 171 2506",
+      "form.name":"Nombre","form.email":"Correo electrónico","form.interest":"Interés","form.opt1":"Tratamientos","form.opt3":"Otro",
+      "form.message":"Mensaje","form.submit":"Enviar solicitud","form.submitted":"¡Gracias, te responderemos pronto!","form.error":"Ha ocurrido un error. Inténtalo de nuevo."
+    }
+  };
+
+  var currentLang = 'de';
+
+  var mapSrcByLang = {
+    de: "https://www.google.com/maps?q=Boznerstra%C3%9Fe+2C,+39011+Lana,+BZ,+Italy&hl=de&output=embed",
+    it: "https://www.google.com/maps?q=Via+Bolzano+2C,+39011+Lana,+BZ,+Italia&hl=it&output=embed",
+    en: "https://www.google.com/maps?q=Via+Bolzano+2C,+39011+Lana,+BZ,+Italy&hl=en&output=embed",
+    fr: "https://www.google.com/maps?q=Via+Bolzano+2C,+39011+Lana,+BZ,+Italie&hl=fr&output=embed",
+    es: "https://www.google.com/maps?q=Via+Bolzano+2C,+39011+Lana,+BZ,+Italia&hl=es&output=embed"
+  };
+
+  function applyLang(lang){
+    var dict = translations[lang] || translations.de;
+    currentLang = translations[lang] ? lang : 'de';
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if(dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('.lang-option').forEach(function(btn){
+      btn.classList.toggle('is-active', btn.getAttribute('data-lang') === lang);
+    });
+    var langCurrentEl = document.querySelector('.lang-current');
+    if(langCurrentEl) langCurrentEl.textContent = lang.toUpperCase();
+    document.documentElement.setAttribute('lang', lang);
+    var mapFrame = document.getElementById('map-iframe');
+    if(mapFrame && mapSrcByLang[currentLang]) mapFrame.src = mapSrcByLang[currentLang];
+    try{ localStorage.setItem('arcanaLang', lang); }catch(e){}
+  }
+
+  var langToggle = document.getElementById('lang-toggle');
+  var langMenu = document.getElementById('lang-menu');
+  function closeLangMenu(){ langMenu.hidden = true; langToggle.setAttribute('aria-expanded','false'); }
+  function openLangMenu(){ langMenu.hidden = false; langToggle.setAttribute('aria-expanded','true'); }
+  langToggle.addEventListener('click', function(e){
+    e.stopPropagation();
+    if(langMenu.hidden){ openLangMenu(); } else { closeLangMenu(); }
+  });
+  document.addEventListener('click', function(e){
+    if(!langMenu.hidden && !langMenu.contains(e.target) && e.target !== langToggle){ closeLangMenu(); }
+  });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLangMenu(); });
+  var navToggle = document.getElementById('nav-toggle');
+  var navLinksEl = document.querySelector('.nav-links');
+  if(navToggle && navLinksEl){
+    navToggle.addEventListener('click', function(e){
+      e.stopPropagation();
+      var isOpen = navLinksEl.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    navLinksEl.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        navLinksEl.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.addEventListener('click', function(e){
+      if(navLinksEl.classList.contains('is-open') && !navLinksEl.contains(e.target) && e.target !== navToggle){
+        navLinksEl.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){
+        navLinksEl.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+  document.querySelectorAll('.lang-option').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      applyLang(btn.getAttribute('data-lang'));
+      closeLangMenu();
+    });
+  });
+
+  var form = document.getElementById('contact-form');
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var btn = form.querySelector('.btn-fill');
+      var originalText = btn.textContent;
+      btn.disabled = true;
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(form)))
+      }).then(function(res){ return res.json(); }).then(function(data){
+        if(data.success){
+          btn.textContent = translations[currentLang]['form.submitted'];
+          form.reset();
+        }else{
+          btn.disabled = false;
+          btn.textContent = translations[currentLang]['form.error'];
+        }
+      }).catch(function(){
+        btn.disabled = false;
+        btn.textContent = translations[currentLang]['form.error'];
+      });
+    });
+  }
+
+  var saved = 'it';
+  try{ saved = localStorage.getItem('arcanaLang') || 'it'; }catch(e){}
+  applyLang(translations[saved] ? saved : 'it');
+</script>
+</body>
+</html>
