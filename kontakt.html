@@ -184,6 +184,10 @@
     border:1px solid var(--line-strong);overflow:hidden;
   }
   .map-embed iframe{width:100%;height:100%;min-height:240px;border:0;display:block;}
+  .map-placeholder{width:100%;height:100%;min-height:240px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:var(--cream-deep);text-align:center;padding:24px;}
+  .map-placeholder-text{margin:0;font-size:0.82rem;color:var(--taupe);max-width:320px;line-height:1.5;}
+  .map-load-btn{background:var(--terracotta);color:var(--cream);border:none;padding:11px 28px;font-size:0.82rem;letter-spacing:0.04em;cursor:pointer;font-family:'Karla',-apple-system,sans-serif;transition:background 0.15s;}
+  .map-load-btn:hover{background:var(--ink);}
 
   /* ---------- form section (full-bleed, flows into footer) ---------- */
   .form-section{
@@ -339,8 +343,11 @@
       <div><div class="k" data-i18n="info.contact.k">Kontakt</div><div class="v" data-i18n="info.contact.v">+39 344 171 2506</div></div>
       <div><div class="k" data-i18n="info.hours.k">Öffnungszeiten</div><div class="v" data-i18n="info.hours.v">[Platzhalter] Di–Fr 10–18 Uhr · Sa 10–14 Uhr</div></div>
     </div>
-    <div class="map-embed">
-      <iframe id="map-iframe" src="https://www.google.com/maps?q=Boznerstra%C3%9Fe+2C,+39011+Lana,+BZ,+Italy&hl=de&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Arcana Studio auf Google Maps"></iframe>
+    <div class="map-embed" id="map-embed">
+      <div class="map-placeholder" id="map-placeholder">
+        <p class="map-placeholder-text" data-i18n="map.notice">Beim Klick wird eine Verbindung zu Google Maps hergestellt. Dabei wird deine IP-Adresse an Google übertragen.</p>
+        <button type="button" class="map-load-btn" id="map-load-btn" data-i18n="map.loadBtn">Karte laden</button>
+      </div>
     </div>
   </div>
 </div>
@@ -437,6 +444,7 @@
       "contact.p":'Schreib uns, welche Behandlung dich interessiert oder ob du mehr über "Simona Greco" erfahren möchtest.',
       "form.heading":"Kontaktformular",
       "info.address.k":"Adresse","info.address.v":"Boznerstraße 2C, 39011 Lana, Südtirol (Italien)",
+      "map.notice":"Beim Klick wird eine Verbindung zu Google Maps hergestellt. Dabei wird deine IP-Adresse an Google übertragen.","map.loadBtn":"Karte laden",
       "info.hours.k":"Öffnungszeiten","info.hours.v":"Mo–Fr 09:00–17:00 Uhr · Sa/So geschlossen",
       "info.contact.k":"Kontakt","info.contact.v":"+39 344 171 2506",
       "form.name":"Name","form.email":"E-Mail","form.interest":"Interesse","form.opt1":"Behandlungen","form.opt3":"Sonstiges",
@@ -454,6 +462,7 @@
       "contact.p":'Scrivici quale trattamento ti interessa o se vuoi saperne di più su "Simona Greco".',
       "form.heading":"Modulo di contatto",
       "info.address.k":"Indirizzo","info.address.v":"Via Bolzano 2C, 39011 Lana (BZ), Alto Adige (Italia)",
+      "map.notice":"Cliccando si stabilisce una connessione a Google Maps, che trasmette il tuo indirizzo IP a Google.","map.loadBtn":"Carica la mappa",
       "info.hours.k":"Orari","info.hours.v":"Lun–Ven 09:00–17:00 · Sab/Dom chiuso",
       "info.contact.k":"Contatto","info.contact.v":"+39 344 171 2506",
       "form.name":"Nome","form.email":"E-mail","form.interest":"Interesse","form.opt1":"Trattamenti","form.opt3":"Altro",
@@ -471,6 +480,7 @@
       "contact.p":'Let us know which treatment interests you, or if you\'d like to learn more about "Simona Greco".',
       "form.heading":"Contact form",
       "info.address.k":"Address","info.address.v":"Via Bolzano 2C, 39011 Lana, South Tyrol (Italy)",
+      "map.notice":"Clicking loads Google Maps, which transmits your IP address to Google.","map.loadBtn":"Load map",
       "info.hours.k":"Opening hours","info.hours.v":"Mon–Fri 9am–5pm · Sat/Sun closed",
       "info.contact.k":"Contact","info.contact.v":"+39 344 171 2506",
       "form.name":"Name","form.email":"Email","form.interest":"Interest","form.opt1":"Treatments","form.opt3":"Other",
@@ -488,6 +498,7 @@
       "contact.p":'Écrivez-nous quel soin vous intéresse, ou si vous souhaitez en savoir plus sur "Simona Greco".',
       "form.heading":"Formulaire de contact",
       "info.address.k":"Adresse","info.address.v":"Via Bolzano 2C, 39011 Lana, Tyrol du Sud (Italie)",
+      "map.notice":"En cliquant, une connexion à Google Maps est établie, ce qui transmet votre adresse IP à Google.","map.loadBtn":"Charger la carte",
       "info.hours.k":"Horaires","info.hours.v":"Lun–Ven 9h–17h · Sam/Dim fermé",
       "info.contact.k":"Contact","info.contact.v":"+39 344 171 2506",
       "form.name":"Nom","form.email":"E-mail","form.interest":"Intérêt","form.opt1":"Soins","form.opt3":"Autre",
@@ -505,6 +516,7 @@
       "contact.p":'Escríbenos qué tratamiento te interesa, o si quieres saber más sobre "Simona Greco".',
       "form.heading":"Formulario de contacto",
       "info.address.k":"Dirección","info.address.v":"Via Bolzano 2C, 39011 Lana, Tirol del Sur (Italia)",
+      "map.notice":"Al hacer clic se establece una conexión con Google Maps, que transmite tu dirección IP a Google.","map.loadBtn":"Cargar el mapa",
       "info.hours.k":"Horario","info.hours.v":"Lun–Vie 9:00–17:00 h · Sáb/Dom cerrado",
       "info.contact.k":"Contacto","info.contact.v":"+39 344 171 2506",
       "form.name":"Nombre","form.email":"Correo electrónico","form.interest":"Interés","form.opt1":"Tratamientos","form.opt3":"Otro",
@@ -538,6 +550,21 @@
     var mapFrame = document.getElementById('map-iframe');
     if(mapFrame && mapSrcByLang[currentLang]) mapFrame.src = mapSrcByLang[currentLang];
     try{ localStorage.setItem('arcanaLang', lang); }catch(e){}
+  }
+
+  var mapLoadBtn = document.getElementById('map-load-btn');
+  var mapEmbed = document.getElementById('map-embed');
+  if(mapLoadBtn && mapEmbed){
+    mapLoadBtn.addEventListener('click', function(){
+      var iframe = document.createElement('iframe');
+      iframe.id = 'map-iframe';
+      iframe.src = mapSrcByLang[currentLang] || mapSrcByLang.de;
+      iframe.loading = 'lazy';
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      iframe.title = 'Arcana Studio auf Google Maps';
+      mapEmbed.innerHTML = '';
+      mapEmbed.appendChild(iframe);
+    });
   }
 
   var langToggle = document.getElementById('lang-toggle');
